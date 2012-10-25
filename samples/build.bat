@@ -70,7 +70,7 @@ echo %bcdir%\lib\psdk\gdiplus.lib + >> b32.bc
 echo %bcdir%\lib\psdk\shell32.lib, >> b32.bc
 
 IF EXIST %1.res echo %1.res >> b32.bc
-if %GT% == gtgui %bcdir%\bin\ilink32 -Gn -Tpe -s @b32.bc
+%bcdir%\bin\ilink32 -Gn -Tpe -s @b32.bc
 IF ERRORLEVEL 1 GOTO LINKERROR
 ECHO * Application successfully built *
 %1
