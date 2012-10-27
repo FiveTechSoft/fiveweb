@@ -82,7 +82,7 @@ return nil
 
 HB_FUNC( CONTENTTYPE )
 {
-	printf( "Content-Type:text/html\n\n" );
+   printf( "%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1", 13, 10 );
 }          
 
 HB_FUNC( CONOUT )
