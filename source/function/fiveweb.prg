@@ -25,7 +25,7 @@ init procedure WriteHeader()
    ? "<head>"
    IncludeScripts()
    IncludeTheme( "trontastic" )
-   WinRun()
+   // WinRun()
    ? "</head>"
    ? "<body>"
 
