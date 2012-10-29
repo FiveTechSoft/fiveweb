@@ -3,6 +3,9 @@
 
 #include "FiveWeb.ch"
 
+REQUEST HB_GT_STD_DEFAULT
+REQUEST HB_GT_STD
+
 init procedure WriteHeader()
 
    if Empty( GetEnv( "GATEWAY_INTERFACE" ) )
@@ -76,13 +79,16 @@ function MsgInfo( cMsg )
    
 return nil  
 
+procedure HB_GTSYS
+return
+
 #pragma BEGINDUMP
 
 #include <hbapi.h>
 
 HB_FUNC( CONTENTTYPE )
 {
-   printf( "%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1", 13, 10 );
+   printf( "Content-Type: text/html\n\n" );
 }          
 
 HB_FUNC( CONOUT )

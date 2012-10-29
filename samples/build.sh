@@ -14,7 +14,7 @@ echo compiling C module...
 gcc $1.c -c -I./../include -I./../../harbour/include
 
 echo linking...
-gcc $1.o -o$1 -L./../lib -L./../../harbour/lib -Wl,--start-group -lfiveweb -lhbcommon -lhbvm -lhbrtl -lhbrdd -lhbmacro -lhblang -lhbcpage -lhbpp -lhbcplr -lrddntx -lrddcdx -lrddfpt -lhbsix -lhbusrrdd -lhbct -lgttrm -lhbdebug -lm -lncurses -Wl,--end-group
+gcc $1.o -o$1 -L./../lib -L./../../harbour/lib -Wl,--start-group -lfiveweb -lhbcommon -lhbvm -lhbrtl -lhbrdd -lhbmacro -lhblang -lhbcpage -lhbpp -lhbcplr -lrddntx -lrddcdx -lrddfpt -lhbsix -lhbusrrdd -lhbct -lgtstd -lhbdebug -lm -lncurses -Wl,--end-group
 
 rm $1.c
 rm $1.o
