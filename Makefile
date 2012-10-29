@@ -2,13 +2,17 @@
 
 all : ./lib/fiveweb.lib
 
-PRG_OBJS = obj/fiveweb.obj 
+PRG_OBJS = obj/fiveweb.obj \
+	obj/dialog.obj 
 
 ./lib/fiveweb.lib : $(PRG_OBJS)
 
-obj/fiveweb.obj : obj/fiveweb.c
+obj/%.obj : obj/%.c
 	gcc -c -I./../harbour/include -o$@ $<
 	ar rc ./lib/libfiveweb.a $@
 
-obj/fiveweb.c : ./source/function/fiveweb.prg
+obj/%.c : ./source/function/%.prg
+	./../harbour/bin/harbour $< -o./$@ -n -I./../harbour/include -I./include
+
+obj/%.c : ./source/classes/%.prg
 	./../harbour/bin/harbour $< -o./$@ -n -I./../harbour/include -I./include

@@ -76,6 +76,9 @@ function MsgInfo( cMsg )
    ? '<div id="oDlg" class="dialog_window" title="Attention">'
    ? cMsg
    ? "</div>"
+   ? "<script>"
+   ? "$('#oDlg').dialog( { width: 300, height: 200 } );"
+   ? "</script>"
    
 return nil  
 
