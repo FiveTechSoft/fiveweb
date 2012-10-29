@@ -36,7 +36,7 @@ echo %1.map, + >> b32.bc
 echo ..\lib\fiveweb.lib + >> b32.bc
 echo %hdirl%\hbrtl.lib + >> b32.bc
 echo %hdirl%\hbvm.lib + >> b32.bc
-echo %hdirl%\gtwin.lib + >> b32.bc
+echo %hdirl%\gtstd.lib + >> b32.bc
 echo %hdirl%\hblang.lib + >> b32.bc
 echo %hdirl%\hbmacro.lib + >> b32.bc
 echo %hdirl%\hbrdd.lib + >> b32.bc

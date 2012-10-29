@@ -1,1 +1,1 @@
-win-make.exe
+win-make.exe --makefile=Makefile_win
