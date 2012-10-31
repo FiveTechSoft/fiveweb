@@ -6,6 +6,8 @@
 REQUEST HB_GT_STD_DEFAULT
 REQUEST HB_GT_STD
 
+static nMsgInfos := 1
+
 init procedure WriteHeader()
 
    if Empty( GetEnv( "GATEWAY_INTERFACE" ) )
@@ -71,14 +73,16 @@ function WinRun()
    
 return nil   
 
-function MsgInfo( cMsg )
+function MsgInfo( cMsg, cTitle )
 
-   ? '<div id="oDlg" class="dialog_window" title="Attention"><br>'
+   DEFAULT cTitle := "Attention"
+   
+   ? '<div id="oDlg' + AllTrim( Str( nMsgInfos ) ) + '" class="dialog_window" title="' + cTitle + '"><br>'
    ? cMsg
    ? "<span class='ui-icon ui-icon-info' width=40px; height=40px; style='float: left; margin: 0 7px 20px 0;'></span>"
    ? "</div>"
    ? "<script>"
-   ? "$('#oDlg').dialog( { width: 400, height: 250, " + ;
+   ? "$( '#oDlg" + AllTrim( Str( nMsgInfos++ ) ) + "' ).dialog( { width: 400, height: 250, " + ;
      "modal: true, " + ;
      "buttons: { 'Ok': function() { $( this ).dialog( 'close' ); } } } );"
    ? "</script>"
