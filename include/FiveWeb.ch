@@ -7,6 +7,11 @@
 
 #define FWCOPYRIGHT  "(c) FiveTech Software, 1993-2012"
 
+#xcommand DEFAULT <uVar1> := <uVal1> ;
+               [, <uVarN> := <uValN> ] => ;
+                  If( <uVar1> == nil, <uVar1> := <uVal1>, ) ;;
+                [ If( <uVarN> == nil, <uVarN> := <uValN>, ); ]
+
 #xcommand ? <x> => ConOut( <x> )
 
 #xcommand SET THEME TO <cTheme> => SetTheme( <cTheme> )
@@ -18,7 +23,8 @@
           <oDlg> := TDialog():New( <cTitle>, <nWidth>, <nHeight> )
           
 #xcommand ACTIVATE DIALOG <oDlg> ;
+             [ <modal: NOWAIT, NOMODAL> ] ;
        => ;
-          <oDlg>:Activate()               
+          <oDlg>:Activate( ! <.modal.> )               
 
 #endif

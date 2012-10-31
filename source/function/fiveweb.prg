@@ -73,11 +73,14 @@ return nil
 
 function MsgInfo( cMsg )
 
-   ? '<div id="oDlg" class="dialog_window" title="Attention">'
+   ? '<div id="oDlg" class="dialog_window" title="Attention"><br>'
    ? cMsg
+   ? "<span class='ui-icon ui-icon-info' width=40px; height=40px; style='float: left; margin: 0 7px 20px 0;'></span>"
    ? "</div>"
    ? "<script>"
-   ? "$('#oDlg').dialog( { width: 300, height: 200 } );"
+   ? "$('#oDlg').dialog( { width: 400, height: 250, " + ;
+     "modal: true, " + ;
+     "buttons: { 'Ok': function() { $( this ).dialog( 'close' ); } } } );"
    ? "</script>"
    
 return nil  
