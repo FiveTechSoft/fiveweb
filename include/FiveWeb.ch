@@ -27,4 +27,10 @@
        => ;
           <oDlg>:Activate( ! <.modal.> )               
 
+#xcommand @ <nRow>, <nCol> BUTTON <cPrompt> ;
+             [ SIZE <nWidth>, <nHeight> ] ;
+             [ OF <oDlg> ] ;
+       => ;
+          TButton():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg> )
+
 #endif
