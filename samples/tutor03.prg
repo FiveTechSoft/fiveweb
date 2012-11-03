@@ -8,11 +8,11 @@ function Main()
    
    DEFINE DIALOG oDlg TITLE "Hello FiveWeb" SIZE 600, 400
    
-   @ 100,  50 BUTTON "One" SIZE 80, 20 OF oDlg
+   @ 120,  70 BUTTON "One" SIZE 120, 50 OF oDlg
 
-   @ 100, 150 BUTTON "Two" SIZE 80, 20 OF oDlg
+   @ 120, 220 BUTTON "Two" SIZE 120, 50 OF oDlg
 
-   @ 100, 250 BUTTON "Three" SIZE 80, 20 OF oDlg
+   @ 120, 370 BUTTON "Three" SIZE 120, 50 OF oDlg
    
    ACTIVATE DIALOG oDlg 
 

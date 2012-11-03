@@ -30,7 +30,9 @@ METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd ) CLASS TButton
    ? '<button id="' + ::cVarName + '" ' + ;
      'style = "' + "position: absolute; " + ;
      "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
-     "left: " + AllTrim( Str( ::nLeft ) ) + 'px;" >' + ; 
+     "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ; 
+     "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ; 
+     "height: " + AllTrim( Str( ::nHeight ) ) + 'px; " >' + ; 
      ::cPrompt + "</button>"
 
    oWnd:AddControl( Self )
