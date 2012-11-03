@@ -3,7 +3,8 @@
 all : ./lib/fiveweb.lib
 
 PRG_OBJS = obj/fiveweb.obj \
-	obj/dialog.obj 
+	obj/button.obj \
+	obj/dialog.obj
 
 ./lib/fiveweb.lib : $(PRG_OBJS)
 
