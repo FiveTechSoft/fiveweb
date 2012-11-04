@@ -33,4 +33,10 @@
        => ;
           TButton():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg> )
 
+#xcommand @ <nRow>, <nCol> CHECKBOX <cPrompt> ;
+             [ SIZE <nWidth>, <nHeight> ] ;
+             [ OF <oDlg> ] ;
+       => ;
+          TCheckBox():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg> )
+
 #endif

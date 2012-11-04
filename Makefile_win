@@ -4,7 +4,8 @@ all : .\lib\fiveweb.lib
 
 PRG_OBJS = ./obj/fiveweb.obj \
 	./obj/dialog.obj \
-	./obj/button.obj
+	./obj/button.obj \
+	./obj/checkbox.obj
 
 .\lib\fiveweb.lib : $(PRG_OBJS)
 
