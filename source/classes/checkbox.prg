@@ -11,13 +11,13 @@ CLASS TCheckBox
 
    CLASSDATA nBtns INIT 1
 
-   METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd )
+   METHOD New( nRow, nCol, lChecked, cPrompt, nWidth, nHeight, oWnd )
 
    METHOD Activate()
 
 ENDCLASS
 
-METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd ) CLASS TCheckBox
+METHOD New( nRow, nCol, lChecked, cPrompt, nWidth, nHeight, oWnd ) CLASS TCheckBox
 
    DEFAULT cPrompt := "CheckBox"
 
@@ -27,13 +27,14 @@ METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd ) CLASS TCheckBox
    ::nWidth   = nWidth
    ::nHeight  = nHeight
    ::cVarName = "oChk" + AllTrim( Str( ::nBtns++ ) )
+   ::lChecked = lChecked   
 
    ? "<label " + ;
      'style="' + "position: absolute; " + ;
      "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
      "left: " + AllTrim( Str( ::nLeft + 90 ) ) + 'px;" >' 
    ? '<input id="' + ::cVarName + '" ' + ;
-     'type="checkbox" >' + ;
+     'type="checkbox" ' + If( lChecked, "checked", "" ) + " >" + ;
      " " + ::cPrompt
    ? "</label>"  
 

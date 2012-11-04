@@ -4,7 +4,7 @@
 
 function Main()
 
-   local oDlg
+   local oDlg, lValue := .T.
    
    DEFINE DIALOG oDlg TITLE "Hello FiveWeb" SIZE 600, 400
    
@@ -14,7 +14,7 @@ function Main()
 
    @ 120, 370 BUTTON "Three" SIZE 120, 50 OF oDlg
    
-   @ 200, 160 CHECKBOX "Tested" SIZE 150, 40 OF oDlg
+   @ 200, 160 CHECKBOX lValue PROMPT "Tested" SIZE 150, 40 OF oDlg
    
    ACTIVATE DIALOG oDlg 
 
