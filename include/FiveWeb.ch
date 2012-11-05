@@ -40,4 +40,13 @@
        => ;
           TCheckBox():New( <nRow>, <nCol>, <lValue>, <cPrompt>, <nWidth>, <nHeight>, <oDlg> )
 
+
+#xcommand @ <nRow>, <nCol> RADIO [ <oRadMenu> ] ;
+             [ <prm: PROMPT, ITEMS> <cItems,...> ] ;
+             [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
+             [ SIZE <nWidth>, <nHeight> ] ;
+                    => ;
+          [ <oRadMenu> := ] TRadMenu():New( <nRow>, <nCol>, {<cItems>},;
+             <nWidth>, <nHeight>, <oWnd>  )
+          
 #endif
