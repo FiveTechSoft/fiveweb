@@ -45,15 +45,22 @@
              [ <prm: PROMPT, ITEMS> <cItems,...> ] ;
              [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
              [ SIZE <nWidth>, <nHeight> ] ;
-                => ;
+       => ;
           [ <oRadMenu> := ] TRadMenu():New( <nRow>, <nCol>, {<cItems>},;
              <nWidth>, <nHeight>, <oWnd> , [<(oRadMenu)>] )
 
 #command @ <nRow>, <nCol> DTPICKER [ <oDpick> ]  ;
             [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
-            [ SIZE <nWidth>, <nHeight> ]  ;
-                => ; 
-   [ <oDpick> := ] TDatePicker():New( <nRow>, <nCol>,;
-             <nWidth>, <nHeight>, <oWnd> , [<(oDpick)>] )
+            [ SIZE <nWidth>, <nHeight> ] ;
+      => ; 
+         [ <oDpick> := ] TDatePicker():New( <nRow>, <nCol>,;
+            <nWidth>, <nHeight>, <oWnd>, [<(oDpick)>] )
           
+#xcommand @ <nRow>, <nCol> FOLDER <oFld> ;          
+            [ SIZE <nWidth>, <nHeight> ] ;
+            [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
+            [ <prm: PROMPTS, ITEMS> <cPrompts,...> ] ;
+      => ; 
+         [ <oFld> := ] TFolder():New( <nRow>, <nCol>, {<cPrompts>},;
+            <nWidth>, <nHeight>, <oWnd>, [<(oFld)>] )                       
 #endif
