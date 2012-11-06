@@ -48,5 +48,12 @@
                 => ;
           [ <oRadMenu> := ] TRadMenu():New( <nRow>, <nCol>, {<cItems>},;
              <nWidth>, <nHeight>, <oWnd> , [<(oRadMenu)>] )
+
+#command @ <nRow>, <nCol> DTPICKER [ <oDpick> ]  ;
+            [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
+            [ SIZE <nWidth>, <nHeight> ]  ;
+                => ; 
+   [ <oDpick> := ] TDatePicker():New( <nRow>, <nCol>,;
+             <nWidth>, <nHeight>, <oWnd> , [<(oDpick)>] )
           
 #endif

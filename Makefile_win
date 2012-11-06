@@ -5,7 +5,9 @@ all : .\lib\fiveweb.lib
 PRG_OBJS = ./obj/fiveweb.obj \
 	./obj/dialog.obj \
 	./obj/button.obj \
-	./obj/checkbox.obj
+	./obj/checkbox.obj \
+  ./obj/radio.obj \
+  ./obj/datepick.obj
 
 .\lib\fiveweb.lib : $(PRG_OBJS)
 
@@ -18,3 +20,4 @@ PRG_OBJS = ./obj/fiveweb.obj \
 
 ./obj/%.c : ./source/classes/%.prg
 	.\..\harbour\bin\harbour $< -o.\$@ -n -I.\..\harbour\include -I.\include
+
