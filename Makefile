@@ -7,6 +7,7 @@ PRG_OBJS = obj/fiveweb.obj \
 	obj/checkbox.obj \
 	obj/datepick.obj \
 	obj/dialog.obj \
+	obj/errsys.obj \
 	obj/folder.obj \
 	obj/radio.obj
 

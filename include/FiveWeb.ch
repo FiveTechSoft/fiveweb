@@ -7,6 +7,8 @@
 
 #define FWCOPYRIGHT  "(c) FiveTech Software, 1993-2012"
 
+extern ErrorSys  // FiveWeb error system
+
 #xcommand DEFAULT <uVar1> := <uVal1> ;
                [, <uVarN> := <uValN> ] => ;
                   If( <uVar1> == nil, <uVar1> := <uVal1>, ) ;;
