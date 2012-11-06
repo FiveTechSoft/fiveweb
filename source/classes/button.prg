@@ -10,23 +10,26 @@ CLASS TButton
 
    CLASSDATA nBtns INIT 1
 
-   METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd )
+   METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName )
 
    METHOD Activate()
 
 ENDCLASS
 
-METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd ) CLASS TButton
+METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName ) CLASS TButton
 
    DEFAULT cPrompt := "Button"
+   DEFAULT cVarName := "oBtn" + AllTrim( Str( ::nBtns++ ) )
+   
+   ::cVarName = cVarName
 
    ::nTop     = nRow
    ::nLeft    = nCol
    ::cPrompt  = cPrompt
    ::nWidth   = nWidth
    ::nHeight  = nHeight
-   ::cVarName = "oBtn" + AllTrim( Str( ::nBtns++ ) )
-
+  
+  
    ? '<button id="' + ::cVarName + '" ' + ;
      'style = "' + "position: absolute; " + ;
      "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;

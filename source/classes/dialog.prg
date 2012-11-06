@@ -6,8 +6,9 @@ CLASS TDialog
    DATA  nWidth, nHeight
    DATA  lModal
    DATA  aControls INIT {}
+   DATA  cVarName 
 
-   METHOD New( cTitle, nWidth, nHeight )
+   METHOD New( cTitle, nWidth, nHeight, cVarName )
    
    METHOD Activate( lModal )
 
@@ -16,7 +17,7 @@ CLASS TDialog
 
 ENDCLASS
 
-METHOD New( cTitle, nWidth, nHeight ) CLASS TDialog
+METHOD New( cTitle, nWidth, nHeight, cVarName ) CLASS TDialog
 
    ::cTitle  = cTitle
    ::nWidth  = nWidth

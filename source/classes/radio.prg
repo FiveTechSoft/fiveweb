@@ -11,22 +11,24 @@ CLASS TRadMenu
 
    CLASSDATA nBtns INIT 1
 
-   METHOD New( nRow, nCol, acItems, nWidth, nHeight, oWnd )
+   METHOD New( nRow, nCol, acItems, nWidth, nHeight, oWnd, cVarName )
 
    METHOD Activate()
 
 ENDCLASS
 
-METHOD New( nRow, nCol, acItems, nWidth, nHeight, oWnd ) CLASS TRadMenu
+METHOD New( nRow, nCol, acItems, nWidth, nHeight, oWnd, cVarName ) CLASS TRadMenu
 
-     DEFAULT acItems := {}
+   DEFAULT acItems := {}
+   DEFAULT cVarName := "oRadio" + AllTrim( Str( ::nBtns++ ) )
+   
+   ::cVarName = cVarName
    
    ::nTop     = nRow
    ::nLeft    = nCol
     ::nWidth   = nWidth
    ::nHeight  = nHeight
-   ::cVarName = "oRadio" + AllTrim( Str( ::nBtns++ ) )
-  
+    
 
   ? '<form id="'+ ::cVarName +'" style="'+ "position: absolute; " + ;
          "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
@@ -36,9 +38,9 @@ METHOD New( nRow, nCol, acItems, nWidth, nHeight, oWnd ) CLASS TRadMenu
          
    for i= 1 to len(acItems) 
    
-   ? '<input type="radio" id="'+ ::cVarName+alltrim(str(i)) + '" ' + ; 
+   ? '<input type="radio" id="'+ ::cVarName + AllTrim(str(i)) + '" ' + ; 
      ' name="radio" />'+;  
-     '<label for = "'+ ::cVarName+alltrim(str(i)) + '"> '+ ;
+     '<label for = "'+ ::cVarName + AllTrim(str(i)) + '"> '+ ;
          acItems[i]+' </label>'    
          
   Next

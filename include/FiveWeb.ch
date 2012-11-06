@@ -27,11 +27,11 @@
        => ;
           <oDlg>:Activate( ! <.modal.> )               
 
-#xcommand @ <nRow>, <nCol> BUTTON <cPrompt> ;
+#xcommand @ <nRow>, <nCol> BUTTON [ <oBtn> PROMPT ] <cPrompt> ;
              [ SIZE <nWidth>, <nHeight> ] ;
              [ OF <oDlg> ] ;
        => ;
-          TButton():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg> )
+          TButton():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg>, [<(oBtn)>] )
 
 #xcommand @ <nRow>, <nCol> CHECKBOX <lValue> ;
              [ PROMPT <cPrompt> ] ;
@@ -45,8 +45,8 @@
              [ <prm: PROMPT, ITEMS> <cItems,...> ] ;
              [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
              [ SIZE <nWidth>, <nHeight> ] ;
-                    => ;
+                => ;
           [ <oRadMenu> := ] TRadMenu():New( <nRow>, <nCol>, {<cItems>},;
-             <nWidth>, <nHeight>, <oWnd>  )
+             <nWidth>, <nHeight>, <oWnd> , [<(oRadMenu)>] )
           
 #endif
