@@ -10,11 +10,9 @@ function Main()
     
      @ 120, 370 BUTTON "ok" SIZE 120, 50 OF oDlg     
    
-     @ 60, 60 DTPICKER odpick OF oDlg SIZE 150 ,40
+     @ 60, 60 DTPICKER odpick OF oDlg SIZE 150 ,40 INLINE
      
- //  odpick:=TDatePicker():New( 60, 56, 150, 50 , oDlg ) 
     
-     
    ACTIVATE DIALOG oDlg 
 
 

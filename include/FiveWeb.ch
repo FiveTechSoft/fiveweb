@@ -60,9 +60,10 @@ extern ErrorSys  // FiveWeb error system
 #command @ <nRow>, <nCol> DTPICKER [ <oDpick> ]  ;
             [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
             [ SIZE <nWidth>, <nHeight> ] ;
+            [ <lInline: INLINE > ] ;
       => ; 
          [ <oDpick> := ] TDatePicker():New( <nRow>, <nCol>,;
-            <nWidth>, <nHeight>, <oWnd>, [<(oDpick)>] )
+            <nWidth>, <nHeight>, <oWnd>, [<(oDpick)>], <.lInline.> )
           
 #xcommand @ <nRow>, <nCol> FOLDER <oFld> ;          
             [ SIZE <nWidth>, <nHeight> ] ;
