@@ -18,6 +18,8 @@ CLASS TButton
 
 ENDCLASS
 
+//----------------------------------------------------------------------------//
+
 METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName ) CLASS TButton
 
    DEFAULT cPrompt := "Button"
@@ -44,10 +46,14 @@ METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName ) CLASS TButton
 
 return Self
 
+//----------------------------------------------------------------------------//
+
 METHOD Activate() CLASS TButton
 
    ? "<script>"
    ? '$( "#' + ::cVarName + '" ).button();'
    ? "</script>"
    
-return nil   
+return nil
+
+//----------------------------------------------------------------------------//   

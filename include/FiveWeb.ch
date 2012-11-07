@@ -71,5 +71,14 @@ extern ErrorSys  // FiveWeb error system
             [ <prm: PROMPTS, ITEMS> <cPrompts,...> ] ;
       => ; 
          [ <oFld> := ] TFolder():New( <nRow>, <nCol>, {<cPrompts>},;
-            <nWidth>, <nHeight>, <oWnd>, [<(oFld)>] )                       
+            <nWidth>, <nHeight>, <oWnd>, [<(oFld)>] )   
+            
+#xcommand @ <nRow>, <nCol> BROWSE <oBrw> ;          
+            [ SIZE <nWidth>, <nHeight> ] ;
+            [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
+            [ URL <cUrl> ] ;
+      => ; 
+         [ <oBrw> := ] TBrowse():New( <nRow>, <nCol>,;
+            <nWidth>, <nHeight>, <oWnd>, [<(oBrw)>], [<cUrl>] )   
+                                
 #endif
