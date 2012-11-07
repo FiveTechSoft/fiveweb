@@ -17,7 +17,5 @@ function Main()
      
    ACTIVATE DIALOG oDlg 
 
-return nil
-
 
 Return nil

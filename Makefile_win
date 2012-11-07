@@ -10,7 +10,8 @@ PRG_OBJS = ./obj/fiveweb.obj \
   ./obj/errsys.obj \
   ./obj/harbour.obj \
   ./obj/radio.obj \
-  ./obj/valblank.obj
+  ./obj/valblank.obj \
+  ./obj/say.obj
 
 .\lib\fiveweb.lib : $(PRG_OBJS)
 

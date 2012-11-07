@@ -35,6 +35,12 @@ extern ErrorSys  // FiveWeb error system
        => ;
           TButton():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg>, [<(oBtn)>] )
 
+#xcommand @ <nRow>, <nCol> SAY [ <oSay> <label: PROMPT,VAR > ] <cText> ;
+             [ SIZE <nWidth>, <nHeight> ] ;
+             [ OF <oDlg> ] ;
+       => ;
+          [ <oSay> := ] TSay():New( <nRow>, <nCol>, <cText>, <nWidth>, <nHeight>, <oDlg>, [<(oSay)>] )
+
 #xcommand @ <nRow>, <nCol> CHECKBOX <lValue> ;
              [ PROMPT <cPrompt> ] ;
              [ SIZE <nWidth>, <nHeight> ] ;
