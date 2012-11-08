@@ -3,8 +3,9 @@
 all : ./lib/fiveweb.lib
 
 PRG_OBJS = obj/fiveweb.obj \
+	obj/browse.obj \
 	obj/button.obj \
-	obj/checkbox.obj \
+	obj/control.obj \
 	obj/datepick.obj \
 	obj/dialog.obj \
 	obj/errsys.obj \

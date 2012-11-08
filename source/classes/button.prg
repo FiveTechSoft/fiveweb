@@ -24,6 +24,7 @@ METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName ) CLASS TButton
 
    DEFAULT cPrompt := "Button"
    DEFAULT cVarName := "oBtn" + AllTrim( Str( ::nBtns++ ) )
+   DEFAULT nWidth := 110, nHeight := 35
    
    ::cVarName = cVarName
 
