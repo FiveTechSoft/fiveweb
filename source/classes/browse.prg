@@ -29,7 +29,8 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl ) CLASS TBrowse
      "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
      "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ; 
      "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ; 
-     "height: " + AllTrim( Str( ::nHeight ) ) + 'px;" >' + ;
+     "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
+     'overflow: auto;" >'
      "</div>"
 
 return Self
