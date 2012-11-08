@@ -1,6 +1,6 @@
 <?php
 
-   $link = mysql_connect( "mysql.fivetechsoft.net", "", "" )
+   $link = mysql_connect( "mysql.fivetechsoft.net", "username", "password" )
            or die( "Can't connect: " . mysql_error() );
 
    mysql_select_db( "fiveweb" ) or die( "Can't select the database" );
