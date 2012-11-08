@@ -7,7 +7,7 @@ function Main()
    DEFINE DIALOG oDlg TITLE "MySQL browse" ;
       SIZE 1000, 600
 
-   @ 10, 10 BROWSE oBrw SIZE 980, 500 OF oDlg ;
+   @ 10, 10 BROWSE oBrw SIZE 980, 477 OF oDlg ;
       URL "../fiveweb/mybrowse.php?name=clients"
 
    @ 500, 30 BUTTON "<<" OF oDlg SIZE 50, 35
