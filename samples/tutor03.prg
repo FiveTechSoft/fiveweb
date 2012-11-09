@@ -8,7 +8,7 @@ function Main()
    
    DEFINE DIALOG oDlg TITLE "Hello FiveWeb" SIZE 600, 400
    
-   @ 120,  70 BUTTON "One" SIZE 120, 50 OF oDlg
+   @ 120,  70 BUTTON "One" SIZE 120, 50 OF oDlg ACTION MsgInfo( "hello world" )
 
    @ 120, 220 BUTTON "Two" SIZE 120, 50 OF oDlg
 

@@ -2,17 +2,18 @@
 
 //----------------------------------------------------------------------------//
 
-CLASS TButton
+CLASS TButton FROM TControl
 
    DATA  cPrompt
    DATA  nTop, nLeft
    DATA  nWidth, nHeight
    DATA  oWnd
    DATA  cVarName 
+   DATA  cAction
 
    CLASSDATA nBtns INIT 1
 
-   METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName )
+   METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName, cAction )
 
    METHOD Activate()
 
@@ -20,20 +21,16 @@ ENDCLASS
 
 //----------------------------------------------------------------------------//
 
-METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName ) CLASS TButton
+METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName, cAction ) CLASS TButton
 
    DEFAULT cPrompt := "Button"
    DEFAULT cVarName := "oBtn" + AllTrim( Str( ::nBtns++ ) )
    DEFAULT nWidth := 110, nHeight := 35
    
-   ::cVarName = cVarName
-
-   ::nTop     = nRow
-   ::nLeft    = nCol
-   ::cPrompt  = cPrompt
-   ::nWidth   = nWidth
-   ::nHeight  = nHeight
-  
+   Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
+   
+   ::cPrompt = cPrompt
+   ::cAction = cAction 
   
    ? '<button id="' + ::cVarName + '" ' + ;
      'style = "' + "position: absolute; " + ;
@@ -43,8 +40,6 @@ METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName ) CLASS TButton
      "height: " + AllTrim( Str( ::nHeight ) ) + 'px; " >' + ; 
      ::cPrompt + "</button>"
 
-   oWnd:AddControl( Self )
-
 return Self
 
 //----------------------------------------------------------------------------//
@@ -53,6 +48,11 @@ METHOD Activate() CLASS TButton
 
    ? "<script>"
    ? '$( "#' + ::cVarName + '" ).button();'
+
+   if ! Empty( ::cAction )
+      ? '$( "#' + ::cVarName + '" ).click( function( event ){ ' + ::cAction + " } );"
+   endif      
+
    ? "</script>"
    
 return nil

@@ -32,8 +32,10 @@ extern ErrorSys  // FiveWeb error system
 #xcommand @ <nRow>, <nCol> BUTTON [ <oBtn> PROMPT ] <cPrompt> ;
              [ SIZE <nWidth>, <nHeight> ] ;
              [ OF <oDlg> ] ;
+             [ ACTION <uAction> ] ;
        => ;
-          TButton():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg>, [<(oBtn)>] )
+          TButton():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg>, [<(oBtn)>],;
+             <(uAction)> )
 
 #xcommand @ <nRow>, <nCol> SAY [ <oSay> <label: PROMPT,VAR > ] <cText> ;
              [ SIZE <nWidth>, <nHeight> ] ;
