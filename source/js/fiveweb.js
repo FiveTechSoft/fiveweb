@@ -55,7 +55,7 @@ function MsgInfo( cMsg, cTitle )
    div.className = "dialog_window";
    div.id = "msginfo";
    div.title = "Information";
-   div.innerHTML = cMsg;
+   div.innerHTML = "<span class='ui-icon ui-icon-info'></span> " + cMsg;
    
    document.body.appendChild( div );
 
