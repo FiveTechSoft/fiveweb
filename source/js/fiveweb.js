@@ -1,7 +1,5 @@
 // FiveWin Web Interface
-// (c) FiveTech Software 2011
-
-// WebSockets support
+// (c) FiveTech Software 2012
 
 var CRLF = "\r\n";
 

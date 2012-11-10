@@ -83,4 +83,16 @@ extern ErrorSys  // FiveWeb error system
          [ <oBrw> := ] TBrowse():New( <nRow>, <nCol>,;
             <nWidth>, <nHeight>, <oWnd>, [<(oBrw)>], [<cUrl>] )   
                                 
+
+#xcommand MENU [ <oMenu> ] ;
+       => ;
+          [ <oMenu> := ] MenuBegin( <(oMenu)> )                                
+     
+#xcommand MENUITEM [ <oMenuItem> PROMPT ] [<cPrompt>] ;
+             [ ACTION <uAction,...> ] ;
+       => ;
+          [ <oMenuItem> := ] MenuAddItem( <cPrompt>, <(uAction)> )
+      
+#xcommand ENDMENU => MenuEnd()
+                                
 #endif

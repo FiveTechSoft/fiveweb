@@ -61,6 +61,9 @@ function IncludeTheme( cTheme )
    ? '<link type="text/css" rel="stylesheet"' + ;
      ' href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/' + cTheme + ;
      '/jquery-ui.css">'
+
+   ? '<link type="text/css" rel="stylesheet"' + ;
+     ' href="../fiveweb/styles.css">'
    
 return nil
 
