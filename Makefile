@@ -11,6 +11,9 @@ PRG_OBJS = obj/fiveweb.obj \
 	obj/errsys.obj \
 	obj/folder.obj \
 	obj/harbour.obj \
+	obj/menu.obj \
+	obj/menuitem.obj \
+	obj/pdmenu.obj \
 	obj/radio.obj \
 	obj/valblank.obj
 
