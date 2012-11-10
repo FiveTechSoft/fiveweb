@@ -18,6 +18,11 @@ function BuildMenu()
       ENDMENU 
       
       MENUITEM "Files"
+      MENU 
+         MENUITEM "Clients"
+         MENUITEM "Stock"
+         MENUITEM "Agents"
+      ENDMENU
       
       MENUITEM "Reports"
       MENU 
@@ -29,6 +34,11 @@ function BuildMenu()
          ENDMENU
          
          MENUITEM "Stock"
+         MENU 
+            MENUITEM "By id"
+            MENUITEM "By amount"
+            MENUITEM "My price"
+         ENDMENU
       ENDMENU
       
       MENUITEM "Utilities"
