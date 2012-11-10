@@ -24,6 +24,7 @@ function BuildMenu()
          MENUITEM "Clients"
          MENU
             MENUITEM "List"
+            MENUITEM "By Last name" 
             MENUITEM "By State" 
          ENDMENU
          

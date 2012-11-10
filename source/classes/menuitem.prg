@@ -8,7 +8,7 @@ CLASS TMenuItem
 
    METHOD New( cPrompt, cAction )
    
-   METHOD Activate( lMain )
+   METHOD Activate( lMain, nLevel )
 
 ENDCLASS
 
@@ -21,18 +21,19 @@ METHOD New( cPrompt, cAction ) CLASS TMenuItem
 
 return Self
 
-METHOD Activate( lMain ) CLASS TMenuItem
+METHOD Activate( lMain, nLevel ) CLASS TMenuItem
 
-   DEFAULT lMain := .F.
+   DEFAULT lMain := .F., nLevel := 1
 
-   ? "<li>"
-   ? "<a href='#' onclick='" + ::cAction + "'>" + ::cPrompt + ;
+   ? Space( 3 * ( nLevel - 1 ) ) + "<li>"
+   ? Space( 3 * ( nLevel - 1 ) ) + ;
+     "<a href='#' onclick='" + ::cAction + "'>" + ::cPrompt + ;
      If( ::oPopup != nil .and. ! lMain, '<span class="arrow">&#9654;</span>', "" ) + "</a>"
 
    if ::oPopup != nil
-      ::oPopup:Activate()
+      ::oPopup:Activate( .F., nLevel + 1 )
    endif
 
-   ? "</li>"
+   ? Space( 3 * ( nLevel - 1 ) ) + "</li>"
 
 return nil
