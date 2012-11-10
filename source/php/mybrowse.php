@@ -9,7 +9,7 @@
    $result = mysql_query( $query ) or die( "Query failed: " . mysql_error() );
 
    echo "<html><head>\n";
-   echo '<link type="text/css" rel="stylesheet" href="../fiveweb/bootstrap.css">';
+  echo '<link type="text/css" rel="stylesheet" href="http://www.fivetechsoft.net/fiveweb/bootstrap.css">';
    echo "</head><body>\n";
 
    if( mysql_num_rows( $result ) == 0 )
