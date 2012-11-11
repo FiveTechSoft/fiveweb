@@ -1,0 +1,36 @@
+# FiveWeb makefile for mac
+
+SDKPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
+HEADERS=$(SDKPATH)/usr/include
+FRAMEPATH=$(SDKPATH)/System/Library/Frameworks
+BINPATH=/Applications/Xcode.app/Contents/Developer/usr/bin
+
+all : ./lib/libfiveweb.a
+
+PRG_OBJS = ./obj/fiveweb.o \
+	./obj/browse.o \
+	./obj/button.o \
+	./obj/control.o \
+	./obj/datepick.o \
+	./obj/dialog.o \
+	./obj/errsys.o \
+	./obj/folder.o \
+	./obj/harbour.o \
+   ./obj/menu.o \
+	./obj/menuitem.o \
+	./obj/pdmenu.o \
+	./obj/radio.o \
+    ./obj/checkbox.o \
+	./obj/valblank.o
+
+./lib/libfiveweb.a : $(PRG_OBJS)
+
+./obj/%.o : ./obj/%.c
+	$(BINPATH)/gcc -c -o $@ -I./../harbour/include -I$(HEADERS) -F$(FRAMEPATH) $<
+	$(BINPATH)/ar rc ./lib/libfiveweb.a $@
+
+./obj/%.c : ./source/function/%.prg
+	./../harbour/bin/harbour $< -o./$@ -n -I./../harbour/include -I./include
+
+./obj/%.c : ./source/classes/%.prg
+	./../harbour/bin/harbour $< -o./$@ -n -I./../harbour/include -I./include
