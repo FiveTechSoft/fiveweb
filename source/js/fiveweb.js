@@ -10,6 +10,38 @@ function SetTheme( cTheme )
    $( "link" ).eq( 0 ).attr( { href: css.replace( "name", cTheme ) } ); 
 }
 
+function AddButton( cDlgName )
+{
+   var oDlg = document.getElementById( cDlgName );
+   var cVarName = "ctrl" + ( oDlg.children.length + 1 );
+   
+   oDlg.innerHTML += "<div id='" + cVarName + "' style='width: 110px; height:40px;'>Button</div>";
+   $( "#" + cVarName ).button().draggable( { cancel: false } ).resizable();
+   
+   /*
+   for( var oCtrl in oDlg.children )
+   {
+      oCtrl.draggable().resizable();
+   } 
+   */  	
+}   
+
+function AddSay( cDlgName )
+{
+   var oDlg = document.getElementById( cDlgName );
+   var cVarName = "ctrl" + ( oDlg.children.length + 1 );
+   
+   oDlg.innerHTML += "<label id='" + cVarName + "' style='width: 110px; height:40px;'>text</div>";
+   $( "#" + cVarName ).draggable( { cancel: false } ).resizable();
+
+   /*
+   for( var oCtrl in oDlg.children )
+   {
+      oCtrl.draggable().resizable();
+   } 
+   */  	
+}   
+
 // DataBase management
 
 var cAlias, nRecNo;
