@@ -19,11 +19,11 @@ function AddButton( cDlgName )
    $( "#" + cVarName ).button().draggable( { cancel: false } ).resizable();
    
    /*
-   for( var oCtrl in oDlg.children )
+   for( var n in oDlg.children )
    {
-      oCtrl.draggable().resizable();
+      oDlg.children[ n ].draggable().resizable();
    } 
-   */  	
+   */
 }   
 
 function AddSay( cDlgName )
@@ -35,11 +35,11 @@ function AddSay( cDlgName )
    $( "#" + cVarName ).draggable( { cancel: false } ).resizable();
 
    /*
-   for( var oCtrl in oDlg.children )
+   for( var n in oDlg.children )
    {
-      oCtrl.draggable().resizable();
+      oDlg.children[ n ].draggable().resizable();
    } 
-   */  	
+   */
 }   
 
 // DataBase management
