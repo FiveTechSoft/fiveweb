@@ -60,7 +60,8 @@ function MsgInfo( cMsg, cTitle )
    div.className = "dialog_window";
    div.id = "msginfo";
    div.title = "Information";
-   div.innerHTML = "<span class='ui-icon ui-icon-info'></span> " + cMsg;
+   div.innerHTML = "<span class='ui-icon ui-icon-info' width=40px; " + 
+                   "height=40px; style='float: left; margin: 0 7px 20px 0;'></span>" + cMsg;
    
    document.body.appendChild( div );
 
