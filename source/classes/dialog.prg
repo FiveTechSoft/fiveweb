@@ -19,7 +19,7 @@ ENDCLASS
 
 METHOD New( cTitle, nWidth, nHeight, cVarName ) CLASS TDialog
 
-   DEFAULT nWidth := 600, nHeight := 500
+   DEFAULT cTitle := "dialog", nWidth := 600, nHeight := 500
 
    ::cTitle  = cTitle
    ::nWidth  = nWidth
