@@ -2,15 +2,18 @@
 
 function Main()
 
-   local oDlg
+   local oDlg, oFld
 
    BuildMenu()
 
    DEFINE DIALOG oDlg SIZE 600, 400
 
-   @ 250, 150 BUTTON "Ok" OF oDlg ACTION MsgInfo( "ok" )
+   @ 10, 10 FOLDER oFld PROMPTS "One", "Two", "Three" OF oDlg ;
+      SIZE 520, 230
 
-   @ 250, 300 BUTTON "Cancel" OF oDlg ACTION MsgInfo( "cancel" )
+   @ 260, 150 BUTTON "Ok" OF oDlg ACTION MsgInfo( "ok" )
+
+   @ 260, 300 BUTTON "Cancel" OF oDlg ACTION MsgInfo( "cancel" )
 
    ACTIVATE DIALOG oDlg NOWAIT  
 
