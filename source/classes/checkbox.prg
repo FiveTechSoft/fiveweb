@@ -8,18 +8,20 @@ CLASS TCheckBox
    DATA  oWnd
    DATA  cVarName 
    DATA  lChecked
+   DATA lButtonStyle
 
    CLASSDATA nBtns INIT 1
 
-   METHOD New( nRow, nCol, lChecked, cPrompt, nWidth, nHeight, oWnd )
+   METHOD New( nRow, nCol, lChecked, cPrompt, nWidth, nHeight, oWnd , lButtonStyle )
 
    METHOD Activate()
 
 ENDCLASS
 
-METHOD New( nRow, nCol, lChecked, cPrompt, nWidth, nHeight, oWnd ) CLASS TCheckBox
+METHOD New( nRow, nCol, lChecked, cPrompt, nWidth, nHeight, oWnd ,lButtonStyle ) CLASS TCheckBox
 
    DEFAULT cPrompt := "CheckBox"
+   DEFAULT lButtonStyle:= .f.
 
    ::nTop     = nRow
    ::nLeft    = nCol
@@ -28,24 +30,34 @@ METHOD New( nRow, nCol, lChecked, cPrompt, nWidth, nHeight, oWnd ) CLASS TCheckB
    ::nHeight  = nHeight
    ::cVarName = "oChk" + AllTrim( Str( ::nBtns++ ) )
    ::lChecked = lChecked   
-
-   ? "<label " + ;
-     'style="' + "position: absolute; " + ;
+   ::lButtonStyle:= lButtonStyle
+    
+   
+   ? '<div id="div"'+::cVarName +;
+   ' style="' + "position: absolute; " + ;
      "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
      "left: " + AllTrim( Str( ::nLeft + 90 ) ) + 'px;" >' 
+        
+     
    ? '<input id="' + ::cVarName + '" ' + ;
-     'type="checkbox" ' + If( lChecked, "checked", "" ) + " >" + ;
-     " " + ::cPrompt
+     'type="checkbox" ' + If( lChecked, "checked", "" )+'/>' 
+      
+   ? "<label for='" + ::cVarName +"'>" + ::cPrompt
    ? "</label>"  
+   ? "</div>"
 
    oWnd:AddControl( Self )
+
 
 return Self
 
 METHOD Activate() CLASS TCheckBox
 
-   // ? "<script>"
-   // ? '$( "#' + ::cVarName + '" ).button();'
-   // ? "</script>"
+ if ::lButtonStyle
+ 
+    ? "<script>"
+       ? '$( "#' + ::cVarName + '" ).button();'    
+    ? "</script>"
+endif
    
 return nil   

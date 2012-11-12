@@ -47,9 +47,10 @@ extern ErrorSys  // FiveWeb error system
              [ PROMPT <cPrompt> ] ;
              [ SIZE <nWidth>, <nHeight> ] ;
              [ OF <oDlg> ] ;
+             [ <lstyle: BUTTON > ] ;
        => ;
-          TCheckBox():New( <nRow>, <nCol>, <lValue>, <cPrompt>, <nWidth>, <nHeight>, <oDlg> )
-
+          TCheckBox():New( <nRow>, <nCol>, <lValue>, <cPrompt>,;
+                           <nWidth>, <nHeight>, <oDlg>, [<.lstyle.>] )
 
 #xcommand @ <nRow>, <nCol> RADIO [ <oRadMenu> ] ;
              [ <prm: PROMPT, ITEMS> <cItems,...> ] ;
