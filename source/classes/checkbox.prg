@@ -36,7 +36,7 @@ METHOD New( nRow, nCol, lChecked, cPrompt, nWidth, nHeight, oWnd ,lButtonStyle )
    ? '<div id="div"'+::cVarName +;
    ' style="' + "position: absolute; " + ;
      "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
-     "left: " + AllTrim( Str( ::nLeft + 90 ) ) + 'px;" >' 
+     "left: " + AllTrim( Str( ::nLeft ) ) + 'px;" >' 
         
      
    ? '<input id="' + ::cVarName + '" ' + ;
