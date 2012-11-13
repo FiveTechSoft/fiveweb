@@ -10,6 +10,20 @@ function SetTheme( cTheme )
    $( "link" ).eq( 0 ).attr( { href: css.replace( "name", cTheme ) } ); 
 }
 
+function ProgressInc( cProgBar, nStep )
+{
+	 var nValue = $( "#" + cProgBar ).progressbar( "value" );
+	 	
+   $( "#" + cProgBar ).progressbar( "value", nValue + nStep );
+}   	
+
+function ProgressDec( cProgBar, nStep )
+{
+	 var nValue = $( "#" + cProgBar ).progressbar( "value" );
+	 	
+   $( "#" + cProgBar ).progressbar( "value", nValue - nStep );
+}   	
+
 function AddButton( cDlgName )
 {
    var oDlg = document.getElementById( cDlgName );

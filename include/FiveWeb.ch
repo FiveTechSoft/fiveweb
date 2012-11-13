@@ -37,6 +37,13 @@ extern ErrorSys  // FiveWeb error system
           TButton():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg>, [<(oBtn)>],;
              <(uAction)> )
 
+#xcommand @ <nRow>, <nCol> PROGRESS [ <oPrg> VAR ] <nValue> ;
+             [ SIZE <nWidth>, <nHeight> ] ;
+             [ OF <oDlg> ] ;
+       => ;
+          [ <oPrg> := ] TProgress():New( <nRow>, <nCol>, <nWidth>, <nHeight>, <oDlg>, [<(oPrg)>],;
+             <nValue> )
+
 #xcommand @ <nRow>, <nCol> SAY [ <oSay> <label: PROMPT,VAR > ] <cText> ;
              [ SIZE <nWidth>, <nHeight> ] ;
              [ OF <oDlg> ] ;
