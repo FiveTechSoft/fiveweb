@@ -18,12 +18,10 @@ function AddButton( cDlgName )
    oDlg.innerHTML += "<div id='" + cVarName + "' style='width: 110px; height:40px;'>Button</div>";
    $( "#" + cVarName ).button().draggable( { cancel: false } ).resizable();
    
-   /*
    for( var n in oDlg.children )
    {
-      oDlg.children[ n ].draggable().resizable();
+      oDlg.children[ n ].draggable( "enable" ).resizable();
    } 
-   */
 }   
 
 function AddSay( cDlgName )
