@@ -9,8 +9,11 @@ CLASS TProgress FROM TControl
    CLASSDATA nCtrls INIT 1
 
    METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, nValue )
-
+   
    METHOD Activate()
+   
+  METHOD SetStep( nStepInc ) 
+ 
 
 ENDCLASS
 
@@ -47,3 +50,12 @@ METHOD Activate() CLASS TProgress
 return nil   
 
 //----------------------------------------------------------------------------//
+
+METHOD SetStep( nStepInc ) CLASS TProgress
+local cItem
+if nStepInc > 0
+   cItem:= 'ProgressInc("'+ ::cVarName+'",'+alltrim(str(nStepInc))+' )'
+elseif nStepInc < 0
+   cItem:= 'ProgressDec("'+ ::cVarName+'",'+alltrim(str(-nStepInc))+' )'
+endif 
+Return cItem
