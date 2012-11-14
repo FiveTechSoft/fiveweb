@@ -28,6 +28,7 @@ function BuildMenu()
       MENU
          MENUITEM "Light"
          MENU 
+            MENUITEM "Aristo"       ACTION SetAristoTheme()
             MENUITEM "Base"         ACTION SetTheme( "base" )
             MENUITEM "Black-tie"    ACTION SetTheme( "black-tie" )
             MENUITEM "Blitzer"      ACTION SetTheme( "blitzer" )

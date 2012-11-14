@@ -10,6 +10,11 @@ function SetTheme( cTheme )
    $( "link" ).eq( 0 ).attr( { href: css.replace( "name", cTheme ) } ); 
 }
 
+function SetAristoTheme()
+{
+   $( "link" ).eq( 0 ).attr( { href: "http://taitems.github.com/Aristo-jQuery-UI-Theme/css/Aristo/Aristo.css" } ); 
+}
+	
 function ProgressInc( cProgBar, nStep )
 {
 	 var nValue = $( "#" + cProgBar ).progressbar( "value" );
