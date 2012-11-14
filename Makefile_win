@@ -10,6 +10,7 @@ PRG_OBJS = ./obj/fiveweb.obj \
   ./obj/datepick.obj \
 	./obj/dialog.obj \
   ./obj/errsys.obj \
+  ./obj/get.obj \
   ./obj/harbour.obj \
   ./obj/menu.obj \
   ./obj/menuitem.obj \

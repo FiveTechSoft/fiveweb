@@ -10,7 +10,8 @@ function Main( ... )
    SetTheme( "flick" )
    
    if pcount() > 0
-      ? "Invoked procedure " + hb_aParams()[ 1 ]
+      ? " Invoked procedure: " + hb_aParams()[ 1 ] + "<br>"
+      ? " Number of params: " + AllTrim( Str( Len( hb_aParams() ) ) ) 
       return nil
    endif
 
