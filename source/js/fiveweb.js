@@ -3,6 +3,8 @@
 
 var CRLF = "\r\n";
 
+// themes
+
 function SetTheme( cTheme )
 {
 	 var css = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/name/jquery-ui.css"
@@ -14,6 +16,13 @@ function SetAristoTheme()
 {
    $( "link" ).eq( 0 ).attr( { href: "http://taitems.github.com/Aristo-jQuery-UI-Theme/css/Aristo/Aristo.css" } ); 
 }
+	
+function SetBootstrapTheme()
+{
+   $( "link" ).eq( 0 ).attr( { href: "http://addyosmani.github.com/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.8.16.custom.css" } ); 
+}
+	
+// ProgressBars	
 	
 function ProgressInc( cProgBar, nStep )
 {
