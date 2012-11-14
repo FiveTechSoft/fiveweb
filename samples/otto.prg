@@ -1,6 +1,6 @@
 #include "FiveWeb.ch"
 
-function Main()
+function Main( ... )
 
    local oDlg, oGet1, oGet2, oGet3 
    local cTitle := Space( 80 ), cFamilien := Space( 80 ), cVorname := Space( 80 )
@@ -9,6 +9,11 @@ function Main()
    
    SetTheme( "flick" )
    
+   if pcount() > 0
+      ? "Invoked procedure " + hb_aParams()[ 1 ]
+      return nil
+   endif
+
    DEFINE DIALOG oDlg TITLE "Otto example" SIZE 600, 400
    
    @ 12, 10 SAY "Title:" OF oDlg
