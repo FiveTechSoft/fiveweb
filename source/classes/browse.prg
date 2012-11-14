@@ -17,7 +17,8 @@ ENDCLASS
 
 //----------------------------------------------------------------------------//
 
-METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl ) CLASS TBrowse
+METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aDatos ) CLASS TBrowse
+local n,x , nFields
 
    DEFAULT cVarName := "oSay" + AllTrim( Str( ::nControls++ ) )
       
@@ -25,7 +26,45 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl ) CLASS TBrowse
 
    ::cUrl   = cUrl
    ::cAlias = Alias()   
-      
+
+
+   if !Empty( aDatos )
+
+msginfo("hola")
+
+
+
+       nFields:= len( aDatos[1] )
+
+      ? '<table id="'+ ::cVarName + '" ' + ;
+        'class="browse" ' + ;
+        'style="' + "position: absolute; " + ;
+        "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
+        "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ; 
+        "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ; 
+        "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
+        'overflow: auto;" >'
+
+        
+        ? "<tr>"
+        for n = 1 to nFields
+           ? "<th>" + aDatos[1,n ] + "</th>"
+        next
+        ? "</tr>"
+           
+        for x = 2 to len( aDatos )
+           ? "<tr>"
+           for n = 1 to nFields
+              ? "<td>" + aDatos[x,n] + "</td>"
+           next
+           ? "</tr>"
+          
+        next
+        
+        ? "</table>"         
+
+   else
+
    if Empty( ::cAlias )   
       ? '<div id="'+ ::cVarName + '" ' + ;
         'style="' + "position: absolute; " + ;
@@ -35,7 +74,8 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl ) CLASS TBrowse
         "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
         'overflow: auto;" >' + ;
         "</div>"
-   else     
+   else  
+   
       ? '<table id="'+ ::cVarName + '" ' + ;
         'class="browse" ' + ;
         'style="' + "position: absolute; " + ;
@@ -62,7 +102,9 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl ) CLASS TBrowse
         end   
         
         ? "</table>"
-   endif
+    endif
+
+  endif
 
 return Self
 

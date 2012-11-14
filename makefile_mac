@@ -15,12 +15,14 @@ PRG_OBJS = ./obj/fiveweb.o \
 	./obj/dialog.o \
 	./obj/errsys.o \
 	./obj/folder.o \
+    ./obj/get.o \
 	./obj/harbour.o \
-   ./obj/menu.o \
+    ./obj/menu.o \
 	./obj/menuitem.o \
 	./obj/pdmenu.o \
 	./obj/radio.o \
     ./obj/checkbox.o \
+    ./obj/say.o \
 	./obj/valblank.o
 
 ./lib/libfiveweb.a : $(PRG_OBJS)

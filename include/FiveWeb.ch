@@ -100,7 +100,14 @@ extern ErrorSys  // FiveWeb error system
       => ; 
          [ <oBrw> := ] TBrowse():New( <nRow>, <nCol>,;
             <nWidth>, <nHeight>, <oWnd>, [<(oBrw)>], [<cUrl>] )   
-                                
+
+#xcommand @ <nRow>, <nCol> BROWSE <oBrw> ;          
+            [ SIZE <nWidth>, <nHeight> ] ;
+            [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
+            [ ARRAY <aDatos> ] ;
+      => ; 
+         [ <oBrw> := ] TBrowse():New( <nRow>, <nCol>,;
+            <nWidth>, <nHeight>, <oWnd>, [<(oBrw)>], , [<aDatos>] )
 
 #xcommand MENU [ <oMenu> ] ;
        => ;
