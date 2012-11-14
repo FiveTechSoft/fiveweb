@@ -31,7 +31,7 @@ function Main( cParams )
    @ 90, 160 GET oGet3 VAR cVorname OF oDlg SIZE 300, 35
 
    @ 260, 160 BUTTON "Ok" OF oDlg ;
-      ACTION document.location = "otto.exe?add:" + ;
+      ACTION document.location = "otto?add:" + ;
                                  document.getElementById( "oGet1" ).value + ":" + ;
                                  document.getElementById( "oGet2" ).value + ":" + ;
                                  document.getElementById( "oGet3" ).value
