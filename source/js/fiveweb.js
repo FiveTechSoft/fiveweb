@@ -20,7 +20,7 @@ function SetAristoTheme()
 function SetBootstrapTheme()
 {
    $( "link" ).eq( 0 ).attr( { href: "http://addyosmani.github.com/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.8.16.custom.css" } ); 
-   $( "link" ).eq( 0 ).append( { href: "http://addyosmani.github.com/jquery-ui-bootstrap/bootstrap/bootstrap.css" } ); 
+   $( "link" ).eq( 0 ).append( '<link href="http://addyosmani.github.com/jquery-ui-bootstrap/bootstrap/bootstrap.css" rel="stylesheet">' ); 
 }
 	
 // ProgressBars	
