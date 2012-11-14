@@ -11,16 +11,14 @@ function SetTheme( cTheme )
 	
    $( "link" ).eq( 0 ).attr( { href: css.replace( "name", cTheme ) } );
    
-   if( $('link').length > 1 ) 
-      $( "link" ).last().remove(); 
+   $( "link" ).eq( 0 ).last().remove(); 
 }
 
 function SetAristoTheme()
 {
    $( "link" ).eq( 0 ).attr( { href: "http://taitems.github.com/Aristo-jQuery-UI-Theme/css/Aristo/Aristo.css" } ); 
 
-   if( $('link').length > 1 ) 
-      $( "link" ).last().remove(); 
+   $( "link" ).eq( 0 ).last().remove(); 
 }
 	
 function SetBootstrapTheme()
