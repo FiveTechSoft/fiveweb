@@ -10,10 +10,10 @@ function Main()
    
    @ 120, 140 PROGRESS oPrg VAR nValue SIZE 300, 40 OF oDlg
 
-   @ 200, 140 BUTTON "<<" OF oDlg SIZE 40, 40 ;
+   @ 200, 140 BUTTON "<<" OF oDlg SIZE 60, 40 ;
       ACTION ProgressDec( "oPrg", 10 )
 
-   @ 200, 400 BUTTON ">>" OF oDlg SIZE 40, 40 ;
+   @ 200, 380 BUTTON ">>" OF oDlg SIZE 60, 40 ;
       ACTION ProgressInc( "oPrg", 10 )
 
    ACTIVATE DIALOG oDlg 

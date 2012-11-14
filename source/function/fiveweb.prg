@@ -93,7 +93,7 @@ function MsgInfo( cMsg, cTitle )
    
 return nil  
 
-function SetColor( cColor )
+function SetBackColor( cColor )
 
    ? "<script>"
    ? 'document.body.style.backgroundColor = "' + cColor + '";'
