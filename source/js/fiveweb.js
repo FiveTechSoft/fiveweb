@@ -10,39 +10,17 @@ function SetTheme( cTheme )
 	 var css = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/name/jquery-ui.css"
 	
    $( "link" ).eq( 0 ).attr( { href: css.replace( "name", cTheme ) } );
-
-   var styleSheets = document.styleSheets;
-   var href = "http://addyosmani.github.com/jquery-ui-bootstrap/bootstrap/bootstrap.css";
-   for( var i = 0; i < styleSheets.length; i++ ) 
-   {
-      if( styleSheets[ i ].href == href ) 
-      {
-         styleSheets[ i ].disabled = true;
-         break;
-      }
-   }
 }
 
 function SetAristoTheme()
 {
    $( "link" ).eq( 0 ).attr( { href: "http://taitems.github.com/Aristo-jQuery-UI-Theme/css/Aristo/Aristo.css" } ); 
-
-   var styleSheets = document.styleSheets;
-   var href = "http://addyosmani.github.com/jquery-ui-bootstrap/bootstrap/bootstrap.css";
-   for( var i = 0; i < styleSheets.length; i++ ) 
-   {
-      if( styleSheets[ i ].href == href ) 
-      {
-         styleSheets[ i ].disabled = true;
-         break;
-      }
-   }
 }
 	
 function SetBootstrapTheme()
 {
    $( "link" ).eq( 0 ).attr( { href: "http://addyosmani.github.com/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.8.16.custom.css" } ); 
-   $( "link" ).eq( 0 ).append( '<link href="http://addyosmani.github.com/jquery-ui-bootstrap/bootstrap/bootstrap.css" rel="stylesheet">' ); 
+   // $( "link" ).eq( 0 ).append( '<link href="http://addyosmani.github.com/jquery-ui-bootstrap/bootstrap/bootstrap.css" rel="stylesheet">' ); 
 }
 	
 // ProgressBars	
