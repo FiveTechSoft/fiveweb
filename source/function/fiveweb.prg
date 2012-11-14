@@ -104,10 +104,18 @@ return nil
 function SetBackImage( cImage )
 
    ? "<script>"
-   ? 'document.body.style.backgroundImage= = "' + cImage + '";'
+   ? 'document.body.style.backgroundImage = "url( ' + "'" + cImage + "'" + ' )";'
    ? "</script>"
    
 return nil   
+
+function SetTheme( cTheme )
+
+   ? "<script>"
+   ? 'SetTheme( "' + cTheme + '" );'
+   ? "</script>"
+
+return nil
 
 procedure HB_GTSYS
 return
