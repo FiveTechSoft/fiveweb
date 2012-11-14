@@ -30,10 +30,6 @@ local n,x , nFields
 
    if !Empty( aDatos )
 
-msginfo("hola")
-
-
-
        nFields:= len( aDatos[1] )
 
       ? '<table id="'+ ::cVarName + '" ' + ;
