@@ -101,6 +101,14 @@ function SetBackColor( cColor )
    
 return nil   
 
+function SetBackImage( cImage )
+
+   ? "<script>"
+   ? 'document.body.style.backgroundImage= = "' + cImage + '";'
+   ? "</script>"
+   
+return nil   
+
 procedure HB_GTSYS
 return
 

@@ -11,6 +11,8 @@ extern ErrorSys  // FiveWeb error system
 
 #xcommand SET COLOR TO <cColor> => SetBackColor( <cColor> )
 
+#xcommand SET BACKIMAGE TO <cImage> => SetBackImage( <cImage> )
+
 #xcommand DEFAULT <uVar1> := <uVal1> ;
                [, <uVarN> := <uValN> ] => ;
                   If( <uVar1> == nil, <uVar1> := <uVal1>, ) ;;
