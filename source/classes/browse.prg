@@ -7,6 +7,7 @@ CLASS TBrowse FROM TControl
    DATA cUrl
    DATA cAlias
    DATA nRowHeight
+   DATA nHeadHeight
 
    CLASSDATA nControls INIT 1
 
@@ -18,17 +19,19 @@ ENDCLASS
 
 //----------------------------------------------------------------------------//
 
-METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aDatos, nRowHeight ) CLASS TBrowse
+METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aDatos, nRowHeight ,nHeadHeight ) CLASS TBrowse
 local n,x , nFields
 
-   DEFAULT cVarName := "oSay" + AllTrim( Str( ::nControls++ ) )
+   DEFAULT cVarName := "oBrw" + AllTrim( Str( ::nControls++ ) )
    DEFAULT nRowHeight := 25
+DEFAULT nHeadHeight := 60
 
    Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
 
    ::cUrl   = cUrl
    ::cAlias = Alias()   
    ::nRowHeight = nRowHeight
+   ::nHeadHeight = nHeadHeight
 
    if !Empty( aDatos )
 
@@ -43,23 +46,24 @@ local n,x , nFields
         "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ; 
         "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
         'overflow: auto;" >'
-
-        
-      ? '<tr height="'+alltrim(str(::nRowHeight))+'" >'
+      ? '<thead>'
+      ? '<tr height="'+alltrim(str(::nHeadHeight))+'" >'
         for n = 1 to nFields
-           ? "<th>" + aDatos[1,n ] + "</th>"
+          ? '<th>'+ aDatos[1,n ] + "</th>"
         next
         ? "</tr>"
-           
-        for x = 2 to len( aDatos )
+      ? '</thead>'
+       ? '<tbody>'
+       for x = 2 to len( aDatos )
           ? '<tr height="'+alltrim(str(::nRowHeight))+'" >'
            for n = 1 to nFields
-              ? "<td>" + aDatos[x,n] + "</td>"
+               ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;" >'+;
+                  aDatos[x,n] + "</td>"
            next
            ? "</tr>"
           
         next
-        
+        ? '</tbody>'
         ? "</table>"         
 
    else
