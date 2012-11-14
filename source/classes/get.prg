@@ -19,8 +19,8 @@ METHOD New( nRow, nCol, uValue, nWidth, nHeight, oWnd, cVarName ) CLASS TGet
       
    Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
 
-   ? '<input type="text" id = "' + ::cVarName + '" '+ ;
-    '" style = "' + "position: absolute; " + ;
+   ? '<input type="text" id="' + ::cVarName + '" ' + ;
+    '" style="' + "position: absolute; " + ;
      "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
      "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ; 
      "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ; 

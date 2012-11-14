@@ -20,7 +20,7 @@ ENDCLASS
 METHOD New( nRow, nCol, cCaption, nWidth, nHeight, oWnd, cVarName ) CLASS TSay
 
    DEFAULT cVarName := "oSay" + AllTrim( Str( ::nBtns++ ) )
-   DEFAULT nWidth := Len( cCaption ) * 8, nHeight := 40
+   DEFAULT nWidth := Len( cCaption ) * 9, nHeight := 40
       
    ::cVarName = cVarName
    ::cCaption = cCaption
