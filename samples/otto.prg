@@ -89,7 +89,8 @@ function Add( aParams )
    if ! File( "clients.dbf" )
       DbCreate( "clients.dbf", { { "title",   "C", 10, 0 },;
                                  { "family",  "C", 80, 0 },;
-                                 { "vorname", "C", 80, 0 } } )
+                                 { "vorname", "C", 80, 0 },;
+                                 { "user_ip", "C", 20, 0 } } )
    endif
    
    USE clients SHARED
@@ -100,6 +101,7 @@ function Add( aParams )
       clients->title   := aParams[ 2 ]
       clients->family  := aParams[ 3 ]
       clients->vorname := aParams[ 4 ]
+      clients->user_ip := GetEnv( "REMOTE_ADDR" )
       DbUnLock()
    endif    
 
