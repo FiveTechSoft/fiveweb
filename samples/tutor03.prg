@@ -6,6 +6,8 @@ function Main()
 
    local oDlg, lValue := .T.
    
+   SET COLOR TO "#F0F8FF"
+   
    DEFINE DIALOG oDlg TITLE "Hello FiveWeb" SIZE 600, 400
    
    @ 120,  70 BUTTON "One" SIZE 120, 50 OF oDlg ACTION MsgInfo( "one" )

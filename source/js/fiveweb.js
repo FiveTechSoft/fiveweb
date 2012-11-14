@@ -3,6 +3,13 @@
 
 var CRLF = "\r\n";
 
+// background management
+
+function SetColor( cColor )
+{
+   document.body.style.backgroundColor = cColor;	
+}   
+
 // themes management
 
 function SetTheme( cTheme )
