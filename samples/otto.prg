@@ -1,6 +1,8 @@
 #include "FiveWeb.ch"
 
-function Main( ... )
+//----------------------------------------------------------------------------//
+
+function Main( cParams )
 
    local oDlg, oGet1, oGet2, oGet3 
    local cTitle := Space( 80 ), cFamilien := Space( 80 ), cVorname := Space( 80 )
@@ -10,8 +12,7 @@ function Main( ... )
    SetTheme( "flick" )
    
    if pcount() > 0
-      ? " Invoked procedure: " + hb_aParams()[ 1 ] + "<br>"
-      ? " Number of params: " + AllTrim( Str( Len( hb_aParams() ) ) ) 
+      Process( cParams )
       return nil
    endif
 
@@ -29,16 +30,63 @@ function Main( ... )
 
    @ 90, 160 GET oGet3 VAR cVorname OF oDlg SIZE 300, 35
 
-   @ 150, 160 SAY oSay PROMPT "Please fill this info and press ok" OF oDlg
-
    @ 260, 160 BUTTON "Ok" OF oDlg ;
-      ACTION $( "#oSay" ).load( "../fiveweb/myproc.php?" + ;
-                                "title=" + document.getElementById( "oGet1" ).value + ;
-                                "&familien=" + document.getElementById( "oGet2" ).value + ;
-                                "&vorname=" + document.getElementById( "oGet3" ).value )
+      ACTION document.location = "otto.exe?add:" + ;
+                                 document.getElementById( "oGet1" ).value + ":" + ;
+                                 document.getElementById( "oGet2" ).value + ":" + ;
+                                 document.getElementById( "oGet3" ).value
 
    @ 260, 300 BUTTON "Cancel" OF oDlg
 
    ACTIVATE DIALOG oDlg NOWAIT
 
 return nil
+
+//----------------------------------------------------------------------------//
+
+function Process( cParams )
+
+   local aParams := hb_aTokens( cParams, ":" )
+   
+   do case
+      case aParams[ 1 ] == "add"
+           Add( aParams )
+           
+   endcase
+   
+return nil           
+
+//----------------------------------------------------------------------------//
+
+function Add( aParams )
+
+   local oDlg, oBrw
+
+   if ! File( "clients.dbf" )
+      DbCreate( "clients.dbf", { { "title",   "C", 10, 0 },;
+                                 { "family",  "C", 80, 0 },;
+                                 { "vorname", "C", 80, 0 } } )
+   endif
+   
+   USE clients SHARED
+   
+   APPEND BLANK
+   
+   if RLock()
+      clients->title   := aParams[ 2 ]
+      clients->family  := aParams[ 3 ]
+      clients->vorname := aParams[ 4 ]
+      DbUnLock()
+   endif    
+
+   DEFINE DIALOG oDlg TITLE "Clients browse" SIZE 800, 600
+   
+   @ 10, 10 BROWSE oBrw SIZE 500, 400 OF oDlg
+   
+   ACTIVATE DIALOG oDlg NOWAIT
+   
+   USE
+
+return nil
+
+//----------------------------------------------------------------------------//                                  
