@@ -6,6 +6,7 @@ CLASS TBrowse FROM TControl
 
    DATA cUrl
    DATA cAlias
+   DATA nRowHeight
 
    CLASSDATA nControls INIT 1
 
@@ -17,19 +18,21 @@ ENDCLASS
 
 //----------------------------------------------------------------------------//
 
-METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aDatos ) CLASS TBrowse
+METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aDatos, nRowHeight ) CLASS TBrowse
 local n,x , nFields
 
    DEFAULT cVarName := "oSay" + AllTrim( Str( ::nControls++ ) )
-      
-   Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )   
+   DEFAULT nRowHeight := 25
+
+   Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
 
    ::cUrl   = cUrl
    ::cAlias = Alias()   
-
+   ::nRowHeight = nRowHeight
 
    if !Empty( aDatos )
 
+       ::cAlias:="ARRAY" 
        nFields:= len( aDatos[1] )
 
       ? '<table id="'+ ::cVarName + '" ' + ;
@@ -42,14 +45,14 @@ local n,x , nFields
         'overflow: auto;" >'
 
         
-        ? "<tr>"
+      ? '<tr height="'+alltrim(str(::nRowHeight))+'" >'
         for n = 1 to nFields
            ? "<th>" + aDatos[1,n ] + "</th>"
         next
         ? "</tr>"
            
         for x = 2 to len( aDatos )
-           ? "<tr>"
+          ? '<tr height="'+alltrim(str(::nRowHeight))+'" >'
            for n = 1 to nFields
               ? "<td>" + aDatos[x,n] + "</td>"
            next
@@ -108,7 +111,7 @@ return Self
 
 METHOD Activate() CLASS TBrowse
 
-   if Empty( ::cAlias )
+   if Empty( ::cAlias ) 
       ? "<script>"
       ? '$( "#' + ::cVarName + '" ).load( "' + ::cUrl + '" );'
       ? "</script>"
