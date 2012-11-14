@@ -10,14 +10,14 @@ function SetTheme( cTheme )
 	 var css = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/name/jquery-ui.css"
 	
    $( "link" ).eq( 0 ).attr( { href: css.replace( "name", cTheme ) } );
-   $( "link" ).eq( 2 ).remove();
+   $( '<link href="http://addyosmani.github.com/jquery-ui-bootstrap/bootstrap/bootstrap.css" rel="stylesheet">' ).remove(); 
    $( "link" ).eq( 0 ).append( '<link type="text/css" rel="stylesheet" href="https://fiveweb.googlecode.com/svn/trunk/source/css/styles.css">' );
 }
 
 function SetAristoTheme()
 {
    $( "link" ).eq( 0 ).attr( { href: "http://taitems.github.com/Aristo-jQuery-UI-Theme/css/Aristo/Aristo.css" } ); 
-   $( "link" ).eq( 2 ).remove();
+   $( '<link href="http://addyosmani.github.com/jquery-ui-bootstrap/bootstrap/bootstrap.css" rel="stylesheet">' ).remove(); 
    $( "link" ).eq( 0 ).append( '<link type="text/css" rel="stylesheet" href="https://fiveweb.googlecode.com/svn/trunk/source/css/styles.css">' );
 }
 	
