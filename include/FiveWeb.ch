@@ -54,6 +54,12 @@ extern ErrorSys  // FiveWeb error system
        => ;
           [ <oSay> := ] TSay():New( <nRow>, <nCol>, <cText>, <nWidth>, <nHeight>, <oDlg>, [<(oSay)>] )
 
+#xcommand @ <nRow>, <nCol> GET [ <oGet> VAR ] <uValue> ;
+             [ SIZE <nWidth>, <nHeight> ] ;
+             [ OF <oDlg> ] ;
+       => ;
+          [ <oGet> := ] TGet():New( <nRow>, <nCol>, <uValue>, <nWidth>, <nHeight>, <oDlg>, [<(oGet)>] )
+
 #xcommand @ <nRow>, <nCol> CHECKBOX <lValue> ;
              [ PROMPT <cPrompt> ] ;
              [ SIZE <nWidth>, <nHeight> ] ;

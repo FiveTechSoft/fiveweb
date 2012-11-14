@@ -10,12 +10,14 @@ PRG_OBJS = obj/fiveweb.obj \
 	obj/dialog.obj \
 	obj/errsys.obj \
 	obj/folder.obj \
+	obj/get.obj \
 	obj/harbour.obj \
 	obj/menu.obj \
 	obj/menuitem.obj \
 	obj/pdmenu.obj \
 	obj/progbar.obj \
 	obj/radio.obj \
+	obj/say.obj \
 	obj/valblank.obj
 
 ./lib/fiveweb.lib : $(PRG_OBJS)
