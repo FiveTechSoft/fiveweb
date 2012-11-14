@@ -11,6 +11,8 @@ function Main( cParams )
    
    SetTheme( "flick" )
    
+   BuildMenu()
+
    if pcount() > 0
       Process( cParams )
       return nil
@@ -44,6 +46,27 @@ return nil
 
 //----------------------------------------------------------------------------//
 
+function BuildMenu()
+
+   local oMenu
+
+   MENU
+      MENUITEM "Clients"
+      MENU 
+         MENUITEM "Add"    ACTION document.location = "otto"
+         MENUITEM "Browse" ACTION document.location = "otto?browse"
+      ENDMENU
+
+      MENUITEM "About"
+      MENU 
+         MENUITEM "Wiki"
+      ENDMENU
+   ENDMENU
+
+return oMenu
+
+//----------------------------------------------------------------------------//
+
 function Process( cParams )
 
    local aParams := hb_aTokens( cParams, ":" )
@@ -51,6 +74,9 @@ function Process( cParams )
    do case
       case aParams[ 1 ] == "add"
            Add( aParams )
+
+      case aParams[ 1 ] == "browse"
+           Browse()
            
    endcase
    
@@ -59,8 +85,6 @@ return nil
 //----------------------------------------------------------------------------//
 
 function Add( aParams )
-
-   local oDlg, oBrw
 
    if ! File( "clients.dbf" )
       DbCreate( "clients.dbf", { { "title",   "C", 10, 0 },;
@@ -79,6 +103,24 @@ function Add( aParams )
       DbUnLock()
    endif    
 
+   Browse()
+
+return nil
+
+//----------------------------------------------------------------------------// 
+
+function Browse()
+
+   local oDlg, oBrw
+
+   if ! File( "clients.dbf" )
+      DbCreate( "clients.dbf", { { "title",   "C", 10, 0 },;
+                                 { "family",  "C", 80, 0 },;
+                                 { "vorname", "C", 80, 0 } } )
+   endif
+   
+   USE clients SHARED
+   
    DEFINE DIALOG oDlg TITLE "Clients browse" SIZE 800, 600
    
    @ 10, 10 BROWSE oBrw SIZE 500, 400 OF oDlg

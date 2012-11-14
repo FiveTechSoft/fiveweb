@@ -37,6 +37,7 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl ) CLASS TBrowse
         "</div>"
    else     
       ? '<table id="'+ ::cVarName + '" ' + ;
+        'class="browse" ' + ;
         'style="' + "position: absolute; " + ;
         "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
         "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ; 
