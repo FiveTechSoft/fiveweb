@@ -3,7 +3,7 @@
 
 var CRLF = "\r\n";
 
-// themes
+// themes management
 
 function SetTheme( cTheme )
 {
@@ -11,14 +11,16 @@ function SetTheme( cTheme )
 	
    $( "link" ).eq( 0 ).attr( { href: css.replace( "name", cTheme ) } );
    
-   $( "link" ).eq( 0 ).last().remove(); 
+   $( "link" ).eq( 0 ).length > 1 )
+      $( "link" ).eq( 0 ).last().remove(); 
 }
 
 function SetAristoTheme()
 {
    $( "link" ).eq( 0 ).attr( { href: "http://taitems.github.com/Aristo-jQuery-UI-Theme/css/Aristo/Aristo.css" } ); 
 
-   $( "link" ).eq( 0 ).last().remove(); 
+   $( "link" ).eq( 0 ).length > 1 )
+      $( "link" ).eq( 0 ).last().remove(); 
 }
 	
 function SetBootstrapTheme()
