@@ -93,6 +93,14 @@ function MsgInfo( cMsg, cTitle )
    
 return nil  
 
+function SetColor( cColor )
+
+   ? "<script>"
+   ? "document.body.style.backgroundColor = " + cColor + ";"
+   ? "</script>"
+   
+return nil   
+
 procedure HB_GTSYS
 return
 
