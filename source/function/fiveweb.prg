@@ -96,7 +96,7 @@ return nil
 function SetColor( cColor )
 
    ? "<script>"
-   ? "document.body.style.backgroundColor = " + cColor + ";"
+   ? 'document.body.style.backgroundColor = "' + cColor + '";'
    ? "</script>"
    
 return nil   
