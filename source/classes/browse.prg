@@ -50,6 +50,13 @@ return Self
 
 METHOD CreateFromCode() CLASS TBrowse
 
+local cTablestyle := 'style="' + "position: absolute; " + ;
+                                 "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
+                                 "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ;
+                                 "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ;
+                                 "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
+                      'overflow: auto;" '
+
   if !Empty( ::aDatos )
 
      ? '<link rel="stylesheet" href="/estilo2/emx_nav_left.css" type="text/css">'
@@ -59,13 +66,8 @@ METHOD CreateFromCode() CLASS TBrowse
 
       ? '<table id="'+ ::cVarName + '" ' + ;
         if( Empty(::cClassTable),'', 'class="'+::cClassTable+'"') + ;
-        'style="' + "position: absolute; " + ;
-        "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
-        "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ; 
-        "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ; 
-        "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
-        'overflow: auto;" >'
-        
+         cTableStyle + ' >'
+
       ? '<thead>'
       
       ? '<tr'+;
@@ -89,33 +91,27 @@ METHOD CreateFromCode() CLASS TBrowse
                ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;" >'+;
                   ::aDatos[x,n] + "</td>"
            next
-           ? "</tr>"
+
+           ? '</tr>'
           
         next
         ? '</tbody>'
-        ? "</table>"         
+        ? '</table>'
 
    else
 
-   if Empty( ::cAlias )   
+   if Empty( ::cAlias )
+
       ? '<div id="'+ ::cVarName + '" ' + ;
-        'style="' + "position: absolute; " + ;
-        "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
-        "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ; 
-        "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ; 
-        "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
-        'overflow: auto;" >' + ;
-        "</div>"
+        cTableStyle + ' >'
+
+      ?'</div>'
+
    else  
    
       ? '<table id="'+ ::cVarName + '" ' + ;
-        'class="browse" ' + ;
-        'style="' + "position: absolute; " + ;
-        "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
-        "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ; 
-        "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ; 
-        "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
-        'overflow: auto;" >'
+        if( Empty(::cClassTable),'', 'class="'+::cClassTable+'"') + ;
+           cTableStyle + ' >'      
 
         GO TOP 
         ? "<tr>"
@@ -125,15 +121,15 @@ METHOD CreateFromCode() CLASS TBrowse
         ? "</tr>"
            
         while ! EoF()
-           ? "<tr>"
+           ? '<tr>'
            for n = 1 to FCount()
               ? "<td>" + FieldGet( n ) + "</td>"
            next
-           ? "</tr>"
+           ? '</tr>'
            SKIP
         end   
         
-        ? "</table>"
+        ? '</table>'
     endif
 
   endif
