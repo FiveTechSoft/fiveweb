@@ -12,12 +12,15 @@ CLASS TBrowse FROM TControl
    DATA cClassHead
    DATA cClassLine
    DATA aDatos
+   DATA lZebra
     
    CLASSDATA nControls INIT 1
 
    METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl )
 
    METHOD CreateFromCode()
+
+   METHOD DefineZebra()
    
    METHOD Activate()
 
@@ -38,13 +41,63 @@ local n,x , nFields
    ::cAlias = Alias()   
    ::nRowHeight = nRowHeight
    ::nHeadHeight = nHeadHeight
-   
+   ::lZebra := .f.
+
    ::cClassTable= "browse"
  //  ::cClassLine = "linea" 
  //  ::cClassHead ="boxtitulo"
    ::aDatos = aDatos
-  
+
+
 return Self
+
+//----------------------------------------------------------------------------//
+
+METHOD DefineZebra() CLASS TBrowse
+
+?'<style type="text/css">'
+?'<!-- '
+
+?' .zebra1 { '
+?'	background-position: 4px;'
+?'	border-bottom-color: #333333;'
+?'	border-bottom-style: solid;'
+?'	border-bottom-width: 1px;'
+?'	border-left-color: #333333;'
+?'	border-left-style: solid;'
+?'	border-left-width: 1px;'
+?'	border-right-color: #000000;'
+?'	border-right-style: solid;'
+?'	border-right-width: 1px;'
+?'	border-top-color: #333333;'
+?'	border-top-style: solid;'
+?'	border-top-width: 1px;'
+?'	color: #333333;'
+?'	background-color:#fff;'
+?'}'
+
+?' .zebra2 { '
+?'	background-position: 4px;'
+?'	border-bottom-color: #333333;'
+?'	border-bottom-style: solid;'
+?'	border-bottom-width: 1px;'
+?'	border-left-color: #333333;'
+?'	border-left-style: solid;'
+?'	border-left-width: 1px;'
+?'	border-right-color: #000000;'
+?'	border-right-style: solid;'
+?'	border-right-width: 1px;'
+?'	border-top-color: #333333;'
+?'	border-top-style: solid;'
+?'	border-top-width: 1px;'
+?'	color: #333333;'
+?'	background-color:#ecf6fc ;'
+?'}'
+
+?'-->'
+? '</style>'
+
+Return nil
 
 //----------------------------------------------------------------------------//
 
@@ -59,8 +112,6 @@ local cTablestyle := 'style="' + "position: absolute; " + ;
 
   if !Empty( ::aDatos )
 
-     ? '<link rel="stylesheet" href="/estilo2/emx_nav_left.css" type="text/css">'
-
        ::cAlias:="ARRAY" 
        nFields:= len( ::aDatos[1] )
 
@@ -72,8 +123,8 @@ local cTablestyle := 'style="' + "position: absolute; " + ;
       
       ? '<tr'+;
            if( Empty(::cClassHead),'', ' class="'+::cClassHead+'"') + ;
-          ' height="'+alltrim(str(::nHeadHeight))+'" >'
-        
+        ' height="'+alltrim(str(::nHeadHeight))+'" >'
+
         for n = 1 to nFields
           ? '<th>'+ ::aDatos[1,n ] + "</th>"
         next
@@ -83,16 +134,27 @@ local cTablestyle := 'style="' + "position: absolute; " + ;
       ? '<tbody>'
       
        for x = 2 to len( ::aDatos )
-         ? '<tr '+;
-         if( Empty(::cClassLine),'', ' class="'+::cClassLine+'"') + ;
-         ' height="'+alltrim(str(::nRowHeight))+'" >'
-         
-           for n = 1 to nFields
-               ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;" >'+;
-                  ::aDatos[x,n] + "</td>"
-           next
+        
 
-           ? '</tr>'
+        if ::lZebra
+           ::DefineZebra()
+       ? '<tr '+;
+             ' height="'+alltrim(str(::nRowHeight))+'" '+;
+            if(x%2==0,' class="zebra1" ', ' class="zebra2" ' )  +' >'
+
+         else
+           ? '<tr '+ ;
+              if( Empty(::cClassLine),'', ' class="'+::cClassLine+'"') + ;
+            ' height="'+alltrim(str(::nRowHeight))+'" >'
+
+         endif
+
+         for n = 1 to nFields
+            ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;" >'+;
+                 ::aDatos[x,n] + "</td>"
+          next
+         
+          ? '</tr>'
           
         next
         ? '</tbody>'
