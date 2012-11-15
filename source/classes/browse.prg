@@ -8,11 +8,17 @@ CLASS TBrowse FROM TControl
    DATA cAlias
    DATA nRowHeight
    DATA nHeadHeight
-
+   DATA cClassTable
+   DATA cClassHead
+   DATA cClassLine
+   DATA aDatos
+    
    CLASSDATA nControls INIT 1
 
    METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl )
 
+   METHOD CreateFromCode()
+   
    METHOD Activate()
 
 ENDCLASS
@@ -24,7 +30,7 @@ local n,x , nFields
 
    DEFAULT cVarName := "oBrw" + AllTrim( Str( ::nControls++ ) )
    DEFAULT nRowHeight := 25
-DEFAULT nHeadHeight := 60
+   DEFAULT nHeadHeight := 60
 
    Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
 
@@ -32,33 +38,56 @@ DEFAULT nHeadHeight := 60
    ::cAlias = Alias()   
    ::nRowHeight = nRowHeight
    ::nHeadHeight = nHeadHeight
+   
+   ::cClassTable= "browse"
+ //  ::cClassLine = "linea" 
+ //  ::cClassHead ="boxtitulo"
+   ::aDatos = aDatos
+  
+return Self
 
-   if !Empty( aDatos )
+//----------------------------------------------------------------------------//
+
+METHOD CreateFromCode() CLASS TBrowse
+
+  if !Empty( ::aDatos )
+
+     ? '<link rel="stylesheet" href="/estilo2/emx_nav_left.css" type="text/css">'
 
        ::cAlias:="ARRAY" 
-       nFields:= len( aDatos[1] )
+       nFields:= len( ::aDatos[1] )
 
       ? '<table id="'+ ::cVarName + '" ' + ;
-        'class="browse" ' + ;
+        if( Empty(::cClassTable),'', 'class="'+::cClassTable+'"') + ;
         'style="' + "position: absolute; " + ;
         "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
         "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ; 
         "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ; 
         "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
         'overflow: auto;" >'
+        
       ? '<thead>'
-      ? '<tr height="'+alltrim(str(::nHeadHeight))+'" >'
+      
+      ? '<tr'+;
+           if( Empty(::cClassHead),'', ' class="'+::cClassHead+'"') + ;
+          ' height="'+alltrim(str(::nHeadHeight))+'" >'
+        
         for n = 1 to nFields
-          ? '<th>'+ aDatos[1,n ] + "</th>"
+          ? '<th>'+ ::aDatos[1,n ] + "</th>"
         next
-        ? "</tr>"
+        
+      ? '</tr>'
       ? '</thead>'
-       ? '<tbody>'
-       for x = 2 to len( aDatos )
-          ? '<tr height="'+alltrim(str(::nRowHeight))+'" >'
+      ? '<tbody>'
+      
+       for x = 2 to len( ::aDatos )
+         ? '<tr '+;
+         if( Empty(::cClassLine),'', ' class="'+::cClassLine+'"') + ;
+         ' height="'+alltrim(str(::nRowHeight))+'" >'
+         
            for n = 1 to nFields
                ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;" >'+;
-                  aDatos[x,n] + "</td>"
+                  ::aDatos[x,n] + "</td>"
            next
            ? "</tr>"
           
@@ -109,7 +138,8 @@ DEFAULT nHeadHeight := 60
 
   endif
 
-return Self
+
+return nil
 
 //----------------------------------------------------------------------------//
 
