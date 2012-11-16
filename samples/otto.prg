@@ -33,7 +33,7 @@ function Main( cParams )
    @ 90, 160 GET oGet3 VAR cVorname OF oDlg SIZE 300, 35
 
    @ 260, 160 BUTTON "Ok" OF oDlg ;
-      ACTION document.location = "otto?add:" + ;
+      ACTION document.location = "otto.exe?add:" + ;
                                  document.getElementById( "oGet1" ).value + ":" + ;
                                  document.getElementById( "oGet2" ).value + ":" + ;
                                  document.getElementById( "oGet3" ).value
@@ -50,11 +50,11 @@ function BuildMenu()
 
    local oMenu
 
-   MENU
+   MENU oMenu
       MENUITEM "Clients"
       MENU 
-         MENUITEM "Add"    ACTION document.location = "otto"
-         MENUITEM "Browse" ACTION document.location = "otto?browse"
+         MENUITEM "Add"    ACTION document.location = "otto.exe"
+         MENUITEM "Browse" ACTION document.location = "otto.exe?browse"
       ENDMENU
 
       MENUITEM "About"

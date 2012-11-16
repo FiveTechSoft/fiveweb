@@ -1,5 +1,7 @@
 #include "FiveWeb.ch"
 
+//----------------------------------------------------------------------------//
+
 CLASS TMenu
 
    DATA  aItems INIT {}
@@ -14,11 +16,15 @@ CLASS TMenu
 
 ENDCLASS
 
+//----------------------------------------------------------------------------//
+
 METHOD New( cVarName ) CLASS TMenu
 
    ::cVarName = cVarName
    
 return Self   
+
+//----------------------------------------------------------------------------//
 
 METHOD Activate( lMain, nLevel ) CLASS TMenu
 
@@ -29,7 +35,7 @@ METHOD Activate( lMain, nLevel ) CLASS TMenu
    if ! lMain 
       ? Space( 3 * ( nLevel - 1 ) ) + "<ul>"
    else   
-      ? '<div id="' + ::cVarName + '" oncontextmenu="MenuBar( this ); return false;">'
+      ? '<div id="' + ::cVarName + '" oncontextmenu="MenuBar( this ); return false;" style="width:100%">'
       ? '<ul class="nav">'
    endif
    
@@ -45,3 +51,5 @@ METHOD Activate( lMain, nLevel ) CLASS TMenu
    endif   
    
 return nil      
+
+//----------------------------------------------------------------------------//
