@@ -5,10 +5,6 @@
 CLASS TButton FROM TControl
 
    DATA  cPrompt
-   DATA  nTop, nLeft
-   DATA  nWidth, nHeight
-   DATA  oWnd
-   DATA  cVarName 
    DATA  cAction
 
    CLASSDATA nBtns INIT 1

@@ -51,12 +51,7 @@ function AddButton( cDlgName )
    var cVarName = "ctrl" + ( oDlg.children.length + 1 );
    
    oDlg.innerHTML += "<div id='" + cVarName + "' style='width: 110px; height:40px;'>Button</div>";
-   $( "#" + cVarName ).button().draggable( { cancel: false } ).resizable();
-   
-   for( var n in oDlg.children )
-   {
-      oDlg.children[ n ].draggable( "enable" ).resizable();
-   } 
+   $( "#" + cVarName ).button().resizable().draggable( { cancel: false } );
 }   
 
 function AddSay( cDlgName )
@@ -65,14 +60,7 @@ function AddSay( cDlgName )
    var cVarName = "ctrl" + ( oDlg.children.length + 1 );
    
    oDlg.innerHTML += "<label id='" + cVarName + "' style='width: 110px; height:40px;'>text</div>";
-   $( "#" + cVarName ).draggable( { cancel: false } ).resizable();
-
-   /*
-   for( var n in oDlg.children )
-   {
-      oDlg.children[ n ].draggable().resizable();
-   } 
-   */
+   $( "#" + cVarName ).resizable().draggable( { cancel: false } );
 }   
 
 // DataBase management
