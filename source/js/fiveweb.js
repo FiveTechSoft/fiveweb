@@ -50,7 +50,7 @@ function AddButton( cDlgName )
    var oDlg = document.getElementById( cDlgName );
    var cVarName = "ctrl" + ( oDlg.children.length + 1 );
    
-   oDlg.innerHTML += "<div id='" + cVarName + "' style='width: 110px; height:40px;'>Button</div>";
+   oDlg.innerHTML += "<div id='" + cVarName + "class='ui-widget-content' style='width: 110px; height:40px;'>Button</div>";
    $( "#" + cVarName ).button().resizable().draggable();
 }   
 
@@ -59,7 +59,7 @@ function AddSay( cDlgName )
    var oDlg = document.getElementById( cDlgName );
    var cVarName = "ctrl" + ( oDlg.children.length + 1 );
    
-   oDlg.innerHTML += "<label id='" + cVarName + "' style='width: 110px; height:40px;'>text</div>";
+   oDlg.innerHTML += "<label id='" + cVarName + "class='ui-widget-content' style='width: 110px; height:40px;'>text</div>";
    $( "#" + cVarName ).resizable().draggable();
 }   
 
