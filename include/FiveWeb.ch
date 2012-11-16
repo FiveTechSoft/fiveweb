@@ -50,9 +50,11 @@ extern ErrorSys  // FiveWeb error system
 
 #xcommand @ <nRow>, <nCol> SAY [ <oSay> <label: PROMPT,VAR > ] <cText> ;
              [ SIZE <nWidth>, <nHeight> ] ;
+             [ TITLE <cTitle> ] ;
+             [ URL <cUrl> ] ;
              [ OF <oDlg> ] ;
        => ;
-          [ <oSay> := ] TSay():New( <nRow>, <nCol>, <cText>, <nWidth>, <nHeight>, <oDlg>, [<(oSay)>] )
+          [ <oSay> := ] TSay():New( <nRow>, <nCol>, <cText>, <nWidth>, <nHeight>, <oDlg>, [<(oSay)>],[<cUrl>],[<cTitle>] )
 
 #xcommand @ <nRow>, <nCol> GET [ <oGet> VAR ] <uValue> ;
              [ SIZE <nWidth>, <nHeight> ] ;
