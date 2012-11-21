@@ -49,9 +49,19 @@ function AddButton( cDlgName )
 {
    var oDlg = document.getElementById( cDlgName );
    var cVarName = "ctrl" + ( oDlg.children.length + 1 );
+   var div = document.createElement( "div" );
    
-   oDlg.innerHTML += "<div id='" + cVarName + "' class='ui-widget-content' style='width: 110px; height:40px;'>Button</div>";
+   // oDlg.innerHTML += "<div id='" + cVarName + "' class='ui-widget-content' style='width: 110px; height:40px;'>Button</div>";
+   
+   div.className = "ui-widget-content";
+   div.id = cVarName;
+   div.style.position = "absolute";
+   div.style.width  = 110px;
+   div.style.height = 40px;
+
    $( "#" + cVarName ).button().resizable().draggable();
+      
+   oDlg.appendChild( div );
 }   
 
 function AddSay( cDlgName )
