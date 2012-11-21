@@ -17,6 +17,8 @@ ENDCLASS
 
 METHOD New( nTop, nLeft, nWidth, nHeight, cVarName, oWnd ) CLASS TControl
 
+   DEFAULT oWnd := GetWndDefault()
+
    ::nTop     = nTop
    ::nLeft    = nLeft
    ::nWidth   = nWidth

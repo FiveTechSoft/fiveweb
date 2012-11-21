@@ -1,5 +1,7 @@
 #include "FiveWeb.ch"
 
+//----------------------------------------------------------------------------//
+
 CLASS TDialog
 
    DATA  cTitle
@@ -17,6 +19,8 @@ CLASS TDialog
 
 ENDCLASS
 
+//----------------------------------------------------------------------------//
+
 METHOD New( cTitle, nWidth, nHeight, cVarName ) CLASS TDialog
 
    DEFAULT cTitle := "dialog", nWidth := 600, nHeight := 500
@@ -28,6 +32,8 @@ METHOD New( cTitle, nWidth, nHeight, cVarName ) CLASS TDialog
    ? '<div id="oDlg" class="dialog_window" title="' + ::cTitle + '">'
 
 return Self
+
+//----------------------------------------------------------------------------//
 
 METHOD Activate( lModal ) CLASS TDialog
 
@@ -49,3 +55,5 @@ METHOD Activate( lModal ) CLASS TDialog
    next   
    
 return nil   
+
+//----------------------------------------------------------------------------//

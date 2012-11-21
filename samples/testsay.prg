@@ -4,13 +4,13 @@
 
 function Main()
 
-   local oDlg, osay
+   local oDlg, oSay
    
    DEFINE DIALOG oDlg TITLE "Hello FiveWeb" SIZE 600, 400
    
-      @ 240,260 SAY oSay PROMPT "Hola Mundo" OF oDlg SIZE 300, 40
+   @ 20, 20 SAY oSay PROMPT "Hello world" OF oDlg SIZE 300, 40
    
-      @ 120, 370 BUTTON "ok" SIZE 120, 50 OF oDlg
+   @ 120, 370 BUTTON "ok" SIZE 120, 50 OF oDlg
         
    ACTIVATE DIALOG oDlg 
 

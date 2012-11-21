@@ -18,7 +18,8 @@ PRG_OBJS = ./obj/fiveweb.obj \
   ./obj/progbar.obj \
   ./obj/radio.obj \
   ./obj/valblank.obj \
-  ./obj/say.obj
+  ./obj/say.obj \
+  ./obj/window.obj
 
 .\lib\fiveweb.lib : $(PRG_OBJS)
 

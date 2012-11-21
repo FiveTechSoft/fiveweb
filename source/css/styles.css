@@ -39,7 +39,7 @@ body
 
 .nav ul ul
 { 
-   z-index: 1; 
+   z-index: 99999; 
 }
 
 .nav li a 
