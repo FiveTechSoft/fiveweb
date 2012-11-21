@@ -1,12 +1,14 @@
 #include "FiveWeb.ch"
 
+
 //----------------------------------------------------------------------------//
 
 function Main( cParams )
 
    local oDlg, oGet1, oGet2, oGet3 
    local cTitle := Space( 80 ), cFamilien := Space( 80 ), cVorname := Space( 80 )
-   
+   local AppName:= AppName()
+
    SET BACKIMAGE TO "http://fiveweb.googlecode.com/svn/trunk/images/beach.jpg"
    
    SetTheme( "flick" )
@@ -33,7 +35,7 @@ function Main( cParams )
    @ 90, 160 GET oGet3 VAR cVorname OF oDlg SIZE 300, 35
 
    @ 260, 160 BUTTON "Ok" OF oDlg ;
-      ACTION document.location = "otto.exe?add:" + ;
+      ACTION document.location = "otto?add:" + ;
                                  document.getElementById( "oGet1" ).value + ":" + ;
                                  document.getElementById( "oGet2" ).value + ":" + ;
                                  document.getElementById( "oGet3" ).value
@@ -47,14 +49,14 @@ return nil
 //----------------------------------------------------------------------------//
 
 function BuildMenu()
-
+local AppName := AppName()
    local oMenu
 
    MENU oMenu
       MENUITEM "Clients"
       MENU 
-         MENUITEM "Add"    ACTION document.location = "otto.exe"
-         MENUITEM "Browse" ACTION document.location = "otto.exe?browse"
+         MENUITEM "Add"    ACTION document.location = "otto"
+         MENUITEM "Browse" ACTION document.location = "otto?browse"
       ENDMENU
 
       MENUITEM "About"
@@ -77,9 +79,10 @@ function Process( cParams )
 
       case aParams[ 1 ] == "browse"
            Browse()
-           
-   endcase
-   
+      case aParams[ 1 ] == "clickbrw"
+           clickbrw (aParams )
+  end case
+
 return nil           
 
 //----------------------------------------------------------------------------//
@@ -111,9 +114,106 @@ return nil
 
 //----------------------------------------------------------------------------// 
 
+Function DefineClassLine()
+
+ ?'<style type="text/css">'
+ ?'<!-- '
+ ?'.linea {	font-family: Verdana, Arial, Helvetica, sans-serif;'
+ ?'	font-size: 13px;color: #333333;	background-color: transparent;'
+ ?'}'
+ ?'-->'
+ ? '</style>'
+Return nil
+
+Function DefineClassHead()
+
+ ?'<style type="text/css">'
+ ?'<!-- '
+
+?' .boxtitulo { '
+?'	background-image: url(glbnav_background.gif);'
+?'	background-position: 4px;'
+?'	border-bottom-color: #333333;'
+?'	border-bottom-style: solid;'
+?'	border-bottom-width: 1px;'
+?'	border-left-color: #333333;'
+?'	border-left-style: solid;'
+?'	border-left-width: 1px;'
+?'	border-right-color: #000000;'
+?'	border-right-style: solid;'
+?'	border-right-width: 1px;'
+?'	border-top-color: #333333;'
+?'	border-top-style: solid;'
+?'	border-top-width: 1px;'
+?'	color: #333333;'
+?'	background-color:#a5beb5 ;'
+?'	font-family: Verdana, Arial, Helvetica, sans-serif;'
+?'	font-size: 12px;'
+?'	font-weight: bold;'
+?'	height: 18px;'
+?'	text-align: center;'
+
+ ?'}'
+
+ ?'-->'
+ ? '</style>'
+
+Return nil
+
+//----------------------------------------------------------------------------// 
+
+Function clickbrw(aParams)
+local aDatos:= {}
+local cfun:= aParams[ 1 ]
+local x:= val(aParams[ 2 ])
+local n:= val(aParams[ 3 ])
+local cName
+local oDlg
+local AppName := AppName()
+
+
+
+//x:=val(x)
+//n:=val(n)
+
+USE clients SHARED
+
+aadd( aDatos, {"title","Family","Vorname"} )
+
+go top
+do while !eof()
+aadd(aDatos,{clients->title, clients->family,clients->vorname })
+skip
+enddo
+
+USE
+
+cName:= aDatos[ x ,n ]
+
+DEFINE DIALOG oDlg TITLE "Otto example" SIZE 600, 400
+
+@ 12, 10 SAY "Title:" OF oDlg
+
+@ 12, 80 SAY cName  OF oDlg
+
+@ 260, 300 BUTTON "Cancel" OF oDlg ACTION document.location = "otto?browse"
+
+ACTIVATE DIALOG oDlg NOWAIT
+
+
+
+Return nil
+
+//----------------------------------------------------------------------------///
+
+//----------------------------------------------------------------------------//
+
+
 function Browse()
 
    local oDlg, oBrw
+
+   local aDatos:={}
 
    if ! File( "clients.dbf" )
       DbCreate( "clients.dbf", { { "title",   "C", 10, 0 },;
@@ -122,14 +222,37 @@ function Browse()
    endif
    
    USE clients SHARED
+
+   aadd( aDatos, {"title","Family","Vorname"} )
+   
+   go top
+   do while !eof()
+      aadd(aDatos,{clients->title, clients->family,clients->vorname })
+      skip
+   enddo
+
+   USE
+  
+   DefineClassLine()
+   DefineClassHead()  
    
    DEFINE DIALOG oDlg TITLE "Clients browse" SIZE 800, 600
    
-   @ 10, 10 BROWSE oBrw SIZE 500, 400 OF oDlg
-   
+@ 10, 10 BROWSE oBrw SIZE 500, 400 OF oDlg ARRAY aDatos
+
+    oBrw:cAction= "clickbrw"
+
+    oBrw:cClassTable:= "" //"browse"
+    oBrw:cClassLine:="linea"
+    obrw:cClassHead:= "boxtitulo"
+    oBrw:lZebra:= .t.
+
+   oBrw:CreateFromCode()
+
+
    ACTIVATE DIALOG oDlg NOWAIT
    
-   USE
+   
 
 return nil
 

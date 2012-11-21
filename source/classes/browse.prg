@@ -13,6 +13,7 @@ CLASS TBrowse FROM TControl
    DATA cClassLine
    DATA aDatos
    DATA lZebra
+   DATA cAction
     
    CLASSDATA nControls INIT 1
 
@@ -28,21 +29,20 @@ ENDCLASS
 
 //----------------------------------------------------------------------------//
 
-METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aDatos, nRowHeight ,nHeadHeight ) CLASS TBrowse
+METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aDatos , cAction ) CLASS TBrowse
 local n,x , nFields
 
    DEFAULT cVarName := "oBrw" + AllTrim( Str( ::nControls++ ) )
-   DEFAULT nRowHeight := 25
-   DEFAULT nHeadHeight := 60
+  
 
    Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
 
    ::cUrl   = cUrl
    ::cAlias = Alias()   
-   ::nRowHeight = nRowHeight
-   ::nHeadHeight = nHeadHeight
+   ::nRowHeight = 25
+   ::nHeadHeight = 60
    ::lZebra := .f.
-
+  
    ::cClassTable= "browse"
  //  ::cClassLine = "linea" 
  //  ::cClassHead ="boxtitulo"
@@ -111,8 +111,9 @@ local cTablestyle := 'style="' + "position: absolute; " + ;
                       'overflow: auto;" '
 
   if !Empty( ::aDatos )
+  
+       ::cAlias:="ARRAY"
 
-       ::cAlias:="ARRAY" 
        nFields:= len( ::aDatos[1] )
 
       ? '<table id="'+ ::cVarName + '" ' + ;
@@ -150,8 +151,14 @@ local cTablestyle := 'style="' + "position: absolute; " + ;
          endif
 
          for n = 1 to nFields
-            ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;" >'+;
-                 ::aDatos[x,n] + "</td>"
+  //  ?  '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;" >'+ ;
+  //               ::aDatos[x,n] + "</td>"
+
+
+
+       ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;"'+;
+     if(Empty(::cAction),'', ' onDblClick="'+"document.location = '"+(appname())+"?"+::cAction+":"+alltrim(str(x))+":"+alltrim(str(n )) +"'" +'"' )+;
+           ' >'+::aDatos[x,n] + "</td>"
           next
          
           ? '</tr>'
@@ -170,8 +177,8 @@ local cTablestyle := 'style="' + "position: absolute; " + ;
       ?'</div>'
 
    else  
-   
-      ? '<table id="'+ ::cVarName + '" ' + ;
+  
+? '<table id="'+ ::cVarName + '" ' + ;
         if( Empty(::cClassTable),'', 'class="'+::cClassTable+'"') + ;
            cTableStyle + ' >'      
 
