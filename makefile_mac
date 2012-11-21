@@ -14,17 +14,18 @@ PRG_OBJS = ./obj/fiveweb.o \
 	./obj/datepick.o \
 	./obj/dialog.o \
 	./obj/errsys.o \
+	./obj/filename.o \
 	./obj/folder.o \
-    ./obj/get.o \
+	./obj/get.o \
 	./obj/harbour.o \
-    ./obj/menu.o \
+	./obj/menu.o \
 	./obj/menuitem.o \
 	./obj/pdmenu.o \
 	./obj/radio.o \
-    ./obj/checkbox.o \
-    ./obj/say.o \
+	./obj/checkbox.o \
+	./obj/say.o \
 	./obj/valblank.o \
-    ./obj/window.o
+	./obj/window.o
 
 ./lib/libfiveweb.a : $(PRG_OBJS)
 

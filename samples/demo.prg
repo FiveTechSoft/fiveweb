@@ -6,9 +6,9 @@ function Main( cParam )
 
    SET BACKIMAGE TO "http://fiveweb.googlecode.com/svn/trunk/images/bubbles.jpg"
    
-   @  80, 80 SAY "Pulldown Menu" URL hb_argv( 0 ) + "?pdmenu"
+   @  80, 80 SAY "Pulldown Menu" URL AppName() + "?pdmenu"
 
-   @ 140, 80 SAY "Dialog" URL hb_argv( 0 ) + "?dialog"
+   @ 140, 80 SAY "Dialog" URL AppName() + "?dialog"
 
    do case
       case cParam == "pdmenu"

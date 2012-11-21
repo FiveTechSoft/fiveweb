@@ -9,6 +9,7 @@ PRG_OBJS = obj/fiveweb.obj \
 	obj/datepick.obj \
 	obj/dialog.obj \
 	obj/errsys.obj \
+	obj/filename.obj \
 	obj/folder.obj \
 	obj/get.obj \
 	obj/harbour.obj \
