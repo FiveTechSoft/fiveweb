@@ -61,7 +61,7 @@ function AddButton( cDlgName )
       
    oDlg.appendChild( div );
 
-   div.button().resizable().draggable();
+   $( "#" + cVarName ).button().resizable().draggable();
 }   
 
 function AddSay( cDlgName )
