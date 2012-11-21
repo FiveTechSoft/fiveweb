@@ -58,10 +58,10 @@ function AddButton( cDlgName )
    div.style.position = "absolute";
    div.style.width  = "110px";
    div.style.height = "40px";
-
-   div.button().resizable().draggable();
       
    oDlg.appendChild( div );
+
+   div.button().resizable().draggable();
 }   
 
 function AddSay( cDlgName )
