@@ -6,9 +6,9 @@ function Main( cParam )
 
    SET BACKIMAGE TO "http://fiveweb.googlecode.com/svn/trunk/images/beach.jpg"
    
-   @  80, 80 SAY "Pulldown Menu" URL "demo.exe?pdmenu"
+   @  80, 80 SAY "Pulldown Menu" URL hb_argv( 0 ) + "?pdmenu"
 
-   @ 140, 80 SAY "Dialog" URL "demo.exe?dialog"
+   @ 140, 80 SAY "Dialog" URL hb_argv( 0 ) + "?dialog"
 
    do case
       case cParam == "pdmenu"
