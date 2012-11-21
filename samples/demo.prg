@@ -4,11 +4,6 @@
 
 function Main( cParam )
 
-   do case
-      case cParam == "pdmenu"
-           BuildMenu()
-   endcase        
-
    SET BACKIMAGE TO "http://fiveweb.googlecode.com/svn/trunk/images/beach.jpg"
    
    @  80, 80 SAY "Pulldown Menu" URL "demo.exe?pdmenu"
@@ -16,6 +11,9 @@ function Main( cParam )
    @ 140, 80 SAY "Dialog" URL "demo.exe?dialog"
 
    do case
+      case cParam == "pdmenu"
+           BuildMenu()
+           
       case cParam == "dialog"
            BuildDialog()
    endcase        
