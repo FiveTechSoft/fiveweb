@@ -56,8 +56,8 @@ function AddButton( cDlgName )
    div.className = "ui-widget-content";
    div.id = cVarName;
    div.style.position = "absolute";
-   div.style.width  = 110px;
-   div.style.height = 40px;
+   div.style.width  = "110px";
+   div.style.height = "40px";
 
    $( "#" + cVarName ).button().resizable().draggable();
       
