@@ -59,7 +59,7 @@ function AddButton( cDlgName )
    div.style.width  = "110px";
    div.style.height = "40px";
 
-   $( "#" + cVarName ).button().resizable().draggable();
+   div.button().resizable().draggable();
       
    oDlg.appendChild( div );
 }   
