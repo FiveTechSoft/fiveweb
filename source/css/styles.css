@@ -18,6 +18,7 @@ body
 { 
    background: #404040; 
    width: 100%; 
+   opacity: 0.5;
 }
 
 .clear

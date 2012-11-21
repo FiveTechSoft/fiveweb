@@ -4,7 +4,7 @@
 
 function Main( cParam )
 
-   SET BACKIMAGE TO "http://fiveweb.googlecode.com/svn/trunk/images/beach.jpg"
+   SET BACKIMAGE TO "http://fiveweb.googlecode.com/svn/trunk/images/bubbles.jpg"
    
    @  80, 80 SAY "Pulldown Menu" URL hb_argv( 0 ) + "?pdmenu"
 
