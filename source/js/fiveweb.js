@@ -81,7 +81,7 @@ function AddSay( cDlgName )
    oDlg.appendChild( div );
 
    $( "#" + cVarName ).resizable().draggable();
-   div.style.background-image = none;
+   $( "#" + cVarName ).style.background-image = none;
 }   
 
 // DataBase management
