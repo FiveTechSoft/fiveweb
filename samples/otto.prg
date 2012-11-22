@@ -46,6 +46,8 @@ function Main( cParams )
 
 return nil
 
+
+
 //----------------------------------------------------------------------------//
 
 function BuildMenu()
@@ -55,8 +57,8 @@ local AppName := AppName()
    MENU oMenu
       MENUITEM "Clients"
       MENU 
-         MENUITEM "Add"    ACTION document.location = "otto.exe"
-         MENUITEM "Browse" ACTION document.location = "otto.exe?browse"
+         MENUITEM "Add"    ACTION ('document.location = "'+appname()+'" ')
+         MENUITEM "Browse" ACTION ('document.location = "'+appname()+'?browse"')
       ENDMENU
 
       MENUITEM "About"
@@ -226,7 +228,7 @@ DEFINE DIALOG oDlg TITLE "Otto example" SIZE 600, 400
 
 @ 12, 80 SAY cName  OF oDlg
 
-@ 260, 300 BUTTON "Cancel" OF oDlg ACTION document.location = "otto.exe?browse"
+@ 260, 300 BUTTON "Cancel" OF oDlg ACTION ('document.location = "'+appname()+'?browse"')
 
 ACTIVATE DIALOG oDlg NOWAIT
 
@@ -320,12 +322,14 @@ function Edita(aParams)
    
 
    @ 260, 160 BUTTON "Ok" OF oDlg ;
-      ACTION document.location = "otto.exe?edit:" + ;
-                                 document.getElementById( "oGet1" ).value.trim() + ":" + ;
-                                 document.getElementById( "oGet2" ).value.trim() + ":" + ;
-                                 document.getElementById( "oGet3" ).value.trim() + ":" + ;
-                                 document.getElementById( "oGet4" ).value.trim()  
+      ACTION ('document.location = "'+appname()+'?edit:"+' + ;
+                                  'document.getElementById( "oGet1" ).value.trim() + ":" + '+ ;
+                                  'document.getElementById( "oGet2" ).value.trim() + ":" + '+ ;
+                                  'document.getElementById( "oGet3" ).value.trim() + ":" + '+ ;
+                                  'document.getElementById( "oGet4" ).value.trim() ' )
 
+
+ 
    @ 260, 300 BUTTON "Cancel" OF oDlg
    
 
