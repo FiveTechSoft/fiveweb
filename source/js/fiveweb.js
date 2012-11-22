@@ -76,6 +76,7 @@ function AddSay( cDlgName )
    div.style.position = "absolute";
    div.style.width  = "110px";
    div.style.height = "40px";
+   div.style.backgroundColor = oDlg.style.backgroundColor;
    div.innerHTML = "Say";
 
    oDlg.appendChild( div );
