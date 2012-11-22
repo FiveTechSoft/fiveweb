@@ -12,6 +12,8 @@ CLASS TDialog
 
    METHOD New( cTitle, nWidth, nHeight, cVarName )
    
+   METHOD Close()
+   
    METHOD Activate( lModal )
 
    METHOD AddControl( oControl ) INLINE AAdd( ::aControls, oControl ),;
@@ -56,4 +58,11 @@ METHOD Activate( lModal ) CLASS TDialog
    
 return nil   
 
+
+METHOD Close() CLASS TDialog
+
+Return '$( "#oDlg" ).dialog( "close")'
+ 
+           
+            
 //----------------------------------------------------------------------------//

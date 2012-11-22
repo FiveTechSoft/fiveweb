@@ -330,7 +330,7 @@ function Edita(aParams)
 
 
  
-   @ 260, 300 BUTTON "Cancel" OF oDlg
+   @ 260, 300 BUTTON "Cancel" OF oDlg ACTION ( oDlg:close() )
    
 
    ACTIVATE DIALOG oDlg NOWAIT
