@@ -58,7 +58,7 @@ function AddButton( cDlgName )
    div.style.position = "absolute";
    div.style.width  = "110px";
    div.style.height = "40px";
-   div.title = "Button";
+   div.innerHTML = "Button";
       
    oDlg.appendChild( div );
 
