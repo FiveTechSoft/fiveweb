@@ -634,3 +634,5 @@ function eraseCookie( name )
 }
 
 String.prototype.trim = function() { return this.replace(/^\s*/, "").replace(/\s*$/, ""); }
+
+String.prototype.rtrim=function(){return this.replace(/\s+$/,'');}
