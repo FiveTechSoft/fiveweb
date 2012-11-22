@@ -6,25 +6,31 @@ CLASS TGet FROM TControl
 
    CLASSDATA nGets INIT 1
 
-   METHOD New( nRow, nCol, uValue, nWidth, nHeight, oWnd, cVarName )
+   METHOD New( nRow, nCol, uValue, nWidth, nHeight, oWnd, cVarName,lHidden )
 
    METHOD Activate() VIRTUAL
 
 ENDCLASS
 
-METHOD New( nRow, nCol, uValue, nWidth, nHeight, oWnd, cVarName ) CLASS TGet
+METHOD New( nRow, nCol, uValue, nWidth, nHeight, oWnd, cVarName, lHidden ) CLASS TGet
 
    DEFAULT cVarName := "oGet" + AllTrim( Str( ::nGets++ ) )
    DEFAULT nWidth := Len( cValToChar( uValue ) ) * 8, nHeight := 40
+   DEFAULT lHidden:= .f. 
       
    Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
 
-   ? '<input type="text" id="' + ::cVarName + '" ' + ;
-    '" style="' + "position: absolute; " + ;
-     "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
-     "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ; 
-     "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ; 
-     "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + '>"' + ;
-     cValToChar( uValue ) + '</input>'    
+if lHidden
+   ? '<input type="hidden" id="' + ::cVarName + '" ' + ;
+     'value = "' + cValToChar( uValue )+'"' + '>'
 
+else
+   ? '<input type="text" id="' + ::cVarName + '" ' + ;
+     ' style="' + 'position: absolute; ' + ;
+     'top: ' + AllTrim( Str( ::nTop ) ) + 'px; ' + ;
+     'left: ' + AllTrim( Str( ::nLeft ) ) + 'px; ' + ; 
+     'width: ' + AllTrim( Str( ::nWidth ) ) + 'px; '  + ; 
+     'height: ' + AllTrim( Str( ::nHeight ) ) + 'px;" ' + ;
+     'value = "' + cValToChar( uValue )+'"' + '>'
+endif
 return Self

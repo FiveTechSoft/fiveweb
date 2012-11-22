@@ -17,7 +17,7 @@ CLASS TBrowse FROM TControl
     
    CLASSDATA nControls INIT 1
 
-   METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl )
+   METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl ,aDatos )
 
    METHOD CreateFromCode()
 
@@ -29,7 +29,7 @@ ENDCLASS
 
 //----------------------------------------------------------------------------//
 
-METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aDatos , cAction ) CLASS TBrowse
+METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aDatos ) CLASS TBrowse
 local n,x , nFields
 
    DEFAULT cVarName := "oBrw" + AllTrim( Str( ::nControls++ ) )
@@ -102,7 +102,7 @@ Return nil
 //----------------------------------------------------------------------------//
 
 METHOD CreateFromCode() CLASS TBrowse
-
+local x,n
 local cTablestyle := 'style="' + "position: absolute; " + ;
                                  "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
                                  "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ;
@@ -113,7 +113,7 @@ local cTablestyle := 'style="' + "position: absolute; " + ;
   if !Empty( ::aDatos )
   
        ::cAlias:="ARRAY"
-
+       
        nFields:= len( ::aDatos[1] )
 
       ? '<table id="'+ ::cVarName + '" ' + ;
@@ -133,7 +133,7 @@ local cTablestyle := 'style="' + "position: absolute; " + ;
       ? '</tr>'
       ? '</thead>'
       ? '<tbody>'
-      
+     
        for x = 2 to len( ::aDatos )
         
 
@@ -159,7 +159,8 @@ local cTablestyle := 'style="' + "position: absolute; " + ;
        ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;"'+;
      if(Empty(::cAction),'', ' onDblClick="'+"document.location = '"+(appname())+"?"+::cAction+":"+alltrim(str(x))+":"+alltrim(str(n )) +"'" +'"' )+;
            ' >'+::aDatos[x,n] + "</td>"
-          next
+           
+         next
          
           ? '</tr>'
           
@@ -188,11 +189,16 @@ local cTablestyle := 'style="' + "position: absolute; " + ;
            ? "<th>" + FieldName( n ) + "</th>"
         next
         ? "</tr>"
-           
+        x:=1   
+        
         while ! EoF()
            ? '<tr>'
+           x++
            for n = 1 to FCount()
-              ? "<td>" + FieldGet( n ) + "</td>"
+           
+              ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;"'+;
+     if(Empty(::cAction),'', ' onDblClick="'+"document.location = '"+(appname())+"?"+::cAction+":"+alltrim(str(x))+":"+alltrim(str(n )) +"'" +'"' )+;
+           ' >'+ FieldGet( n )+ "</td>"                      
            next
            ? '</tr>'
            SKIP

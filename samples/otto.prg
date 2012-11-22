@@ -35,7 +35,7 @@ function Main( cParams )
    @ 90, 160 GET oGet3 VAR cVorname OF oDlg SIZE 300, 35
 
    @ 260, 160 BUTTON "Ok" OF oDlg ;
-      ACTION document.location = "otto?add:" + ;
+      ACTION document.location = "otto.exe?add:" + ;
                                  document.getElementById( "oGet1" ).value + ":" + ;
                                  document.getElementById( "oGet2" ).value + ":" + ;
                                  document.getElementById( "oGet3" ).value
@@ -55,8 +55,8 @@ local AppName := AppName()
    MENU oMenu
       MENUITEM "Clients"
       MENU 
-         MENUITEM "Add"    ACTION document.location = "otto"
-         MENUITEM "Browse" ACTION document.location = "otto?browse"
+         MENUITEM "Add"    ACTION document.location = "otto.exe"
+         MENUITEM "Browse" ACTION document.location = "otto.exe?browse"
       ENDMENU
 
       MENUITEM "About"
@@ -70,18 +70,27 @@ return oMenu
 //----------------------------------------------------------------------------//
 
 function Process( cParams )
-
+   local i
    local aParams := hb_aTokens( cParams, ":" )
-   
+  
    do case
       case aParams[ 1 ] == "add"
            Add( aParams )
 
       case aParams[ 1 ] == "browse"
            Browse()
-      case aParams[ 1 ] == "clickbrw"
+     
+      case aParams[ 1 ] == "edit"
+         
+           Edit( aParams ) 
+     
+     case aParams[ 1 ] == "Edita"
+           edita( aParams ) 
+     
+     case aParams[ 1 ] == "clickbrw"
            clickbrw (aParams )
   end case
+
 
 return nil           
 
@@ -111,6 +120,29 @@ function Add( aParams )
    Browse()
 
 return nil
+//----------------------------------------------------------------------------// 
+function Edit( aParams )
+      
+   
+local nRecno:=val(aParams[ 5 ])
+ 
+    USE clients SHARED 
+    dbgoto( nRecno )
+ 
+   if RLock()
+      clients->title   := aParams[ 2 ]
+      clients->family  := aParams[ 3 ]
+      clients->vorname := aParams[ 4 ]
+      clients->user_ip := GetEnv( "REMOTE_ADDR" )
+      DbUnLock()
+   endif    
+
+   USE
+   Browse()
+
+return nil
+
+
 
 //----------------------------------------------------------------------------// 
 
@@ -173,10 +205,8 @@ local AppName := AppName()
 
 
 
-//x:=val(x)
-//n:=val(n)
-
 USE clients SHARED
+
 
 aadd( aDatos, {"title","Family","Vorname"} )
 
@@ -196,18 +226,15 @@ DEFINE DIALOG oDlg TITLE "Otto example" SIZE 600, 400
 
 @ 12, 80 SAY cName  OF oDlg
 
-@ 260, 300 BUTTON "Cancel" OF oDlg ACTION document.location = "otto?browse"
+@ 260, 300 BUTTON "Cancel" OF oDlg ACTION document.location = "otto.exe?browse"
 
 ACTIVATE DIALOG oDlg NOWAIT
 
 
-
 Return nil
 
-//----------------------------------------------------------------------------///
 
 //----------------------------------------------------------------------------//
-
 
 function Browse()
 
@@ -238,18 +265,21 @@ function Browse()
    
    DEFINE DIALOG oDlg TITLE "Clients browse" SIZE 800, 600
    
-@ 10, 10 BROWSE oBrw SIZE 500, 400 OF oDlg ARRAY aDatos
 
-    oBrw:cAction= "clickbrw"
+   @ 10, 10 BROWSE oBrw SIZE 500, 400 OF oDlg ARRAY aDatos
+
+  //  oBrw:cAction= "clickbrw"
+  
+    oBrw:cAction:= "Edita"
 
     oBrw:cClassTable:= "" //"browse"
     oBrw:cClassLine:="linea"
     obrw:cClassHead:= "boxtitulo"
     oBrw:lZebra:= .t.
 
-   oBrw:CreateFromCode()
+    oBrw:CreateFromCode()
 
-
+   
    ACTIVATE DIALOG oDlg NOWAIT
    
    
@@ -257,3 +287,53 @@ function Browse()
 return nil
 
 //----------------------------------------------------------------------------//                                  
+
+function Edita(aParams)
+ local nRecno:= val(aParams[ 2 ])-1
+ local oDlg, oGet1, oGet2, oGet3 ,oGet4
+ local cTitle , cFamilien , cVorname 
+ local cRecno:= alltrim(str(nRecno))
+   
+   USE clients SHARED
+   dbgoto(nRecno) 
+     
+   cTitle:=   clients->title 
+   cFamilien := clients->family
+   cVorname  := clients->vorname 
+   
+      
+   DEFINE DIALOG oDlg TITLE "Edición registros" SIZE 600, 400
+   
+   @ 12, 10 SAY "Title:" OF oDlg
+
+   @ 10, 160 GET oGet1 VAR cTitle OF oDlg SIZE 300, 35
+
+   @ 54, 10 SAY "FamilienName:" OF oDlg
+
+   @ 52, 160 GET oGet2 VAR cFamilien OF oDlg SIZE 300, 35
+
+   @ 94, 10 SAY "Vorname:" OF oDlg
+
+   @ 90, 160 GET oGet3 VAR cVorname OF oDlg SIZE 300, 35
+   
+    @ 9, 190 GET oGet4 VAR cRecno OF oDlg SIZE 300, 35 HIDE
+   
+
+   @ 260, 160 BUTTON "Ok" OF oDlg ;
+      ACTION document.location = "otto.exe?edit:" + ;
+                                 document.getElementById( "oGet1" ).value.trim() + ":" + ;
+                                 document.getElementById( "oGet2" ).value.trim() + ":" + ;
+                                 document.getElementById( "oGet3" ).value.trim() + ":" + ;
+                                 document.getElementById( "oGet4" ).value.trim()  
+
+   @ 260, 300 BUTTON "Cancel" OF oDlg
+   
+
+   ACTIVATE DIALOG oDlg NOWAIT
+   
+           
+   USE
+
+return nil
+
+//----------------------------------------------------------------------------//      
