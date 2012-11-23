@@ -134,10 +134,10 @@ function GenCode( cDlgName )
       var cWidth  = oCtrl.css( "width" );
       var cHeight = oCtrl.css( "height" );
 
-      cTop    = cTop.substr( 0, cTop.length - 2 ).toFixed( 2 );
-      cLeft   = cLeft.substr( 0, cLeft.length - 2 ).toFixed( 2 );
-      cWidth  = cWidth.substr( 0, cWidth.length - 2 ).toFixed( 2 );
-      cHeight = cHeight.substr( 0, cHeight.length - 2 ).toFixed( 2 );
+      cTop    = cTop.substr( 0, cTop.length - 2 );
+      cLeft   = cLeft.substr( 0, cLeft.length - 2 );
+      cWidth  = cWidth.substr( 0, cWidth.length - 2 );
+      cHeight = cHeight.substr( 0, cHeight.length - 2 );
       
       cCode += "   @ " + cTop + ", " + cLeft + " " + cClass +  
                " SIZE " + cWidth + ", " + cHeight + 
