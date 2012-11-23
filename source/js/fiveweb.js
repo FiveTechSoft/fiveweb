@@ -118,8 +118,8 @@ function GenCode( cDlgName )
 
    for( n = 0; n < oDlg.children.length; n++ )
    {
-      var cTop  = oDlg.children[ n ].style.top.toString();
-      var cLeft = oDlg.children[ n ].style.left.toString();
+      var cTop  = oDlg.children[ n ].style.top;
+      var cLeft = oDlg.children[ n ].style.left;
       
       alert( cTop );
       
