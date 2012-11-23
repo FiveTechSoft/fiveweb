@@ -69,7 +69,8 @@ function AddGet( cDlgName )
    var cVarName = "ctrl" + ( oDlg.children.length + 1 );
    var div = document.createElement( "input" );
    
-   div.className = "ui-widget-content";
+   // div.className = "ui-widget-content";
+   div.type = "text";
    div.id = cVarName;
    div.style.position = "absolute";
    div.style.width  = "300px";
