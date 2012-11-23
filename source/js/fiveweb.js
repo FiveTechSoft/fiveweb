@@ -114,7 +114,7 @@ function GenCode( cDlgName )
    
    cCode += "function Main()" + CRLF + CRLF;
    cCode += "   local oDlg" + CRLF + CRLF;
-   cCode += '   DEFINE DIALOG oDlg TITLE "' + $( "ui-id-1" ).attr( "innerHTML" ) + '" ;' + CRLF;
+   cCode += '   DEFINE DIALOG oDlg TITLE "' + $( "ui-id-1" ).innerHTML + '" ;' + CRLF;
    cCode += "      SIZE " + cWidth + ", " + cHeight + CRLF + CRLF;
    cCode += "   ACTIVATE DIALOG oDlg" + CRLF + CRLF;
    cCode += "return nil";
