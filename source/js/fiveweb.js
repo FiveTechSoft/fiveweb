@@ -112,7 +112,7 @@ function GenCode( cDlgName )
    cCode += "   DEFINE DIALOG oDlg<br>";
    cCode += "return nil";
    
-   MsgInfo( cCode );
+   MemoEdit( cCode, "Source code" );
 }      
 
 // DataBase management
@@ -172,6 +172,22 @@ function MsgInfo( cMsg, cTitle )
 
    $( "#msginfo" ).dialog( { width: 400, height: 250, modal:true, 
    buttons: { 'Ok': function() { $( "#msginfo" ).dialog( "close" ).remove(); } } } );
+}   
+
+function MemoEdit( cMsg, cTitle )
+{
+   var div = document.createElement( "div" );
+   
+   div.className = "dialog_window";
+   div.id = "memoedit";
+   div.title = cTitle;
+   div.innerHTML = '<input type="text" style="width:600px; height:320px;" + 
+                   cMsg + "</input>";
+   
+   document.body.appendChild( div );
+
+   $( "#memoedit" ).dialog( { width: 700, height: 400, modal:true, 
+   buttons: { 'Ok': function() { $( "#memoedit" ).dialog( "close" ).remove(); } } } );
 }   
 
 function MsgYesNo( cMsg, OnYes )
