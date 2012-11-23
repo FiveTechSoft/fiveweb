@@ -63,6 +63,25 @@ function AddButton( cDlgName )
    $( "#" + cVarName ).button().resizable().draggable();
 }   
 
+function AddGet( cDlgName )
+{
+   var oDlg = document.getElementById( cDlgName );
+   var cVarName = "ctrl" + ( oDlg.children.length + 1 );
+   var div = document.createElement( "div" );
+   
+   div.className = "ui-widget-content";
+   div.id = cVarName;
+   div.style.position = "absolute";
+   div.style.width  = "200px";
+   div.style.height = "40px";
+   div.innerHTML = '<input typr="text">';
+
+   oDlg.appendChild( div );
+
+   $( "#" + cVarName ).resizable().draggable();
+   $( "#" + cVarName ).css( 'background-image', "none" );
+}   
+
 function AddSay( cDlgName )
 {
    var oDlg = document.getElementById( cDlgName );

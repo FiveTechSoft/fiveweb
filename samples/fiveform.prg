@@ -22,9 +22,16 @@ function BuildMenu()
          MENUITEM "Add control"
          MENU 
             MENUITEM "Say"    ACTION AddSay( "oDlg" )
+            MENUITEM "Get"    ACTION AddGet( "oDlg" )
             MENUITEM "Button" ACTION AddButton( "oDlg" )
          ENDMENU
       ENDMENU  
+      
+      MENUITEM "Source"
+      MENU 
+         MENUITEM "FiveWeb"
+         MENUITEM "HTML"
+      ENDMENU
    ENDMENU
 
 return oMenu
