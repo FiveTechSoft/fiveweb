@@ -110,7 +110,8 @@ function GenCode( cDlgName )
    cCode += "function Main()" + CRLF + CRLF;
    cCode += "   local oDlg" + CRLF + CRLF;
    cCode += "   DEFINE DIALOG oDlg ;" + CRLF;
-   cCode += "      SIZE " + oDlg.style.width + ", " + oDlg.style.height + CRLF + CRLF;
+   cCode += "      SIZE " + oDlg.style.width.toString() + ", " + 
+            oDlg.style.height.toString().substr( 1, -2 ) + CRLF + CRLF;
    cCode += "   ACTIVATE DIALOG oDlg" + CRLF + CRLF;
    cCode += "return nil";
    
