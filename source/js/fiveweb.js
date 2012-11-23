@@ -74,7 +74,6 @@ function AddGet( cDlgName )
    div.style.position = "absolute";
    div.style.width  = "300px";
    div.style.height = "40px";
-   // div.innerHTML = '<input typr="text" style="width:290px; height:35px;">';
 
    oDlg.appendChild( div );
 
@@ -116,6 +115,15 @@ function GenCode( cDlgName )
    cCode += "   local oDlg" + CRLF + CRLF;
    cCode += '   DEFINE DIALOG oDlg TITLE "' + $( "#" + cDlgName ).dialog( "option", "title" ) + '" ;' + CRLF;
    cCode += "      SIZE " + cWidth + ", " + cHeight + CRLF + CRLF;
+
+   for( n = 0; n < oDlg.children.length; n++ )
+   {
+      var cTop  = $( "#" + "ctrl" + n.toString() ).css( "top" ).toString();
+      var cLeft = $( "#" + "ctrl" + n.toString() ).css( "left" ).toString();
+      
+      cCode += "   @ " + cTop + ", " + cLeft + " CONTROL ..." + CRLF + CRLF;
+   }   	
+
    cCode += "   ACTIVATE DIALOG oDlg" + CRLF + CRLF;
    cCode += "return nil";
    
