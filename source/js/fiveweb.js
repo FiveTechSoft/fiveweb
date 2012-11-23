@@ -67,19 +67,20 @@ function AddGet( cDlgName )
 {
    var oDlg = document.getElementById( cDlgName );
    var cVarName = "ctrl" + ( oDlg.children.length + 1 );
-   var div = document.createElement( "div" );
+   var div = document.createElement( "input" );
    
    div.className = "ui-widget-content";
    div.id = cVarName;
    div.style.position = "absolute";
    div.style.width  = "300px";
    div.style.height = "40px";
-   div.innerHTML = '<input typr="text" style="width:290px; height:35px;">';
+   // div.innerHTML = '<input typr="text" style="width:290px; height:35px;">';
 
    oDlg.appendChild( div );
 
    $( "#" + cVarName ).resizable().draggable();
    $( "#" + cVarName ).css( 'background-image', "none" );
+   $( "#" + cVarName ).css( 'background-color', "white" );
 }   
 
 function AddSay( cDlgName )
