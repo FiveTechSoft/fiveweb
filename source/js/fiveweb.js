@@ -63,6 +63,7 @@ function AddButton( cDlgName )
    oDlg.appendChild( div );
 
    $( "#" + cVarName ).button().resizable().draggable();
+   $( "#" + cVarName ).data( "tag", "BUTTON" );
 }   
 
 function AddGet( cDlgName )
@@ -84,6 +85,7 @@ function AddGet( cDlgName )
    $( "#" + cVarName ).resizable().draggable();
    $( "#" + cVarName ).css( 'background-image', "none" );
    $( "#" + cVarName ).css( 'background-color', "white" );
+   $( "#" + cVarName ).data( "tag", "GET" );
 }   
 
 function AddSay( cDlgName )
@@ -132,7 +134,7 @@ function GenCode( cDlgName )
       cTop  = cTop.substr( 0, cTop.length - 2 );
       cLeft = cLeft.substr( 0, cLeft.length - 2 );
       
-      cCode += "   @ " + cTop + ", " + cLeft + " " + cClass + CRLF + CRLF;
+      cCode += "   @ " + cTop + ", " + cLeft + " " + cClass + " OF oDlg" + CRLF + CRLF;
    }   	
 
    cCode += "   ACTIVATE DIALOG oDlg" + CRLF + CRLF;
