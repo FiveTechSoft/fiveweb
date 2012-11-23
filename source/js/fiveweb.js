@@ -105,11 +105,11 @@ function AddSay( cDlgName )
 function GenCode( cDlgName )
 {
    var oDlg  = document.getElementById( cDlgName );
-   var cCode = '#include "FiveWeb.ch"' + CRLF;
+   var cCode = '#include "FiveWeb.ch"<br><br>';
    
-   cCode += "function Main()" + CRLF + CRLF;
+   cCode += "function Main()<br><br>";
    cCode += "   local oDlg<br><br>";
-   cCode += "   DEFINE DIALOG oDlg<br>";
+   cCode += "   DEFINE DIALOG oDlg<br><br>";
    cCode += "return nil";
    
    MemoEdit( cCode, "Source code" );
