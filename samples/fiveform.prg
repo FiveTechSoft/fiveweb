@@ -29,7 +29,7 @@ function BuildMenu()
       
       MENUITEM "Source"
       MENU 
-         MENUITEM "FiveWeb"
+         MENUITEM "FiveWeb" ACTION GenCode( "oDlg" )
          MENUITEM "HTML"
       ENDMENU
    ENDMENU

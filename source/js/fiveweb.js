@@ -102,6 +102,19 @@ function AddSay( cDlgName )
    $( "#" + cVarName ).css( 'background-image', "none" );
 }   
 
+function GenCode( cDlgName )
+{
+   var oDlg  = document.getElementById( cDlgName );
+   var cCode = '#include "FiveWeb.ch"<br><br>';
+   
+   cCode += "function Main()<br><br>";
+   cCode += "   local oDlg<br><br>";
+   cCode += "   DEFINE DIALOG oDlg<br>";
+   cCode += "return nil";
+   
+   MsgInfo( cCode );
+}      
+
 // DataBase management
 
 var cAlias, nRecNo;
