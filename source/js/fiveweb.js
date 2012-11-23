@@ -113,7 +113,14 @@ function GenCode( cDlgName )
    cCode += "   ACTIVATE DIALOG oDlg" + CRLF + CRLF;
    cCode += "return nil";
    
-   MemoEdit( cCode, "Source code" );
+   MemoEdit( cCode, "FiveWeb source code" );
+}      
+
+function ShowHTML( cDlgName )
+{
+   var oDlg  = document.getElementById( cDlgName );
+   
+   MemoEdit( oDlg.innerHTML, "HTML Source code" );
 }      
 
 // DataBase management
