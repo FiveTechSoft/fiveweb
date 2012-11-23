@@ -101,12 +101,11 @@ function AddSay( cDlgName )
    div.style.height = "40px";
    div.innerHTML = "Say";
 
-   $( "#" + cVarName ).data( "fw", "SAY" );
-   
    oDlg.appendChild( div );
 
    $( "#" + cVarName ).resizable().draggable();
    $( "#" + cVarName ).css( 'background-image', "none" );
+   $( "#" + cVarName ).data( "tag", "SAY" );
 }   
 
 function GenCode( cDlgName )
@@ -128,7 +127,7 @@ function GenCode( cDlgName )
    {
       var cTop   = $( "#" + "ctrl" + n.toString() ).css( "top" ).toString();
       var cLeft  = $( "#" + "ctrl" + n.toString() ).css( "left" ).toString();
-      var cClass = $( "#" + "ctrl" + n.toString() ).data( "fw" );
+      var cClass = $( "#" + "ctrl" + n.toString() ).data( "tag" );
 
       cTop  = cTop.substr( 0, cTop.length - 2 );
       cLeft = cLeft.substr( 0, cLeft.length - 2 );
