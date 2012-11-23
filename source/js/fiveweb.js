@@ -114,8 +114,8 @@ function GenCode( cDlgName )
 {
    var oDlg    = document.getElementById( cDlgName );
    var cCode   = '#include "FiveWeb.ch"' + CRLF + CRLF;
-   var cWidth  = $( "#" + cDlgName ).css( "width" ).toFixed( 2 );
-   var cHeight = oDlg.style.height.toFixed( 2 );
+   var cWidth  = $( "#" + cDlgName ).css( "width" );
+   var cHeight = $( "#" + cDlgName ).css( "height" );
    
    cWidth  = cWidth.substr( 0, cWidth.length - 2 );
    cHeight = cHeight.substr( 0, cHeight.length - 2 );
