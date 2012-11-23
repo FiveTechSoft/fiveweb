@@ -121,6 +121,8 @@ function GenCode( cDlgName )
       var cTop  = oDlg.children[ n ].style.top.toString();
       var cLeft = oDlg.children[ n ].style.left.toString();
       
+      alert( cTop );
+      
       cCode += "   @ " + cTop + ", " + cLeft + " CONTROL ..." + CRLF + CRLF;
    }   	
 
