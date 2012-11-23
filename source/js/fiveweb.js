@@ -120,6 +120,9 @@ function GenCode( cDlgName )
    {
       var cTop  = $( "#" + "ctrl" + n.toString() ).css( "top" ).toString();
       var cLeft = $( "#" + "ctrl" + n.toString() ).css( "left" ).toString();
+
+      cTop  = cTop.substr( 0, cTop.length - 2 );
+      cLeft = cLeft.substr( 0, cLeft.length - 2 );
       
       cCode += "   @ " + cTop + ", " + cLeft + " CONTROL ..." + CRLF + CRLF;
    }   	
