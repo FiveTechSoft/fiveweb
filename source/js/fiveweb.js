@@ -116,10 +116,10 @@ function GenCode( cDlgName )
    cCode += '   DEFINE DIALOG oDlg TITLE "' + $( "#" + cDlgName ).dialog( "option", "title" ) + '" ;' + CRLF;
    cCode += "      SIZE " + cWidth + ", " + cHeight + CRLF + CRLF;
 
-   for( n = 0; n < oDlg.children.length; n++ )
+   for( n = 1; n <= oDlg.children.length; n++ )
    {
-      var cTop  = $( "#" + "ctrl" + n ).css( "top" ).toString();
-      var cLeft = $( "#" + "ctrl" + n ).css( "left" ).toString();
+      var cTop  = $( "#" + "ctrl" + n.toString() ).css( "top" ).toString();
+      var cLeft = $( "#" + "ctrl" + n.toString() ).css( "left" ).toString();
       
       cCode += "   @ " + cTop + ", " + cLeft + " CONTROL ..." + CRLF + CRLF;
    }   	
