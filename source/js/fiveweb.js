@@ -114,8 +114,8 @@ function GenCode( cDlgName )
 {
    var oDlg    = document.getElementById( cDlgName );
    var cCode   = '#include "FiveWeb.ch"' + CRLF + CRLF;
-   var cWidth  = $( "#" + cDlgName ).css( "width" ).toString();
-   var cHeight = oDlg.style.height.toString();
+   var cWidth  = $( "#" + cDlgName ).css( "width" ).toFixed( 2 );
+   var cHeight = oDlg.style.height.toFixed( 2 );
    
    cWidth  = cWidth.substr( 0, cWidth.length - 2 );
    cHeight = cHeight.substr( 0, cHeight.length - 2 );
@@ -127,8 +127,8 @@ function GenCode( cDlgName )
 
    for( n = 1; n <= oDlg.children.length; n++ )
    {
-      var cTop   = $( "#" + "ctrl" + n.toString() ).css( "top" ).toString();
-      var cLeft  = $( "#" + "ctrl" + n.toString() ).css( "left" ).toString();
+      var cTop   = $( "#" + "ctrl" + n.toString() ).css( "top" ).toFixed( 2 );
+      var cLeft  = $( "#" + "ctrl" + n.toString() ).css( "left" ).toFixed( 2 );
       var cClass = $( "#" + "ctrl" + n.toString() ).data( "tag" );
 
       cTop  = cTop.substr( 0, cTop.length - 2 );
