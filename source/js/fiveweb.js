@@ -72,7 +72,7 @@ function AddGet( cDlgName )
    div.className = "ui-widget-content";
    div.id = cVarName;
    div.style.position = "absolute";
-   div.style.width  = "200px";
+   div.style.width  = "300px";
    div.style.height = "40px";
    div.innerHTML = '<input typr="text">';
 
