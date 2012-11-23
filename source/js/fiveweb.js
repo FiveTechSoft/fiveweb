@@ -182,7 +182,7 @@ function MemoEdit( cMsg, cTitle )
    div.className = "dialog_window";
    div.id = "memoedit";
    div.title = cTitle;
-   div.innerHTML = '<textarea style="width:600px; height:320px;">' + 
+   div.innerHTML = '<textarea style="width:600px; height:600px;">' + 
                    cMsg + "</textarea>";
    
    document.body.appendChild( div );
