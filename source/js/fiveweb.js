@@ -54,6 +54,8 @@ function AddButton( cDlgName )
    div.className = "ui-widget-content";
    div.id = cVarName;
    div.style.position = "absolute";
+   div.style.top    = "20px";
+   div.style.left   = "20px";
    div.style.width  = "110px";
    div.style.height = "40px";
    div.innerHTML = "Button";
@@ -72,6 +74,8 @@ function AddGet( cDlgName )
    div.className = "ui-widget-content";
    div.id = cVarName;
    div.style.position = "absolute";
+   div.style.top    = "20px";
+   div.style.left   = "20px";
    div.style.width  = "300px";
    div.style.height = "40px";
 
@@ -96,6 +100,7 @@ function AddSay( cDlgName )
    div.style.width  = "110px";
    div.style.height = "40px";
    div.innerHTML = "Say";
+   div.class = "SAY";
 
    oDlg.appendChild( div );
 
@@ -120,13 +125,14 @@ function GenCode( cDlgName )
 
    for( n = 1; n <= oDlg.children.length; n++ )
    {
-      var cTop  = $( "#" + "ctrl" + n.toString() ).css( "top" ).toString();
-      var cLeft = $( "#" + "ctrl" + n.toString() ).css( "left" ).toString();
+      var cTop   = $( "#" + "ctrl" + n.toString() ).css( "top" ).toString();
+      var cLeft  = $( "#" + "ctrl" + n.toString() ).css( "left" ).toString();
+      var cClass = $( "#" + "ctrl" + n.toString() ).attr( "class" );
 
       cTop  = cTop.substr( 0, cTop.length - 2 );
       cLeft = cLeft.substr( 0, cLeft.length - 2 );
       
-      cCode += "   @ " + cTop + ", " + cLeft + " CONTROL ..." + CRLF + CRLF;
+      cCode += "   @ " + cTop + ", " + cLeft + " " + cClass + CRLF + CRLF;
    }   	
 
    cCode += "   ACTIVATE DIALOG oDlg" + CRLF + CRLF;
