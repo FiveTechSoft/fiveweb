@@ -137,7 +137,9 @@ function GenCode( cDlgName )
       cTop  = cTop.substr( 0, cTop.length - 2 );
       cLeft = cLeft.substr( 0, cLeft.length - 2 );
       
-      cCode += "   @ " + cTop + ", " + cLeft + " " + cClass + " OF oDlg" + CRLF + CRLF;
+      cCode += "   @ " + cTop + ", " + cLeft + " " + cClass + 
+               " SIZE " + cWidth + ", " + cHeight + 
+               " OF oDlg" + CRLF + CRLF;
    }   	
 
    cCode += "   ACTIVATE DIALOG oDlg" + CRLF + CRLF;
