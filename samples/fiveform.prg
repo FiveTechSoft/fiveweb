@@ -32,6 +32,12 @@ function BuildMenu()
          MENUITEM "FiveWeb" ACTION GenCode( "oDlg" )
          MENUITEM "HTML"    ACTION ShowHTML( "oDlg" )
       ENDMENU
+
+      MENUITEM "Help"
+      MENU 
+         MENUITEM "About..." ACTION MsgInfo( "FiveWeb forms designer" )
+      ENDMENU
+
    ENDMENU
 
 return oMenu
