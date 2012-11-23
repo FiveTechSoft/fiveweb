@@ -182,12 +182,12 @@ function MemoEdit( cMsg, cTitle )
    div.className = "dialog_window";
    div.id = "memoedit";
    div.title = cTitle;
-   div.innerHTML = '<textarea style="width:600px; height:600px;">' + 
+   div.innerHTML = '<textarea style="width:650px; height:600px;">' + 
                    cMsg + "</textarea>";
    
    document.body.appendChild( div );
 
-   $( "#memoedit" ).dialog( { width: 700, height: 400, modal:true, 
+   $( "#memoedit" ).dialog( { width: 700, height: 600, modal:true, 
    buttons: { 'Ok': function() { $( "#memoedit" ).dialog( "close" ).remove(); } } } );
 }   
 
