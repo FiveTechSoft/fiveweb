@@ -106,7 +106,7 @@ function GenCode( cDlgName )
 {
    var oDlg    = document.getElementById( cDlgName );
    var cCode   = '#include "FiveWeb.ch"' + CRLF + CRLF;
-   var cWidth  = oDlg.style.width.toString();
+   var cWidth  = oDlg.css( "width" ).toString();
    var cHeight = oDlg.style.height.toString();
    
    cWidth  = cWidth.substr( 0, cWidth.length - 2 );
