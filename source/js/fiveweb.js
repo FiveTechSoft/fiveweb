@@ -127,8 +127,8 @@ function GenCode( cDlgName )
 
    for( n = 1; n <= oDlg.children.length; n++ )
    {
-      var cTop   = $( "#" + "ctrl" + n.toString() ).css( "top" ).toFixed( 2 );
-      var cLeft  = $( "#" + "ctrl" + n.toString() ).css( "left" ).toFixed( 2 );
+      var cTop   = $( "#" + "ctrl" + n.toString() ).css( "top" );
+      var cLeft  = $( "#" + "ctrl" + n.toString() ).css( "left" );
       var cClass = $( "#" + "ctrl" + n.toString() ).data( "tag" );
 
       cTop  = cTop.substr( 0, cTop.length - 2 );
