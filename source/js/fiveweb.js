@@ -100,7 +100,7 @@ function AddSay( cDlgName )
    div.style.width  = "110px";
    div.style.height = "40px";
    div.innerHTML = "Say";
-   div.class = "SAY";
+   div.tag = "SAY";
 
    oDlg.appendChild( div );
 
@@ -127,7 +127,7 @@ function GenCode( cDlgName )
    {
       var cTop   = $( "#" + "ctrl" + n.toString() ).css( "top" ).toString();
       var cLeft  = $( "#" + "ctrl" + n.toString() ).css( "left" ).toString();
-      var cClass = $( "#" + "ctrl" + n.toString() ).attr( "class" );
+      var cClass = $( "#" + "ctrl" + n.toString() ).attr( "tag" );
 
       cTop  = cTop.substr( 0, cTop.length - 2 );
       cLeft = cLeft.substr( 0, cLeft.length - 2 );
