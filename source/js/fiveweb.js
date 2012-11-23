@@ -133,7 +133,7 @@ function GenCode( cDlgName )
       var cClass  = oCtrl.data( "tag" );
       var cWidth  = oCtrl.css( "width" );
       var cHeight = oCtrl.css( "height" );
-      var cTitle  = oCtrl.value;
+      var cTitle  = oCtrl.innerHTML;
 
       cTop    = cTop.substr( 0, cTop.length - 2 );
       cLeft   = cLeft.substr( 0, cLeft.length - 2 );
