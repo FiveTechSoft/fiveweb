@@ -119,7 +119,7 @@ function GenCode( cDlgName )
    for( n = 0; n < oDlg.children.length; n++ )
    {
       var cTop  = oDlg.children[ n ].style.top;
-      var cLeft = $( "#" + "ctrl" + n.toString() ).css( "left" ).toString();
+      var cLeft = oDlg.children[ n ].style.left;
       
       cCode += "   @ " + cTop + ", " + cLeft + " CONTROL ..." + CRLF + CRLF;
    }   	
