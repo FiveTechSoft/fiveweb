@@ -104,14 +104,18 @@ function AddSay( cDlgName )
 
 function GenCode( cDlgName )
 {
-   var oDlg  = document.getElementById( cDlgName );
-   var cCode = '#include "FiveWeb.ch"' + CRLF + CRLF;
+   var oDlg    = document.getElementById( cDlgName );
+   var cCode   = '#include "FiveWeb.ch"' + CRLF + CRLF;
+   var cWidth  = oDlg.style.width.toString();
+   var cHeight = oDlg.style.height.toString();
+   
+   cWidth  = cWidth.substr( 1, cWidth.length - 2 );
+   cHeight = cHeight.substr( 1, cHeight.length - 2 );
    
    cCode += "function Main()" + CRLF + CRLF;
    cCode += "   local oDlg" + CRLF + CRLF;
    cCode += "   DEFINE DIALOG oDlg ;" + CRLF;
-   cCode += "      SIZE " + oDlg.style.width.toString() + ", " + 
-            oDlg.style.height.toString().substr( 1, -2 ) + CRLF + CRLF;
+   cCode += "      SIZE " + cWidth + ", " + cHeight + CRLF + CRLF;
    cCode += "   ACTIVATE DIALOG oDlg" + CRLF + CRLF;
    cCode += "return nil";
    
