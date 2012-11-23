@@ -182,7 +182,7 @@ function MemoEdit( cMsg, cTitle )
    div.id = "memoedit";
    div.title = cTitle;
    div.innerHTML = '<input type="text" style="width:600px; height:320px;" + 
-                   cMsg + "</input>";
+                   ' value="' + cMsg + '">';
    
    document.body.appendChild( div );
 
