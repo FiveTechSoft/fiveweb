@@ -109,8 +109,8 @@ function GenCode( cDlgName )
    var cWidth  = oDlg.style.width.toString();
    var cHeight = oDlg.style.height.toString();
    
-   cWidth  = cWidth.substr( 1, cWidth.length - 2 );
-   cHeight = cHeight.substr( 1, cHeight.length - 2 );
+   cWidth  = cWidth.substr( 0, cWidth.length - 2 );
+   cHeight = cHeight.substr( 0, cHeight.length - 2 );
    
    cCode += "function Main()" + CRLF + CRLF;
    cCode += "   local oDlg" + CRLF + CRLF;
