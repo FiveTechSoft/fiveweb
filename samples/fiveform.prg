@@ -36,6 +36,7 @@ function BuildMenu()
 
       MENUITEM "Help"
       MENU 
+         MENUITEM "Wiki..."  ACTION Go( "http://code.google.com/p/fiveweb/w/list" )
          MENUITEM "About..." ACTION MsgInfo( "FiveWeb forms designer" )
       ENDMENU
 

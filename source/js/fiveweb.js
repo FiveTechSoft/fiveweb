@@ -3,6 +3,11 @@
 
 var CRLF = "\r\n";
 
+function Go( cUrl )
+{
+   document.location = cUrl;
+}   
+
 // background management
 
 function SetColor( cColor )
