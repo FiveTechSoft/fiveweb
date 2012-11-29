@@ -21,9 +21,10 @@ function BuildMenu()
       MENU
          MENUITEM "Add control"
          MENU 
-            MENUITEM "Say"    ACTION AddSay( "oDlg" )
-            MENUITEM "Get"    ACTION AddGet( "oDlg" )
-            MENUITEM "Button" ACTION AddButton( "oDlg" )
+            MENUITEM "Say"      ACTION AddSay( "oDlg" )
+            MENUITEM "Get"      ACTION AddGet( "oDlg" )
+            MENUITEM "Button"   ACTION AddButton( "oDlg" )
+            MENUITEM "Progress" ACTION AddProgress( "oDlg" )
          ENDMENU
       ENDMENU  
       

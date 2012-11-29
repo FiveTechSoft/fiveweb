@@ -45,6 +45,8 @@ function ProgressDec( cProgBar, nStep )
    $( "#" + cProgBar ).progressbar( "value", nValue - nStep );
 }   	
 
+// Forms designer www.fivetechsoft.net/cgi-bin/fiveform
+
 function AddButton( cDlgName )
 {
    var oDlg = document.getElementById( cDlgName );
@@ -86,6 +88,28 @@ function AddGet( cDlgName )
    $( "#" + cVarName ).css( 'background-image', "none" );
    $( "#" + cVarName ).css( 'background-color', "white" );
    $( "#" + cVarName ).data( "tag", "GET" );
+}   
+
+function AddProgress( cDlgName )
+{
+   var oDlg = document.getElementById( cDlgName );
+   var cVarName = "ctrl" + ( oDlg.children.length + 1 );
+   var div = document.createElement( "div" );
+   
+   div.className = "progressbar";
+   div.id = cVarName;
+   div.style.position = "absolute";
+   div.style.top    = "20px";
+   div.style.left   = "20px";
+   div.style.width  = "300px";
+   div.style.height = "40px";
+
+   oDlg.appendChild( div );
+
+   $( "#" + cVarName ).progressbar().resizable().draggable();
+   // $( "#" + cVarName ).css( 'background-image', "none" );
+   // $( "#" + cVarName ).css( 'background-color', "white" );
+   $( "#" + cVarName ).data( "tag", "PROGRESS" );
 }   
 
 function AddSay( cDlgName )
