@@ -107,6 +107,7 @@ function AddProgress( cDlgName )
    oDlg.appendChild( div );
 
    $( "#" + cVarName ).progressbar().resizable().draggable();
+   $( "#" + cVarName ).progressbar( "value", 30 );
    // $( "#" + cVarName ).css( 'background-image', "none" );
    // $( "#" + cVarName ).css( 'background-color', "white" );
    $( "#" + cVarName ).data( "tag", "PROGRESS" );
