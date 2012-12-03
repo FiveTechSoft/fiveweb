@@ -25,6 +25,7 @@ function BuildMenu()
             MENUITEM "Get"      ACTION AddGet( "oDlg" )
             MENUITEM "Button"   ACTION AddButton( "oDlg" )
             MENUITEM "Progress" ACTION AddProgress( "oDlg" )
+            MENUITEM "Browse"   ACTION AddBrowse( "oDlg" )
          ENDMENU
       ENDMENU  
       

@@ -140,6 +140,28 @@ function AddSay( cDlgName )
    $( "#" + cVarName ).data( "tag", "SAY" );
 }   
 
+function AddBrowse( cDlgName )
+{
+   var oDlg = document.getElementById( cDlgName );
+   var cVarName = "ctrl" + ( oDlg.children.length + 1 );
+   var div = document.createElement( "div" );
+   
+   div.className = "ui-widget-content";
+   div.id = cVarName;
+   div.style.position = "absolute";
+   div.style.top    = "20px";
+   div.style.left   = "20px";
+   div.style.width  = "110px";
+   div.style.height = "40px";
+   div.innerHTML = "<table><tr><th>Col 1</th><th>Col 2<th></tr></table>";
+
+   oDlg.appendChild( div );
+
+   $( "#" + cVarName ).resizable().draggable();
+   $( "#" + cVarName ).css( 'background-image', "none" );
+   $( "#" + cVarName ).data( "tag", "SAY" );
+}   
+
 function GenCode( cDlgName )
 {
    var oDlg    = document.getElementById( cDlgName );
