@@ -152,8 +152,8 @@ function AddBrowse( cDlgName )
    div.style.top    = "20px";
    div.style.left   = "20px";
    div.style.width  = "110px";
-   div.style.height = "40px";
-   div.innerHTML = "<table class='browse'><tr><th>Col 1</th><th>Col 2<th></tr></table>";
+   div.style.height = "80px";
+   div.innerHTML = "<table class='browse'><tr><th>Col 1</th><th>Col 2<th></tr><tr><td>row 1-1</td><td>row 1-2</td></tr></table>";
 
    oDlg.appendChild( div );
 
