@@ -154,6 +154,7 @@ function AddBrowse( cDlgName )
    div.style.width  = "274px";
    div.style.height = "217px";
    div.innerHTML = "<table class='browse'><tr><th>Col 1</th><th>Col 2<th></tr><tr><td>row 1-1</td><td>row 1-2</td></tr><tr><td>row 2-1</td><td>row 2-2</td></tr></table>";
+   div.oncontextmenu = function() { MsgInfo( "right click" ); return false; }
 
    oDlg.appendChild( div );
 
