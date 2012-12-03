@@ -158,8 +158,8 @@ function AddBrowse( cDlgName )
    oDlg.appendChild( div );
 
    $( "#" + cVarName ).resizable().draggable();
-   $( "#" + cVarName ).css( 'background-image', "none" );
-   $( "#" + cVarName ).data( "tag", "SAY" );
+   // $( "#" + cVarName ).css( 'background-image', "none" );
+   $( "#" + cVarName ).data( "tag", "BROWSE" );
 }   
 
 function GenCode( cDlgName )
