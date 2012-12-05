@@ -90,7 +90,8 @@ function AddButton( cDlgName )
    $( "#" + cVarName ).button().resizable().draggable();
    $( "#" + cVarName ).data( "tag", "BUTTON" );
    
-   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { oCtrl = $( "#" + cVarName ); } );   
+   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { oCtrl = $( "#" + cVarName ); } );
+   oCtrl = $( "#" + cVarName );   
 }   
 
 function AddGet( cDlgName )
@@ -113,6 +114,9 @@ function AddGet( cDlgName )
    $( "#" + cVarName ).css( 'background-image', "none" );
    $( "#" + cVarName ).css( 'background-color', "white" );
    $( "#" + cVarName ).data( "tag", "GET" );
+
+   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { oCtrl = $( "#" + cVarName ); } );
+   oCtrl = $( "#" + cVarName );   
 }   
 
 function AddProgress( cDlgName )
@@ -136,6 +140,9 @@ function AddProgress( cDlgName )
    // $( "#" + cVarName ).css( 'background-image', "none" );
    // $( "#" + cVarName ).css( 'background-color', "white" );
    $( "#" + cVarName ).data( "tag", "PROGRESS" );
+
+   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { oCtrl = $( "#" + cVarName ); } );
+   oCtrl = $( "#" + cVarName );   
 }   
 
 function AddSay( cDlgName )
@@ -158,6 +165,9 @@ function AddSay( cDlgName )
    $( "#" + cVarName ).resizable().draggable();
    $( "#" + cVarName ).css( 'background-image', "none" );
    $( "#" + cVarName ).data( "tag", "SAY" );
+
+   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { oCtrl = $( "#" + cVarName ); } );
+   oCtrl = $( "#" + cVarName );   
 }   
 
 function AddBrowse( cDlgName )
@@ -180,6 +190,9 @@ function AddBrowse( cDlgName )
 
    $( "#" + cVarName ).resizable().draggable();
    $( "#" + cVarName ).data( "tag", "BROWSE" );
+
+   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { oCtrl = $( "#" + cVarName ); } );
+   oCtrl = $( "#" + cVarName );   
 }   
 
 function AddFolder( cDlgName )
@@ -203,6 +216,9 @@ function AddFolder( cDlgName )
    $( "#" + cVarName ).tabs();
    $( "#" + cVarName ).resizable().draggable();
    $( "#" + cVarName ).data( "tag", "FOLDER" );
+
+   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { oCtrl = $( "#" + cVarName ); } );
+   oCtrl = $( "#" + cVarName );   
 }   
 
 function ShowPopup( cDlgName )
