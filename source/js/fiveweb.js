@@ -188,22 +188,22 @@ function AddFolder( cDlgName )
 function ShowPopup( cDlgName )
 {
    var oDlg = document.getElementById( cDlgName );
-   var div = document.createElement( "div" );
+   var div = document.createElement( "ul" );
    
    div.className = "ui-widget-content";
-   div.id = "mypopup";
+   div.id = "popup";
    div.style.position = "absolute";
    div.style.top    = "80px";
    div.style.left   = "150px";
    div.style.width  = "240px";
    div.style.height = "200px";
-   div.innerHTML = "<ul id='popup'><li><a href=#option1>One</li><li><a href=#option2>Two</li><li><a href=#option3>Three</li></ul>";
+   div.innerHTML = "<li><a href=#option1>One</li><li><a href=#option2>Two</li><li><a href=#option3>Three</li>";
 
    oDlg.appendChild( div );
 
    $( "#popup" ).menu();
    $( "#popup" ).css( 'background-image', "none" );
-   $( "#popup" ).bind( "menuselect", function( event, ui ) { $( "#mypopup" ).remove(); } );
+   $( "#popup" ).bind( "menuselect", function( event, ui ) { $( "#popup" ).remove(); } );
 }   
 
 function GenCode( cDlgName )
