@@ -188,21 +188,20 @@ function AddFolder( cDlgName )
 function ShowPopup( cDlgName )
 {
    var oDlg = document.getElementById( cDlgName );
-   var cVarName = "popup" + ( oDlg.children.length + 1 );
    var div = document.createElement( "div" );
    
-   div.className = "contextMenu";
-   div.id = cVarName;
+   div.className = "contextmenu";
+   div.id = "popup";
    div.style.position = "absolute";
    div.style.top    = "20px";
    div.style.left   = "20px";
    div.style.width  = "240px";
    div.style.height = "240px";
-   div.innerHTML = "<ul><li><a href=#tab1>One</li><li><a href=#tab2>Two</li><li><a href=#tab3>Three</li></ul>";
+   div.innerHTML = "<ul><li><a href=#option1>One</li><li><a href=#option2>Two</li><li><a href=#option3>Three</li></ul>";
 
    oDlg.appendChild( div );
 
-   $( "#" + cVarName ).contextMenu();
+   $( "#" + cVarName ).contextmenu( { 'menu' : $( "#popup" ) } );
 }   
 
 function GenCode( cDlgName )

@@ -47,7 +47,7 @@ function IncludeScripts()
    ? '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>'
    ? '<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>'
    ? '<script src="https://fiveweb.googlecode.com/svn/trunk/source/js/fiveweb.js"></script>'
-   ? '<script src="http://www.trendskitchens.co.nz/jquery/contextmenu/jquery.contextmenu.r2.js"></script>'
+   ? '<script src="https://github.com/basti1253/jQueryUI-contextmenu/blob/master/src/dyn.contextmenu.js"></script>'
    
 return nil   
 
@@ -65,6 +65,9 @@ function IncludeTheme( cTheme )
 
    ? '<link type="text/css" rel="stylesheet"' + ;
      ' href="https://fiveweb.googlecode.com/svn/trunk/source/css/styles.css">'
+   
+   ? '<link type="text/css" rel="stylesheet"' + ;
+     ' href="https://github.com/basti1253/jQueryUI-contextmenu/blob/master/src/dyn.contextmenu.css">'
    
 return nil
 
