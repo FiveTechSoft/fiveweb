@@ -201,7 +201,7 @@ function ShowPopup( cDlgName )
 
    oDlg.appendChild( div );
 
-   $( "#popup" ).contextmenu( { 'menu' : $( "#popup" ) } );
+   $( "#popup" ).contextmenu();
 }   
 
 function GenCode( cDlgName )
