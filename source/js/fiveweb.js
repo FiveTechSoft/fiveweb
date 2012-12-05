@@ -202,7 +202,7 @@ function ShowPopup( cDlgName )
    oDlg.appendChild( div );
 
    $( "#popup" ).menu();
-   $( "#popup" ).bind( "menuselect", function( event, ui ) { $( "#popup" ).remove(); } );
+   $( "#popup" ).bind( "menuselect", function( event, ui ) { $( "#popup" ).destroy().remove(); } );
    $( "#popup" ).css( 'background-image', "none" );
 }   
 
