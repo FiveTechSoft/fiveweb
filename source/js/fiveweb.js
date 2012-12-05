@@ -61,6 +61,7 @@ function CenterHorizontally()
       width = $( "#oDlg" ).css( "width" );
       pos = ( width / 2 ) - oCtrl.css( "width" ) / 2;	
       oCtrl.css( "left", width );
+   }   
 }      	
 
 function AddButton( cDlgName )
