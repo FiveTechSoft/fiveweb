@@ -193,8 +193,8 @@ function ShowPopup( cDlgName )
    div.className = "ui-widget-content";
    div.id = "mypopup";
    div.style.position = "absolute";
-   div.style.top    = "20px";
-   div.style.left   = "20px";
+   div.style.top    = "100px";
+   div.style.left   = "100px";
    div.style.width  = "240px";
    div.style.height = "240px";
    div.innerHTML = "<ul id='popup'><li><a href=#option1>One</li><li><a href=#option2>Two</li><li><a href=#option3>Three</li></ul>";
@@ -202,6 +202,7 @@ function ShowPopup( cDlgName )
    oDlg.appendChild( div );
 
    $( "#popup" ).menu();
+   $( "#popup" ).css( 'background-image', "none" );
 }   
 
 function GenCode( cDlgName )
