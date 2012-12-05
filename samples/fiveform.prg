@@ -1,4 +1,8 @@
+// FiveWeb forms designer
+
 #include "FiveWeb.ch"
+
+//----------------------------------------------------------------------------//
 
 function Main()
 
@@ -11,6 +15,8 @@ function Main()
    ACTIVATE DIALOG oDlg NOWAIT  
 
 return nil
+
+//----------------------------------------------------------------------------//
 
 function BuildMenu()
 
@@ -26,6 +32,7 @@ function BuildMenu()
             MENUITEM "Button"   ACTION AddButton( "oDlg" )
             MENUITEM "Progress" ACTION AddProgress( "oDlg" )
             MENUITEM "Browse"   ACTION AddBrowse( "oDlg" )
+            MENUITEM "Folder"   ACTION AddFolder( "oDlg" )
          ENDMENU
       ENDMENU  
       
@@ -44,3 +51,5 @@ function BuildMenu()
    ENDMENU
 
 return oMenu
+
+//----------------------------------------------------------------------------//
