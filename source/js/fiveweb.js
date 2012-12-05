@@ -86,6 +86,14 @@ function CenterVertically()
    }   
 }      	
 
+function DelControl()
+{
+   if( oCtrl != null )
+   {
+      oCtrl.remove();
+   }
+}
+      
 function AddButton( cDlgName )
 {
    var oDlg = document.getElementById( cDlgName );

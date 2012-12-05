@@ -40,6 +40,8 @@ function BuildMenu()
             MENUITEM "Center horizontally" ACTION CenterHorizontally()
             MENUITEM "Center vertically"   ACTION CenterVertically()
          ENDMENU
+
+         MENUITEM "Delete" ACTION DelControl()
       ENDMENU  
       
       MENUITEM "Source"
