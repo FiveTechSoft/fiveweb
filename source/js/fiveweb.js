@@ -52,6 +52,8 @@ function ProgressDec( cProgBar, nStep )
 
 // Forms designer www.fivetechsoft.net/cgi-bin/fiveform
 
+var oCtrl;
+
 function AddButton( cDlgName )
 {
    var oDlg = document.getElementById( cDlgName );
@@ -71,6 +73,8 @@ function AddButton( cDlgName )
 
    $( "#" + cVarName ).button().resizable().draggable();
    $( "#" + cVarName ).data( "tag", "BUTTON" );
+   
+   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { oCtrl = ui; } );   
 }   
 
 function AddGet( cDlgName )
