@@ -159,8 +159,30 @@ function AddBrowse( cDlgName )
    oDlg.appendChild( div );
 
    $( "#" + cVarName ).resizable().draggable();
-   // $( "#" + cVarName ).css( 'background-image', "none" );
    $( "#" + cVarName ).data( "tag", "BROWSE" );
+}   
+
+function AddFolder( cDlgName )
+{
+   var oDlg = document.getElementById( cDlgName );
+   var cVarName = "ctrl" + ( oDlg.children.length + 1 );
+   var div = document.createElement( "div" );
+   
+   div.className = "ui-widget-content";
+   div.id = cVarName;
+   div.style.position = "absolute";
+   div.style.top    = "20px";
+   div.style.left   = "20px";
+   div.style.width  = "274px";
+   div.style.height = "217px";
+   div.innerHTML = "<ul><li><a href=#tab1>One</li><li><a href=#tab2>Two</li><li><a href=#tab3>Three</li></ul>";
+   div.oncontextmenu = function() { MsgInfo( "right click" ); return false; }
+
+   oDlg.appendChild( div );
+
+   $( "#" + cVarName ).tabs();
+   $( "#" + cVarName ).resizable().draggable();
+   $( "#" + cVarName ).data( "tag", "FOLDER" );
 }   
 
 function GenCode( cDlgName )
