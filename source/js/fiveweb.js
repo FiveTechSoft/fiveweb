@@ -176,7 +176,7 @@ function AddFolder( cDlgName )
    div.style.width  = "342px";
    div.style.height = "241px";
    div.innerHTML = "<ul><li><a href=#tab1>One</li><li><a href=#tab2>Two</li><li><a href=#tab3>Three</li></ul>";
-   div.oncontextmenu = function() { MsgInfo( "right click" ); return false; }
+   div.oncontextmenu = function() { ShowPopup( "oDlg" ); return false; }
 
    oDlg.appendChild( div );
 
