@@ -56,7 +56,7 @@ var oCtrl;
 
 function CenterHorizontally()
 {
-   if( oCtrl != nil )
+   if( oCtrl != null )
       oCtrl.style.left += 100;
 }      	
 

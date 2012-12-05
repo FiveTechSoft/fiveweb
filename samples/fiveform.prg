@@ -37,7 +37,7 @@ function BuildMenu()
          
          MENUITEM "Position"
          MENU 
-            MENUITEM "Center horizontally" ACTION MsgInfo( oCtrl.className )
+            MENUITEM "Center horizontally" ACTION CenterHorizontally()
          ENDMENU
       ENDMENU  
       
