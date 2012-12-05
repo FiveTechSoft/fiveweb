@@ -191,13 +191,13 @@ function ShowPopup( cDlgName )
    var div = document.createElement( "div" );
    
    div.className = "ui-widget-content";
-   div.id = "popup";
+   div.id = "mypopup";
    div.style.position = "absolute";
    div.style.top    = "20px";
    div.style.left   = "20px";
    div.style.width  = "240px";
    div.style.height = "240px";
-   div.innerHTML = "<ul><li><a href=#option1>One</li><li><a href=#option2>Two</li><li><a href=#option3>Three</li></ul>";
+   div.innerHTML = "<ul id='popup'><li><a href=#option1>One</li><li><a href=#option2>Two</li><li><a href=#option3>Three</li></ul>";
 
    oDlg.appendChild( div );
 
