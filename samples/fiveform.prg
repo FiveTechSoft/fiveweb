@@ -38,6 +38,7 @@ function BuildMenu()
          MENUITEM "Position"
          MENU 
             MENUITEM "Center horizontally" ACTION CenterHorizontally()
+            MENUITEM "Center vertically"   ACTION CenterVertically()
          ENDMENU
       ENDMENU  
       

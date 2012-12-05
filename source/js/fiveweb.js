@@ -70,6 +70,22 @@ function CenterHorizontally()
    }   
 }      	
 
+function CenterVertically()
+{
+   if( oCtrl != null )
+   {
+      dlgHeight = $( "#oDlg" ).css( "height" );
+      dlgHeight = dlgHeight.substr( 0, dlgHeight.length - 2 );
+      dlgHeight = parseInt( dlgHeight ).toFixed( 0 );
+
+      ctlHeigth = oCtrl.css( "height" );
+      ctlHeight = ctlHeight.substr( 0, ctlHeight.length - 2 );
+      ctlheight = parseInt( ctlHeight ).toFixed( 0 );
+
+      oCtrl.css( "top", dlgHeight / 2 - ctlHeight / 2 );
+   }   
+}      	
+
 function AddButton( cDlgName )
 {
    var oDlg = document.getElementById( cDlgName );
