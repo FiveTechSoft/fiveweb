@@ -60,7 +60,7 @@ function CenterHorizontally()
    {
       width = $( "#oDlg" ).css( "width" );
       pos = ( width / 2 ) - oCtrl.css( "width" ) / 2;	
-      oCtrl.css( "left", width );
+      oCtrl.css( "left", pos );
    }   
 }      	
 
