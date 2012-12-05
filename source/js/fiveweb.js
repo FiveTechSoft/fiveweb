@@ -192,7 +192,7 @@ function ShowPopup( cDlgName )
    
    div.className = "ui-widget-content";
    div.id = "popup";
-   div.style.position = "absolute";
+   div.style.position = "relative";
    div.style.top    = "80px";
    div.style.left   = "150px";
    div.style.width  = "240px";
