@@ -108,6 +108,27 @@ body
    background: -webkit-radial-gradient(rgba(127, 127, 127, 0.5), rgba(127, 127, 127, 0.5) 35%, rgba(0, 0, 0, 0.7));
 }
 
+.menuStyle 
+{
+   border: '2px solid #000';
+}
+
+.itemStyle 
+{
+   fontFamily: verdana;
+   backgroundColor : '#666';
+   color: 'white';
+   border: 'none';
+   padding: '1px';
+}
+
+.itemHoverStyle 
+{
+   color: '#fff';
+   backgroundColor: '#0f0';
+   border: 'none';
+}
+
 .dialog
 {
    position: absolute;

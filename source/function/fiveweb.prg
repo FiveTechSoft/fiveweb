@@ -47,6 +47,7 @@ function IncludeScripts()
    ? '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>'
    ? '<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>'
    ? '<script src="https://fiveweb.googlecode.com/svn/trunk/source/js/fiveweb.js"></script>'
+   ? '<script src="http://www.trendskitchens.co.nz/jquery/contextmenu/jquery.contextmenu.r2.js"></script>'
    
 return nil   
 
