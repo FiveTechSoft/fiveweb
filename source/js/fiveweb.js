@@ -78,7 +78,7 @@ function CenterVertically()
       dlgHeight = dlgHeight.substr( 0, dlgHeight.length - 2 );
       dlgHeight = parseInt( dlgHeight ).toFixed( 0 );
 
-      ctlHeigth = oCtrl.css( "height" );
+      ctlHeight = oCtrl.css( "height" );
       ctlHeight = ctlHeight.substr( 0, ctlHeight.length - 2 );
       ctlheight = parseInt( ctlHeight ).toFixed( 0 );
 
