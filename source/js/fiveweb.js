@@ -196,7 +196,7 @@ function ShowPopup( cDlgName )
    div.style.top    = "80px";
    div.style.left   = "150px";
    div.style.width  = "240px";
-   div.style.height = "120px";
+   div.style.height = "200px";
    div.innerHTML = "<ul id='popup'><li><a href=#option1>One</li><li><a href=#option2>Two</li><li><a href=#option3>Three</li></ul>";
 
    oDlg.appendChild( div );
