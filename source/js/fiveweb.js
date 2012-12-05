@@ -190,7 +190,7 @@ function ShowPopup( cDlgName )
    var oDlg = document.getElementById( cDlgName );
    var div = document.createElement( "div" );
    
-   div.className = "contextmenu";
+   div.className = "ui-widget-content";
    div.id = "popup";
    div.style.position = "absolute";
    div.style.top    = "20px";
@@ -201,7 +201,7 @@ function ShowPopup( cDlgName )
 
    oDlg.appendChild( div );
 
-   $( "#popup" ).contextmenu();
+   $( "#popup" ).menu();
 }   
 
 function GenCode( cDlgName )
