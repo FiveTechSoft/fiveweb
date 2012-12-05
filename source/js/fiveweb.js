@@ -203,7 +203,7 @@ function ShowPopup( cDlgName )
 
    $( "#popup" ).menu();
    $( "#popup" ).css( 'background-image', "none" );
-   $( "#popup" ).bind( "menuselect", function( event, ui ) { $( "#popup" ).destroy().remove(); } );
+   $( "#popup" ).bind( "menuselect", function( event, ui ) { $( "#popup" ).remove(); } );
 }   
 
 function GenCode( cDlgName )
