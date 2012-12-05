@@ -54,6 +54,12 @@ function ProgressDec( cProgBar, nStep )
 
 var oCtrl;
 
+function CenterHorizontally()
+{
+   if( oCtrl != nil )
+      oCtrl.style.left += 100;
+}      	
+
 function AddButton( cDlgName )
 {
    var oDlg = document.getElementById( cDlgName );
@@ -74,7 +80,7 @@ function AddButton( cDlgName )
    $( "#" + cVarName ).button().resizable().draggable();
    $( "#" + cVarName ).data( "tag", "BUTTON" );
    
-   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { MsgInfo( ui ); } );   
+   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { oCtrl = ui; } );   
 }   
 
 function AddGet( cDlgName )
