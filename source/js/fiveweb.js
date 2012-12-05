@@ -58,11 +58,15 @@ function CenterHorizontally()
 {
    if( oCtrl != null )
    {
-      width1 = $( "#oDlg" ).css( "width" );
-      width2 = oCtrl.css( "width" );
-      pos = ( width1 / 2 ) - ( width2 / 2 );	
-      MsgInfo( width1 + width2 );
-      oCtrl.css( "left", pos );
+      dlgWidth = $( "#oDlg" ).css( "width" );
+      dlgWidth = dlgWidth.substr( 0, dlgWidth.length - 2 );
+      dlgWidth = parseInt( dlgWidth ).toFixed( 0 );
+
+      ctlWidth = oCtrl.css( "width" );
+      ctlWidth = ctlWidth.substr( 0, ctlWidth.length - 2 );
+      ctlWidth = parseInt( ctlWidth ).toFixed( 0 );
+
+      oCtrl.css( "left", dlgWidth / 2 - ctlWidth / 2 );
    }   
 }      	
 
