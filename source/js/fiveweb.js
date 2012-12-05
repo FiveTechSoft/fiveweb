@@ -74,7 +74,7 @@ function AddButton( cDlgName )
    $( "#" + cVarName ).button().resizable().draggable();
    $( "#" + cVarName ).data( "tag", "BUTTON" );
    
-   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { oCtrl = ui; } );   
+   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { MsgInfo( ui ); } );   
 }   
 
 function AddGet( cDlgName )

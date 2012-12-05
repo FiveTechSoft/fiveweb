@@ -34,6 +34,11 @@ function BuildMenu()
             MENUITEM "Browse"   ACTION AddBrowse( "oDlg" )
             MENUITEM "Folder"   ACTION AddFolder( "oDlg" )
          ENDMENU
+         
+         MENUITEM "Position"
+         MENU 
+            MENUITEM "Center horizontally" ACTION MsgInfo( oCtrl.className )
+         ENDMENU
       ENDMENU  
       
       MENUITEM "Source"
