@@ -57,7 +57,7 @@ var oCtrl;
 function CenterHorizontally()
 {
    if( oCtrl != null )
-      oCtrl.left += 100;
+      oCtrl.style.left += 100;
 }      	
 
 function AddButton( cDlgName )
@@ -80,7 +80,7 @@ function AddButton( cDlgName )
    $( "#" + cVarName ).button().resizable().draggable();
    $( "#" + cVarName ).data( "tag", "BUTTON" );
    
-   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { oCtrl = ui; } );   
+   $( "#" + cVarName ).on( "dragstart", function( event, ui ) { oCtrl = $( "#" + cVarName ); } );   
 }   
 
 function AddGet( cDlgName )
