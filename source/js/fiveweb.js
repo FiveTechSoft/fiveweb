@@ -17,7 +17,7 @@ function SetColor( cColor )
 
 function SetBackImage( cUrlImage )
 {
-   document.body.style.backgroundImage = URL( cUrlImage );
+   document.body.style.backgroundImage = cUrlImage;
    document.body.style.backgroundSize = "100%";   	
 }   
 
