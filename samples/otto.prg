@@ -51,14 +51,16 @@ return nil
 //----------------------------------------------------------------------------//
 
 function BuildMenu()
-local AppName := AppName()
+
+
+   local AppName := AppName()
    local oMenu
 
    MENU oMenu
       MENUITEM "Clients"
       MENU 
-         MENUITEM "Add"    ACTION ('document.location = "'+appname()+'" ')
-         MENUITEM "Browse" ACTION ('document.location = "'+appname()+'?browse"')
+         MENUITEM "Add"    ACTION ( 'document.location = "' + appname() + '" ' )
+         MENUITEM "Browse" ACTION ( 'document.location = "' + appname() + '?browse"' )
       ENDMENU
 
       MENUITEM "About"
@@ -72,6 +74,7 @@ return oMenu
 //----------------------------------------------------------------------------//
 
 function Process( cParams )
+
    local i
    local aParams := hb_aTokens( cParams, ":" )
   
@@ -92,7 +95,6 @@ function Process( cParams )
      case aParams[ 1 ] == "clickbrw"
            clickbrw (aParams )
   end case
-
 
 return nil           
 
@@ -122,14 +124,15 @@ function Add( aParams )
    Browse()
 
 return nil
+
 //----------------------------------------------------------------------------// 
+
 function Edit( aParams )
       
-   
-local nRecno:=val(aParams[ 5 ])
+   local nRecno:=val(aParams[ 5 ])
  
-    USE clients SHARED 
-    dbgoto( nRecno )
+   USE clients SHARED 
+   dbgoto( nRecno )
  
    if RLock()
       clients->title   := aParams[ 2 ]
@@ -143,8 +146,6 @@ local nRecno:=val(aParams[ 5 ])
    Browse()
 
 return nil
-
-
 
 //----------------------------------------------------------------------------// 
 

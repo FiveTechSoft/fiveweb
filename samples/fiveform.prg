@@ -50,6 +50,57 @@ function BuildMenu()
          MENUITEM "HTML"    ACTION ShowHTML( "oDlg" )
       ENDMENU
 
+      MENUITEM "Preferences"
+      MENU 
+         MENUITEM "Main theme"
+         MENU
+            MENUITEM "Light"
+            MENU 
+               MENUITEM "Aristo"       ACTION SetAristoTheme()
+               MENUITEM "Base"         ACTION SetTheme( "base" )
+               MENUITEM "Black-tie"    ACTION SetTheme( "black-tie" )
+               MENUITEM "Blitzer"      ACTION SetTheme( "blitzer" )
+               MENUITEM "Bootstrap"    ACTION SetBootstrapTheme()
+               MENUITEM "Cupertino"    ACTION SetTheme( "cupertino" )
+               MENUITEM "excite-bike"  ACTION SetTheme( "excite-bike" )
+               MENUITEM "flick"        ACTION SetTheme( "flick" )
+               MENUITEM "hot-sneacks"  ACTION SetTheme( "hot-sneaks" )
+               MENUITEM "humanity"     ACTION SetTheme( "humanity" )
+               MENUITEM "overcast"     ACTION SetTheme( "overcast" )
+               MENUITEM "pepper-grinder" ACTION SetTheme( "pepper-grinder" )
+               MENUITEM "redmond"      ACTION SetTheme( "redmond" )
+               MENUITEM "smoothness"   ACTION SetTheme( "smoothness" )
+               MENUITEM "south-street" ACTION SetTheme( "south-street" )
+               MENUITEM "start"        ACTION SetTheme( "start" )
+               MENUITEM "sunny"        ACTION SetTheme( "sunny" )
+               MENUITEM "ui-lightness" ACTION SetTheme( "ui-lightness" )
+            ENDMENU
+         
+            MENUITEM "Dark"
+            MENU 
+               MENUITEM "Dot-lub"      ACTION SetTheme( "dot-luv" )
+               MENUITEM "Dark-hive"    ACTION SetTheme( "dark-hive" )
+               MENUITEM "Eggplant"     ACTION SetTheme( "eggplant" )
+               MENUITEM "le-frog"      ACTION SetTheme( "le-frog" )
+               MENUITEM "mint-choc"    ACTION SetTheme( "mint-choc" )
+               MENUITEM "swanky-purse" ACTION SetTheme( "swanky-purse" )
+               MENUITEM "trontastic"   ACTION SetTheme( "trontastic" )
+               MENUITEM "ui-darkness"  ACTION SetTheme( "ui-darkness" )
+               MENUITEM "vader"        ACTION SetTheme( "vader" )
+            ENDMENU
+         ENDMENU
+         
+         MENUITEM "Background"
+         MENU 
+            MENUITEM "Image"
+            MENU 
+               MENUITEM "Beach"   ACTION SetBackImage( "http://fiveweb.googlecode.com/svn/trunk/images/beach.jpg" )
+               MENUITEM "Bubbles" ACTION SetBackImage( "http://fiveweb.googlecode.com/svn/trunk/images/bubbles.jpg" )
+            ENDMENU
+            MENUITEM "Color"
+         ENDMENU   
+      ENDMENU  
+
       MENUITEM "Help"
       MENU 
          MENUITEM "Wiki..."  ACTION Go( "http://code.google.com/p/fiveweb/w/list" )

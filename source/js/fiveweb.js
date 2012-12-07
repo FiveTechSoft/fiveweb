@@ -15,6 +15,12 @@ function SetColor( cColor )
    document.body.style.backgroundColor = cColor;	
 }   
 
+function SetBackImage( cUrlImage )
+{
+   document.body.style.backgroundImage = URL( cUrlImage );
+   document.body.style.backgroundSize = "100%";   	
+}   
+
 // themes management
 
 function SetTheme( cTheme )
