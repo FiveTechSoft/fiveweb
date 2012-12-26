@@ -63,14 +63,21 @@ extern ErrorSys  // FiveWeb error system
        => ;
           [ <oGet> := ] TGet():New( <nRow>, <nCol>, <uValue>, <nWidth>, <nHeight>, <oDlg>, [<(oGet)>],[<.lHide.>] )
 
-#xcommand @ <nRow>, <nCol> CHECKBOX <lValue> ;
+#xcommand @ <nRow>, <nCol> CHECKBOX [ <oCbx> VAR ] <lValue> ;
              [ PROMPT <cPrompt> ] ;
              [ SIZE <nWidth>, <nHeight> ] ;
              [ OF <oDlg> ] ;
              [ <lstyle: BUTTON > ] ;
        => ;
-          TCheckBox():New( <nRow>, <nCol>, <lValue>, <cPrompt>,;
-                           <nWidth>, <nHeight>, <oDlg>, [<.lstyle.>] )
+          [ <oCbx> := ] TCheckBox():New( <nRow>, <nCol>, <lValue>, <cPrompt>,;
+                        <nWidth>, <nHeight>, <oDlg>, [<.lstyle.>] )
+
+#xcommand @ <nRow>, <nCol> IMAGE [<oImg>] ;
+             [ <file: FILENAME, FILE, URL> <cUrl> ] ;
+             [ SIZE <nWidth>, <nHeight> ] ;
+             [ OF <oDlg> ] ;
+       => ;
+          [ <oImg> := ] TImage():New( <nRow>, <nCol>, <nWidth>, <nHeight>, <oDlg>, [<(cUrl)>] )
 
 #xcommand @ <nRow>, <nCol> RADIO [ <oRadMenu> ] ;
              [ <prm: PROMPT, ITEMS> <cItems,...> ] ;

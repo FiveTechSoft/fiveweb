@@ -14,6 +14,7 @@ PRG_OBJS = ./obj/fiveweb.obj \
 	./obj/folder.obj \
 	./obj/get.obj \
 	./obj/harbour.obj \
+	./obj/image.obj \
 	./obj/menu.obj \
 	./obj/menuitem.obj \
 	./obj/pdmenu.obj \

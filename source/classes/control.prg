@@ -11,6 +11,8 @@ CLASS TControl
 
    METHOD New( nTop, nLeft, nWidth, nHeight, cVarName, oWnd )
 
+   METHOD Activate() VIRTUAL
+
 ENDCLASS
 
 //----------------------------------------------------------------------------//
