@@ -12,7 +12,7 @@ CLASS TDialog
 
    METHOD New( cTitle, nWidth, nHeight, cVarName )
    
-   METHOD Close()
+   METHOD End()
    
    METHOD Activate( lModal )
 
@@ -58,11 +58,10 @@ METHOD Activate( lModal ) CLASS TDialog
    
 return nil   
 
+//----------------------------------------------------------------------------//
 
-METHOD Close() CLASS TDialog
+METHOD End() CLASS TDialog
 
-Return '$( "#oDlg" ).dialog( "close")'
+return '$( "#oDlg" ).dialog( "close" )'
  
-           
-            
 //----------------------------------------------------------------------------//
