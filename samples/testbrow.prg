@@ -8,7 +8,8 @@ function Main()
       SIZE 1000, 600
 
    @ 10, 10 BROWSE oBrw SIZE 980, 477 OF oDlg ;
-      URL "http://www.fivetechsoft.net/fiveweb/mybrowse.php?name=clients"
+      URL "http://localhost/mybrowse.php?name=clients"
+      // URL "http://www.fivetechsoft.net/fiveweb/mybrowse.php?name=clients"
 
    @ 500, 30 BUTTON "<<" OF oDlg SIZE 50, 35
 

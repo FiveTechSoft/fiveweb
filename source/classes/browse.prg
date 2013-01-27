@@ -48,6 +48,7 @@ local n,x , nFields
  //  ::cClassHead ="boxtitulo"
    ::aDatos = aDatos
 
+   ::CreateFromCode()
 
 return Self
 
@@ -102,113 +103,102 @@ Return nil
 //----------------------------------------------------------------------------//
 
 METHOD CreateFromCode() CLASS TBrowse
-local x,n
-local cTablestyle := 'style="' + "position: absolute; " + ;
-                                 "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
-                                 "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ;
-                                 "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ;
-                                 "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
-                      'overflow: auto;" '
 
-  if !Empty( ::aDatos )
-  
-       ::cAlias:="ARRAY"
-       
-       nFields:= len( ::aDatos[1] )
+   local x,n
+   local cTablestyle := 'style="' + "position: absolute; " + ;
+                                    "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
+                                    "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ;
+                                    "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ;
+                                    "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
+                                    'overflow: auto;" '
 
-      ? '<table id="'+ ::cVarName + '" ' + ;
-        if( Empty(::cClassTable),'', 'class="'+::cClassTable+'"') + ;
+   if ! Empty( ::aDatos )
+       ::cAlias = "ARRAY"
+       nFields = Len( ::aDatos[1] )
+
+       ? '<table id="'+ ::cVarName + '" ' + ;
+         if( Empty( ::cClassTable ), '', 'class="' + ::cClassTable + '"' ) + ;
          cTableStyle + ' >'
 
-      ? '<thead>'
+       ? '<thead>'
       
-      ? '<tr'+;
-           if( Empty(::cClassHead),'', ' class="'+::cClassHead+'"') + ;
-        ' height="'+alltrim(str(::nHeadHeight))+'" >'
+       ? '<tr'+;
+         if( Empty( ::cClassHead ),'', ' class="' + ::cClassHead + '"' ) + ;
+        ' height="' + AllTrim( Str( ::nHeadHeight ) ) + '" >'
 
         for n = 1 to nFields
-          ? '<th>'+ ::aDatos[1,n ] + "</th>"
+          ? '<th>'+ ::aDatos[ 1, n ] + "</th>"
         next
         
-      ? '</tr>'
-      ? '</thead>'
-      ? '<tbody>'
+        ? '</tr>'
+        ? '</thead>'
+        ? '<tbody>'
      
-       for x = 2 to len( ::aDatos )
-        
+        for x = 2 to Len( ::aDatos )
+           if ::lZebra
+              ::DefineZebra()
+              ? '<tr '+;
+                ' height="'+alltrim(str(::nRowHeight))+'" '+;
+                if( x % 2 ==0, ' class="zebra1" ', ' class="zebra2" ' ) + ' >'
+           else
+              ? '<tr '+ ;
+                if( Empty( ::cClassLine ),'', ' class="' + ::cClassLine + '"' ) + ;
+                ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" >'
+           endif
 
-        if ::lZebra
-           ::DefineZebra()
-       ? '<tr '+;
-             ' height="'+alltrim(str(::nRowHeight))+'" '+;
-            if(x%2==0,' class="zebra1" ', ' class="zebra2" ' )  +' >'
+           for n = 1 to nFields
+           //  ?  '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;" >'+ ;
+           //     ::aDatos[x,n] + "</td>"
 
-         else
-           ? '<tr '+ ;
-              if( Empty(::cClassLine),'', ' class="'+::cClassLine+'"') + ;
-            ' height="'+alltrim(str(::nRowHeight))+'" >'
-
-         endif
-
-         for n = 1 to nFields
-  //  ?  '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;" >'+ ;
-  //               ::aDatos[x,n] + "</td>"
-
-
-
-       ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;"'+;
-     if(Empty(::cAction),'', ' onDblClick="'+"document.location = '"+(appname())+"?"+::cAction+":"+alltrim(str(x))+":"+alltrim(str(n )) +"'" +'"' )+;
-           ' >'+::aDatos[x,n] + "</td>"
+               ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;"'+;
+                 if(Empty(::cAction),'', ' onDblClick="'+"document.location = '"+(appname())+"?"+::cAction+":"+alltrim(str(x))+":"+alltrim(str(n )) +"'" +'"' )+;
+                 ' >'+::aDatos[x,n] + "</td>"
            
-         next
+           next
          
-          ? '</tr>'
+           ? '</tr>'
           
         next
         ? '</tbody>'
         ? '</table>'
+    else
 
-   else
+      if Empty( ::cAlias )
 
-   if Empty( ::cAlias )
+         ? '<div id="'+ ::cVarName + '" ' + ;
+           cTableStyle + ' >'
 
-      ? '<div id="'+ ::cVarName + '" ' + ;
-        cTableStyle + ' >'
+         ? '</div>'
 
-      ?'</div>'
-
-   else  
+      else  
   
-? '<table id="'+ ::cVarName + '" ' + ;
-        if( Empty(::cClassTable),'', 'class="'+::cClassTable+'"') + ;
+         ? '<table id="'+ ::cVarName + '" ' + ;
+           if( Empty(::cClassTable),'', 'class="'+::cClassTable+'"') + ;
            cTableStyle + ' >'      
 
-        GO TOP 
-        ? "<tr>"
-        for n = 1 to FCount()
-           ? "<th>" + FieldName( n ) + "</th>"
-        next
-        ? "</tr>"
-        x:=1   
+         GO TOP 
+         ? "<tr>"
+         for n = 1 to FCount()
+            ? "<th>" + FieldName( n ) + "</th>"
+         next
+         ? "</tr>"
+         x = 1   
         
-        while ! EoF()
-           ? '<tr>'
-           x++
-           for n = 1 to FCount()
-           
-              ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;"'+;
-     if(Empty(::cAction),'', ' onDblClick="'+"document.location = '"+(appname())+"?"+::cAction+":"+alltrim(str(x))+":"+alltrim(str(n )) +"'" +'"' )+;
-           ' >'+ FieldGet( n )+ "</td>"                      
-           next
-           ? '</tr>'
-           SKIP
-        end   
+         while ! EoF()
+            ? '<tr>'
+            x++
+            for n = 1 to FCount()
+               ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;"'+;
+                 if(Empty(::cAction),'', ' onDblClick="'+"document.location = '"+(appname())+"?"+::cAction+":"+alltrim(str(x))+":"+alltrim(str(n )) +"'" +'"' )+;
+                 ' >'+ FieldGet( n )+ "</td>"                      
+            next
+            ? '</tr>'
+            SKIP
+         end   
         
-        ? '</table>'
-    endif
-
-  endif
-
+         ? '</table>'
+      endif
+   endif
 
 return nil
 
