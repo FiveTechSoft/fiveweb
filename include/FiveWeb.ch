@@ -9,6 +9,8 @@
 
 extern ErrorSys  // FiveWeb error system
 
+#define CRLF "<br>"
+
 #xcommand SET COLOR TO <cColor> => SetBackColor( <cColor> )
 
 #xcommand SET BACKIMAGE TO <cImage> => SetBackImage( <cImage> )
@@ -60,8 +62,10 @@ extern ErrorSys  // FiveWeb error system
              [ SIZE <nWidth>, <nHeight> ] ;
              [ OF <oDlg> ] ;
              [ <lHide: HIDE > ] ;
+             [ <lPassword: PASSWORD> ] ;
        => ;
-          [ <oGet> := ] TGet():New( <nRow>, <nCol>, <uValue>, <nWidth>, <nHeight>, <oDlg>, [<(oGet)>],[<.lHide.>] )
+          [ <oGet> := ] TGet():New( <nRow>, <nCol>, <uValue>, <nWidth>, <nHeight>, <oDlg>,;
+                                    [<(oGet)>], [<.lHide.>], [<.lPassword.>] )
 
 #xcommand @ <nRow>, <nCol> CHECKBOX [ <oCbx> VAR ] <lValue> ;
              [ PROMPT <cPrompt> ] ;
@@ -77,7 +81,8 @@ extern ErrorSys  // FiveWeb error system
              [ SIZE <nWidth>, <nHeight> ] ;
              [ OF <oDlg> ] ;
        => ;
-          [ <oImg> := ] TImage():New( <nRow>, <nCol>, <nWidth>, <nHeight>, <oDlg>, [<(cUrl)>] )
+          [ <oImg> := ] TImage():New( <nRow>, <nCol>, <nWidth>, <nHeight>, <oDlg>,;
+                                      [<(oImg)>], [<(cUrl)>] )
 
 #xcommand @ <nRow>, <nCol> RADIO [ <oRadMenu> ] ;
              [ <prm: PROMPT, ITEMS> <cItems,...> ] ;
