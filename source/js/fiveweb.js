@@ -696,7 +696,7 @@ function Dialog( cTitle, nWidth, nHeight, lModal )
    document.body.appendChild( this.dlg );
 
    if( ValType( lModal ) == "undefined" )
-      lModal = FALSE;
+      lModal = false;
 
    $( "#dialog" ).dialog( { width: nWidth, height: nHeight, modal: lModal } );
 }
