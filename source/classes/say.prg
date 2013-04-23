@@ -23,7 +23,7 @@ METHOD New( nRow, nCol, cText, nWidth, nHeight, oWnd, cVarName, cUrl ) CLASS TSa
    
    DEFAULT cText := "Say", nWidth := Len( cText ) * 12, nHeight := 40
    
-   Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
+   ::Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
       
    ::cUrl  = cUrl
    ::cText = cText

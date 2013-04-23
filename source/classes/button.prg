@@ -23,7 +23,7 @@ METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName, cAction ) CLAS
    DEFAULT cVarName := "oBtn" + AllTrim( Str( ::nBtns++ ) )
    DEFAULT nWidth := 110, nHeight := 40
    
-   Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
+   ::Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
    
    ::cPrompt = cPrompt
    ::cAction = cAction 

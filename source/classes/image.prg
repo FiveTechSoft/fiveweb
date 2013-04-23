@@ -20,7 +20,7 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl ) CLASS TImage
    DEFAULT cUrl     := "https://fiveweb.googlecode.com/svn/trunk/images/fivetech.bmp"
    DEFAULT nWidth   := 100, nHeight := 80
    
-   Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
+   ::Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
       
    ::cUrl = cUrl
 
