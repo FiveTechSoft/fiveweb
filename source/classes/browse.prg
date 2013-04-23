@@ -133,6 +133,7 @@ METHOD CreateFromCode() CLASS TBrowse
         ' height="' + AllTrim( Str( ::nHeadHeight ) ) + '" >'
 
       if ! Empty( oQuery ) 
+         ? "<th> </th>" // left checkbox header
          for n = 1 to nFields
             ? '<th>'+ oQuery:FieldName( n ) + "</th>"
          next
@@ -153,6 +154,8 @@ METHOD CreateFromCode() CLASS TBrowse
               if( Empty( ::cClassLine ),'', ' class="' + ::cClassLine + '"' ) + ;
               ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" >'
          endif
+
+           ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( x ) ) + "' onclick=" + '"' + "toggleRowSelected( this )" + '"' + "</td>"                
 
            for n = 1 to nFields
            //  ?  '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;" >'+ ;
