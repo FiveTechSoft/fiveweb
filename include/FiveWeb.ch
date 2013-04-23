@@ -112,9 +112,10 @@ extern ErrorSys  // FiveWeb error system
             [ SIZE <nWidth>, <nHeight> ] ;
             [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
             [ URL <cUrl> ] ;
+            [ ARRAY <aValues> ] ;
       => ; 
          [ <oBrw> := ] TBrowse():New( <nRow>, <nCol>,;
-            <nWidth>, <nHeight>, <oWnd>, [<(oBrw)>], [<cUrl>] )   
+            <nWidth>, <nHeight>, <oWnd>, [<(oBrw)>], [<cUrl>], [<aValues>] )   
 
 #xcommand @ <nRow>, <nCol> BROWSE <oBrw> ;          
             [ SIZE <nWidth>, <nHeight> ] ;

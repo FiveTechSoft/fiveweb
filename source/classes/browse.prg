@@ -11,13 +11,13 @@ CLASS TBrowse FROM TControl
    DATA cClassTable
    DATA cClassHead
    DATA cClassLine
-   DATA aDatos
+   DATA aArrayData
    DATA lZebra
    DATA cAction
     
    CLASSDATA nControls INIT 1
 
-   METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl ,aDatos )
+   METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aValues )
 
    METHOD CreateFromCode()
 
@@ -29,24 +29,22 @@ ENDCLASS
 
 //----------------------------------------------------------------------------//
 
-METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aDatos ) CLASS TBrowse
-local n,x , nFields
+METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aValues ) CLASS TBrowse
 
    DEFAULT cVarName := "oBrw" + AllTrim( Str( ::nControls++ ) )
-  
 
-   Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
+   ::Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
 
    ::cUrl   = cUrl
    ::cAlias = Alias()   
    ::nRowHeight = 25
    ::nHeadHeight = 60
-   ::lZebra := .f.
+   ::lZebra := .F.
   
    ::cClassTable= "browse"
  //  ::cClassLine = "linea" 
  //  ::cClassHead ="boxtitulo"
-   ::aDatos = aDatos
+   ::aArrayData = aValues
 
    ::CreateFromCode()
 
@@ -56,103 +54,113 @@ return Self
 
 METHOD DefineZebra() CLASS TBrowse
 
-?'<style type="text/css">'
-?'<!-- '
+   ? '<style type="text/css">'
+   ? '<!-- '
 
-?' .zebra1 { '
-?'	background-position: 4px;'
-?'	border-bottom-color: #333333;'
-?'	border-bottom-style: solid;'
-?'	border-bottom-width: 1px;'
-?'	border-left-color: #333333;'
-?'	border-left-style: solid;'
-?'	border-left-width: 1px;'
-?'	border-right-color: #000000;'
-?'	border-right-style: solid;'
-?'	border-right-width: 1px;'
-?'	border-top-color: #333333;'
-?'	border-top-style: solid;'
-?'	border-top-width: 1px;'
-?'	color: #333333;'
-?'	background-color:#fff;'
-?'}'
+   ? ' .zebra1 { '
+   ? '	background-position: 4px;'
+   ? '	border-bottom-color: #333333;'
+   ? '	border-bottom-style: solid;'
+   ? '	border-bottom-width: 1px;'
+   ? '	border-left-color: #333333;'
+   ? '	border-left-style: solid;'
+   ? '  border-left-width: 1px;'
+   ? '	border-right-color: #000000;'
+   ? '	border-right-style: solid;'
+   ? '	border-right-width: 1px;'
+   ? '	border-top-color: #333333;'
+   ? '	border-top-style: solid;'
+   ? '	border-top-width: 1px;'
+   ? '	color: #333333;'
+   ? '	background-color:#fff;'
+   ? '}'
 
-?' .zebra2 { '
-?'	background-position: 4px;'
-?'	border-bottom-color: #333333;'
-?'	border-bottom-style: solid;'
-?'	border-bottom-width: 1px;'
-?'	border-left-color: #333333;'
-?'	border-left-style: solid;'
-?'	border-left-width: 1px;'
-?'	border-right-color: #000000;'
-?'	border-right-style: solid;'
-?'	border-right-width: 1px;'
-?'	border-top-color: #333333;'
-?'	border-top-style: solid;'
-?'	border-top-width: 1px;'
-?'	color: #333333;'
-?'	background-color:#ecf6fc ;'
-?'}'
+   ? ' .zebra2 { '
+   ? '	background-position: 4px;'
+   ? '	border-bottom-color: #333333;'
+   ? '	border-bottom-style: solid;'
+   ? '	border-bottom-width: 1px;'
+   ? '	border-left-color: #333333;'
+   ? '	border-left-style: solid;'
+   ? '	border-left-width: 1px;'
+   ? '	border-right-color: #000000;'
+   ? '	border-right-style: solid;'
+   ? '	border-right-width: 1px;'
+   ? '	border-top-color: #333333;'
+   ? '	border-top-style: solid;'
+   ? '	border-top-width: 1px;'
+   ? '	color: #333333;'
+   ? '	background-color:#ecf6fc ;'
+   ? '}'
 
-?'-->'
-? '</style>'
+   ? '-->'
+   ? '</style>'
 
-Return nil
+return nil
 
 //----------------------------------------------------------------------------//
 
 METHOD CreateFromCode() CLASS TBrowse
 
-   local x,n
+   local x, n
    local cTablestyle := 'style="' + "position: absolute; " + ;
                                     "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
                                     "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ;
                                     "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ;
                                     "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
                                     'overflow: auto;" '
+   local oQuery                                 
 
-   if ! Empty( ::aDatos )
-       ::cAlias = "ARRAY"
-       nFields = Len( ::aDatos[1] )
+   if ! Empty( ::aArrayData )
+   
+      do case
+         case ValType( ::aArrayData ) == "O"
+              oQuery = ::aArrayData
+              ::aArrayData = oQuery:FillArray()
+      endcase
+              
+      ::cAlias = "ARRAY"
+      nFields = Len( ::aArrayData[ 1 ] )
 
-       ? '<table id="'+ ::cVarName + '" ' + ;
-         if( Empty( ::cClassTable ), '', 'class="' + ::cClassTable + '"' ) + ;
-         cTableStyle + ' >'
+      ? '<table id="'+ ::cVarName + '" ' + ;
+        if( Empty( ::cClassTable ), '', 'class="' + ::cClassTable + '"' ) + ;
+        cTableStyle + ' >'
 
-       ? '<thead>'
+      ? '<thead>'
       
-       ? '<tr'+;
-         if( Empty( ::cClassHead ),'', ' class="' + ::cClassHead + '"' ) + ;
+      ? '<tr'+;
+        If( Empty( ::cClassHead ),'', ' class="' + ::cClassHead + '"' ) + ;
         ' height="' + AllTrim( Str( ::nHeadHeight ) ) + '" >'
 
-        for n = 1 to nFields
-          ? '<th>'+ ::aDatos[ 1, n ] + "</th>"
-        next
+      if ! Empty( oQuery ) 
+         for n = 1 to nFields
+            ? '<th>'+ oQuery:FieldName( n ) + "</th>"
+         next
+      endif   
         
-        ? '</tr>'
-        ? '</thead>'
-        ? '<tbody>'
+      ? '</tr>'
+      ? '</thead>'
+      ? '<tbody>'
      
-        for x = 2 to Len( ::aDatos )
-           if ::lZebra
-              ::DefineZebra()
-              ? '<tr '+;
-                ' height="'+alltrim(str(::nRowHeight))+'" '+;
-                if( x % 2 ==0, ' class="zebra1" ', ' class="zebra2" ' ) + ' >'
-           else
-              ? '<tr '+ ;
-                if( Empty( ::cClassLine ),'', ' class="' + ::cClassLine + '"' ) + ;
-                ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" >'
-           endif
+      for x = 2 to Len( ::aArrayData )
+         if ::lZebra
+            ::DefineZebra()
+            ? '<tr '+;
+              ' height="'+alltrim(str(::nRowHeight))+'" '+;
+              if( x % 2 ==0, ' class="zebra1" ', ' class="zebra2" ' ) + ' >'
+         else
+            ? '<tr '+ ;
+              if( Empty( ::cClassLine ),'', ' class="' + ::cClassLine + '"' ) + ;
+              ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" >'
+         endif
 
            for n = 1 to nFields
            //  ?  '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;" >'+ ;
-           //     ::aDatos[x,n] + "</td>"
+           //     ::aArrayData[x,n] + "</td>"
 
                ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;"'+;
                  if(Empty(::cAction),'', ' onDblClick="'+"document.location = '"+(appname())+"?"+::cAction+":"+alltrim(str(x))+":"+alltrim(str(n )) +"'" +'"' )+;
-                 ' >'+::aDatos[x,n] + "</td>"
+                 ' >' + cValToChar( ::aArrayData[ x, n ] ) + "</td>"
            
            next
          

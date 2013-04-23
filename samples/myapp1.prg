@@ -15,6 +15,12 @@ function Main( cParams )
       case cParam == "login"
            CheckLogin( aParams )
 
+      case cParam == "operators"
+           Operators()
+
+      case cParam == "clients"
+           Clients()
+
       otherwise
            Login()
 
@@ -79,7 +85,11 @@ function BuildMenu()
       
       MENUITEM "Files"
       MENU
-         MENUITEM "Operators" ACTION MsgInfo( "Operators" )
+         MENUITEM "Operators" ;
+            ACTION ( 'document.location = "' + AppName() + '?operators"' ) 
+            
+         MENUITEM "Clients" ;
+            ACTION ( 'document.location = "' + AppName() + '?clients"' ) 
       ENDMENU
       
       MENUITEM "Operations"
@@ -90,5 +100,58 @@ return oMenu
 
 //----------------------------------------------------------------------------//
 
+function Operators()
 
+   local oDlg, oServer, oBrw
    
+   BuildMenu()
+   
+   oServer = TDolphinSrv():New( "127.0.0.1", "root", "" )
+
+   if oServer:hMySQL == nil
+      MsgInfo( "can't connect to the database" )
+      return nil
+   endif
+         
+   oServer:SelectDB( "kibo" )
+   
+   DEFINE DIALOG oDlg TITLE "Operators" SIZE 1000, 600
+   
+   @ 10, 10 BROWSE oBrw SIZE 900, 400 OF oDlg ;
+      ARRAY oServer:Query( "SELECT * FROM operators LIMIT 0, 30" )
+   
+   ACTIVATE DIALOG oDlg NOWAIT
+   
+   oServer:End()
+   
+return nil   
+
+//----------------------------------------------------------------------------//
+
+function Clients()
+
+   local oDlg, oServer, oBrw
+   
+   BuildMenu()
+   
+   oServer = TDolphinSrv():New( "127.0.0.1", "root", "" )
+
+   if oServer:hMySQL == nil
+      MsgInfo( "can't connect to the database" )
+      return nil
+   endif
+         
+   oServer:SelectDB( "kibo" )
+   
+   DEFINE DIALOG oDlg TITLE "Clients" SIZE 1200, 650
+   
+   @ 5, 2 BROWSE oBrw SIZE 1150, 100 OF oDlg ;
+      ARRAY oServer:Query( "SELECT * FROM clients LIMIT 0, 30" )
+   
+   ACTIVATE DIALOG oDlg NOWAIT
+   
+   oServer:End()
+   
+return nil   
+
+//----------------------------------------------------------------------------//   

@@ -33,7 +33,7 @@ echo %bcdir%\lib\c0w32.obj + > b32.bc
 echo %1.obj, + >> b32.bc
 echo %1.exe, + >> b32.bc
 echo %1.map, + >> b32.bc
-echo ..\lib\fiveweb.lib + >> b32.bc
+echo ..\lib\fiveweb.lib + ..\lib\dolphin.lib + ..\lib\libmysql.lib + >> b32.bc
 echo %hdirl%\hbrtl.lib + >> b32.bc
 echo %hdirl%\hbvm.lib + >> b32.bc
 echo %hdirl%\gtstd.lib + >> b32.bc
