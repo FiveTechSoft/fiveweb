@@ -15,8 +15,8 @@ function Main( cParams )
       case cParam == "login"
            CheckLogin( aParams )
 
-      case cParam == "operators"
-           Operators()
+      case cParam == "users"
+           Users()
 
       case cParam == "clients"
            Clients()
@@ -85,8 +85,8 @@ function BuildMenu()
       
       MENUITEM "Files"
       MENU
-         MENUITEM "Operators" ;
-            ACTION ( 'document.location = "' + AppName() + '?operators"' ) 
+         MENUITEM "Users" ;
+            ACTION ( 'document.location = "' + AppName() + '?users"' ) 
             
          MENUITEM "Clients" ;
             ACTION ( 'document.location = "' + AppName() + '?clients"' ) 
@@ -100,25 +100,25 @@ return oMenu
 
 //----------------------------------------------------------------------------//
 
-function Operators()
+function Users()
 
    local oDlg, oServer, oBrw
    
    BuildMenu()
    
-   oServer = TDolphinSrv():New( "127.0.0.1", "root", "" )
+   oServer = TDolphinSrv():New( "mysql.fivetechsoft.net", "fiveweb", "fiveweb" )
 
    if oServer:hMySQL == nil
       MsgInfo( "can't connect to the database" )
       return nil
    endif
          
-   oServer:SelectDB( "kibo" )
+   oServer:SelectDB( "fiveweb" )
    
-   DEFINE DIALOG oDlg TITLE "Operators" SIZE 1000, 600
+   DEFINE DIALOG oDlg TITLE "Users" SIZE 1000, 600
    
-   @ 10, 10 BROWSE oBrw SIZE 900, 400 OF oDlg ;
-      ARRAY oServer:Query( "SELECT * FROM operators LIMIT 0, 30" )
+   @ 10, 10 BROWSE oBrw SIZE 900, 100 OF oDlg ;
+      ARRAY oServer:Query( "SELECT * FROM users LIMIT 0, 30" )
    
    ACTIVATE DIALOG oDlg NOWAIT
    
@@ -134,14 +134,14 @@ function Clients()
    
    BuildMenu()
    
-   oServer = TDolphinSrv():New( "127.0.0.1", "root", "" )
+   oServer = TDolphinSrv():New( "mysql.fivetechsoft.net", "fiveweb", "fiveweb" )
 
    if oServer:hMySQL == nil
       MsgInfo( "can't connect to the database" )
       return nil
    endif
          
-   oServer:SelectDB( "kibo" )
+   oServer:SelectDB( "fiveweb" )
    
    DEFINE DIALOG oDlg TITLE "Clients" SIZE 1200, 650
    

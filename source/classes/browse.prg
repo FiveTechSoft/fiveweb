@@ -142,7 +142,7 @@ METHOD CreateFromCode() CLASS TBrowse
       ? '</thead>'
       ? '<tbody>'
      
-      for x = 2 to Len( ::aArrayData )
+      for x = 1 to Len( ::aArrayData )
          if ::lZebra
             ::DefineZebra()
             ? '<tr '+;
