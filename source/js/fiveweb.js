@@ -345,7 +345,7 @@ function MsgAbout( cAppName, cAuthor )
 {
    oDlg = new Dialog( "About", 450, 350 );
       
-   Image( 70, 30, "images/fivetech.bmp", oDlg );
+   Image( 70, 30, "./images/fivetech.bmp", oDlg );
       
    Say(  90, 170, cAppName, oDlg );
    Say( 120, 160, cAuthor, oDlg );
