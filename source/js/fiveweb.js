@@ -687,6 +687,8 @@ function Dialog( cTitle, nWidth, nHeight )
    document.body.appendChild( this.dlg );
 
    $( "#dialog" ).dialog( { width: nWidth, height: nHeight, modal:false } );
+   
+   return this;
 }
 
 function GetColor( cClass, cType )
