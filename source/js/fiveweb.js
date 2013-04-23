@@ -350,7 +350,7 @@ function MsgAbout( cAppName, cAuthor )
    Say(  90, 170, cAppName, oDlg );
    Say( 120, 160, cAuthor, oDlg );
 
-   // Button( 220, 150, "Ok", oDlg, 100, 40, "oDlg.End()" );  
+   Button( 220, 150, "Ok", oDlg, 100, 40, "oDlg.End()" );  
 }    
    
 function MsgFind()
