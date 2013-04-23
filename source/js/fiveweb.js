@@ -343,7 +343,7 @@ var oDlg, oBrw, oFrame, oScript;
    
 function MsgAbout( cAppName, cAuthor )
 {
-   oDlg = new Dialog( "About", 400, 300 );
+   oDlg = new Dialog( "About", 450, 350 );
       
    Image( 70, 30, "images/fivetech.bmp", oDlg );
       

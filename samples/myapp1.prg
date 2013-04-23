@@ -43,7 +43,7 @@ function Login()
    @ 124, 315 GET oGetPass VAR cPassword SIZE 300, 40 OF oDlg PASSWORD
 
    @ 265, 189 BUTTON "Ok" SIZE 110, 40 OF oDlg ;
-      ACTION ( "document.location = " + AppName() + "?login:" ) + ;
+      ACTION ( "document.location = '" + AppName() + "?login:' + " ) + ;
              'oGetName.value + ":" + oGetPass.value'
 
    @ 265, 335 BUTTON "Cancel" SIZE 110, 40 OF oDlg ;
@@ -72,6 +72,9 @@ function BuildMenu()
    
    MENU oMenu
       MENUITEM "About"
+      MENU
+         MENUITEM "This app..." ACTION MsgAbout( "My app", "(c) FiveTech Software" )
+      ENDMENU
       MENUITEM "Files"
       MENUITEM "Operations"
       MENUITEM "Help"

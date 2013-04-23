@@ -105,7 +105,7 @@ function SetBackImage( cImage )
 
    ? "<script>"
    ? 'document.body.style.backgroundImage = "url( ' + "'" + cImage + "'" + ' )";'
-   ? 'document.body.style.backgroundSize = "100%";'
+   ? 'document.body.style.backgroundSize = "100% 100%";'
    ? "</script>"
    
 return nil   
