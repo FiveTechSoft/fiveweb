@@ -451,7 +451,7 @@ function Button( nTop, nLeft, cText, oDlg, nWidth, nHeight, cAction )
    button.style.width    = nWidth;
    button.style.height   = nHeight;
    button.value          = cText;
-   button.onclick        = oDlg.Function( cAction ); // new Function( cAction );
+   button.onclick        = new Function( cAction );
       
    oDlg.dlg.appendChild( button );
 }   
