@@ -691,7 +691,8 @@ function Dialog( cTitle, nWidth, nHeight, lModal )
    this.dlg.id = "dialog";
    this.dlg.title = cTitle;
    
-   this.End = function() { this.dlg.dialog( "close" ); };
+   this.End = function() { $( "#" + this.dlg.id ).dialog( "close" ); 
+   	                       $( "#" + this.dlg.id ).dialog( "destroy" ); };
 
    document.body.appendChild( this.dlg );
 
