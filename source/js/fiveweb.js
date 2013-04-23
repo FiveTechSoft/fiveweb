@@ -378,7 +378,7 @@ function MsgInfo( cMsg, cTitle )
    
    document.body.appendChild( div );
 
-   $( "#msginfo" ).dialog( { width: 400, height: 250, modal:true, 
+   $( "#msginfo" ).dialog( { width: 400, height: 250, modal: false, 
    buttons: { 'Ok': function() { $( "#msginfo" ).dialog( "close" ).remove(); } } } );
 }   
 
