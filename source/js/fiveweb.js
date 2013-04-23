@@ -686,7 +686,7 @@ function Dialog( cTitle, nWidth, nHeight )
    
    document.body.appendChild( this.dlg );
 
-   $( "#dialog" ).dialog( { width: nWidth, height: nHeight, modal:true, 
+   $( "#dialog" ).dialog( { width: nWidth, height: nHeight, modal:false, 
    buttons: { 'Ok': function() { $( "#dialog" ).dialog( 'close' ); } } } );
 }
 
