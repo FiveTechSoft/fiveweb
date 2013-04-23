@@ -601,6 +601,7 @@ function Table( nTop, nLeft, oDlg, nWidth, nHeight )
 function Form( cFormName )
 {
    oDlg   = new Dialog( "loading form...", 300, 45 );
+   
    oFrame = Frame( 10, 10, "http://www.fivetechsoft.com/fivegen/form.php?name=" + cFormName, 
                    oDlg, 20, 20 );
 }	
@@ -659,6 +660,11 @@ function Image( nTop, nLeft, cFileName, oDlg, nWidth, nHeight )
    return image;	    
 }   
   
+function ValType( o )
+{
+   return typeof o;
+}     
+  
 function ScreenHeight()
 {
    var db = document.body;
@@ -672,11 +678,12 @@ function ScreenHeight()
 function Script( cScriptName )
 {
    oDlg   = new Dialog( "loading script...", 300, 45 );
+   
    oFrame = Frame( 10, 10, "http://www.fivetechsoft.com/fivegen/script.php?name=" + cScriptName, 
                    oDlg, 20, 20 );
 }	
    
-function Dialog( cTitle, nWidth, nHeight )
+function Dialog( cTitle, nWidth, nHeight, lModal )
 {
    this.dlg = document.createElement( "div" );
       
@@ -684,11 +691,14 @@ function Dialog( cTitle, nWidth, nHeight )
    this.dlg.id = "dialog";
    this.dlg.title = cTitle;
    
+   this.End = function() { this.dlg.dialog( "close" ); };
+
    document.body.appendChild( this.dlg );
 
-   $( "#dialog" ).dialog( { width: nWidth, height: nHeight, modal:false } );
-   
-   return this;
+   if( ValType( lModal ) == "undefined" )
+      lModal = FALSE;
+
+   $( "#dialog" ).dialog( { width: nWidth, height: nHeight, modal: lModal } );
 }
 
 function GetColor( cClass, cType )
@@ -893,4 +903,4 @@ function eraseCookie( name )
 
 String.prototype.trim = function() { return this.replace(/^\s*/, "").replace(/\s*$/, ""); }
 
-String.prototype.rtrim=function(){ return this.replace(/\s+$/, "");}
+String.prototype.rtrim = function() { return this.replace(/\s+$/, ""); }
