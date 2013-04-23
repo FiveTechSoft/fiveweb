@@ -698,7 +698,10 @@ function Dialog( cTitle, nWidth, nHeight, lModal )
    if( ValType( lModal ) == "undefined" )
       lModal = false;
 
-   $( "#dialog" ).dialog( { width: nWidth, height: nHeight, modal: lModal } );
+   $( "#dialog" ).on( "dialogclose", function( event, ui ) { MsgInfo( "test" ); } );
+   
+   $( "#dialog" ).dialog( { width: nWidth, height: nHeight, modal: lModal, 
+   	                        close: function( event, ui ) {} } );
 }
 
 function GetColor( cClass, cType )
