@@ -73,7 +73,8 @@ function BuildMenu()
    MENU oMenu
       MENUITEM "About"
       MENU
-         MENUITEM "This app..." ACTION MsgAbout( "My app", "(c) FiveTech Software" )
+         MENUITEM "This app..." ;
+            ACTION MsgAbout( "My FiveWeb app", "(c) FiveTech Software" )
       ENDMENU
       MENUITEM "Files"
       MENUITEM "Operations"
