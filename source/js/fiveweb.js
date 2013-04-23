@@ -698,7 +698,7 @@ function Dialog( cTitle, nWidth, nHeight, lModal )
    if( ValType( lModal ) == "undefined" )
       lModal = false;
 
-   $( "#dialog" ).on( "dialogclose", function( event, ui ) { ui.remove(); } );
+   $( "#dialog" ).on( "dialogclose", function( event, ui ) { $( "#dialog" ).remove(); } );
    
    $( "#dialog" ).dialog( { width: nWidth, height: nHeight, modal: lModal, 
    	                        close: function( event, ui ) {} } );
