@@ -8,12 +8,9 @@ function Main()
 
    DEFINE TOOLBAR oTbr OF oDlg
 
-   @ 1, 1 BUTTON oBtn OF oTbr SIZE 50, 50 ;
-      ACTION MsgInfo( "click" )
-
-   // ? oBtn:ClassName()
-
-   // oBtn:Activate()
+   @ 1, 1 BUTTON oBtn PROMPT "" ;
+      RESOURCE "ui-icon-seek-start" ;
+      OF oTbr ACTION MsgInfo( "click" )
 
    ACTIVATE DIALOG oDlg NOWAIT
 

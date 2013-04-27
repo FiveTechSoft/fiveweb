@@ -35,13 +35,14 @@ extern ErrorSys  // FiveWeb error system
        => ;
           <oDlg>:Activate( ! <.modal.> )               
 
-#xcommand @ <nRow>, <nCol> BUTTON [ <oBtn> PROMPT ] <cPrompt> ;
+#xcommand @ <nRow>, <nCol> BUTTON [ <oBtn> PROMPT <cPrompt> ] ;
              [ SIZE <nWidth>, <nHeight> ] ;
              [ OF <oDlg> ] ;
              [ ACTION <uAction> ] ;
+             [ <resname: RESOURCE, NAME, RESNAME> <cResName> ] ;
        => ;
           [<oBtn> :=] TButton():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg>,;
-             [<(oBtn)>], <(uAction)> )
+             [<(oBtn)>], <(uAction)>, <(cResName)> )
 
 #xcommand @ <nRow>, <nCol> PROGRESS [ <oPrg> VAR ] <nValue> ;
              [ SIZE <nWidth>, <nHeight> ] ;

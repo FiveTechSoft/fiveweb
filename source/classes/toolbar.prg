@@ -7,9 +7,9 @@ CLASS TToolBar FROM TControl
    CLASSDATA nCtrls INIT 1
 
    METHOD New( oWnd, cVarName )
-   
-   METHOD Activate() VIRTUAL
 
+   METHOD Activate()
+   
 ENDCLASS
 
 //----------------------------------------------------------------------------//
@@ -18,7 +18,7 @@ METHOD New( oWnd, cVarName ) CLASS TToolBar
 
    DEFAULT cVarName := "oTbr" + AllTrim( Str( ::nCtrls++ ) )
       
-   ::Super:New( 0, 0, oWnd:nWidth - 2, 100, cVarName, oWnd )
+   ::Super:New( 0, 0, oWnd:nWidth - 2, 70, cVarName, oWnd )
   
    ? '<div id="'+ ::cVarName + '" ' + ;
      'class="ui-widget-header ui-corner-all" ' + ;
@@ -30,5 +30,17 @@ METHOD New( oWnd, cVarName ) CLASS TToolBar
      "</div>"    
   
 return Self
+
+//----------------------------------------------------------------------------//
+
+METHOD Activate() CLASS TToolBar
+
+   local oControl
+
+   for each oControl in ::aControls
+      oControl:Activate()
+   next   
+   
+return nil   
 
 //----------------------------------------------------------------------------//

@@ -6,10 +6,12 @@ CLASS TButton FROM TControl
 
    DATA  cPrompt
    DATA  cAction
+   DATA  cResName
 
    CLASSDATA nBtns INIT 1
 
-   METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName, cAction )
+   METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName, cAction,;
+               cResName )
 
    METHOD Activate()
 
@@ -17,17 +19,20 @@ ENDCLASS
 
 //----------------------------------------------------------------------------//
 
-METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName, cAction ) CLASS TButton
+METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName, cAction,;
+            cResName ) CLASS TButton
 
-   DEFAULT cPrompt := "Button"
+   DEFAULT cPrompt  := If( ! oWnd:isKindOf( "TTOOLBAR" ), "Button", "" )
    DEFAULT cVarName := "oBtn" + AllTrim( Str( ::nBtns++ ) )
-   DEFAULT nWidth := 110, nHeight := 40
+   DEFAULT nWidth   := If( ! oWnd:isKindOf( "TTOOLBAR" ), 110, oWnd:nHeight ),;
+           nHeight  := If( ! oWnd:isKindOf( "TTOOLBAR" ), 40, oWnd:nHeight )
    
    ::Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
    
-   ::cPrompt = cPrompt
-   ::cAction = cAction 
-  
+   ::cPrompt  = cPrompt
+   ::cAction  = cAction 
+   ::cResName = cResName  
+
    ? '<button id="' + ::cVarName + '" ' + ;
      'style = "' + "position: absolute; " + ;
      "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
@@ -42,8 +47,19 @@ return Self
 
 METHOD Activate() CLASS TButton
 
-   ? "<script>"
-   ? '$( "#' + ::cVarName + '" ).button();'
+   if ::oWnd:IsKindOf( "TTOOLBAR" )
+      ? "<script>"
+      if Empty( ::cPrompt )
+         ? '$( "#' + ::cVarName + '" ).button( { text: false,' + ;
+           ' icons: { primary: "' + ::cResName + '" } } );'
+      else
+         ? '$( "#' + ::cVarName + '" ).button( {' + ;
+           ' icons: { primary: "ui-icon-seek-start" } } );'
+      endif
+   else
+      ? "<script>"
+      ? '$( "#' + ::cVarName + '" ).button();'
+   endif
 
    if ! Empty( ::cAction )
       ? '$( "#' + ::cVarName + '" ).click( function( event ){ ' + ::cAction + " } );"
