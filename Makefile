@@ -20,6 +20,7 @@ PRG_OBJS = obj/fiveweb.obj \
 	obj/progbar.obj \
 	obj/radio.obj \
 	obj/say.obj \
+	obj/toolbar.obj \
 	obj/valblank.obj \
 	obj/window.obj
 

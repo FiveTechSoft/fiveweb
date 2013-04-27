@@ -40,8 +40,8 @@ extern ErrorSys  // FiveWeb error system
              [ OF <oDlg> ] ;
              [ ACTION <uAction> ] ;
        => ;
-          TButton():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg>, [<(oBtn)>],;
-             <(uAction)> )
+          [<oBtn> :=] TButton():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg>,;
+             [<(oBtn)>], <(uAction)> )
 
 #xcommand @ <nRow>, <nCol> PROGRESS [ <oPrg> VAR ] <nValue> ;
              [ SIZE <nWidth>, <nHeight> ] ;
@@ -135,5 +135,10 @@ extern ErrorSys  // FiveWeb error system
           [ <oMenuItem> := ] MenuAddItem( <cPrompt>, <(uAction)> )
       
 #xcommand ENDMENU => MenuEnd()
+
+#xcommand DEFINE TOOLBAR <oTbr> ;
+            [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
+      => ; 
+         <oTbr> := TToolBar():New( <oWnd>, <(oTbr)> )
                                 
 #endif
