@@ -20,4 +20,5 @@ rm $1.c
 rm $1.o
 
 echo done!
+sudo cp ./$1 /usr/lib/cgi-bin
 ./$1
