@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------------//
 
-CLASS TControl FROm TWindow
+CLASS TControl FROM TWindow
 
    DATA nTop, nLeft      // position
    DATA nWidth, nHeight  // size

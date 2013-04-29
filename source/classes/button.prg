@@ -13,6 +13,8 @@ CLASS TButton FROM TControl
    METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName, cAction,;
                cResName )
 
+   METHOD Define( oWnd, cAction, cResName, cVarName )
+
    METHOD Activate()
 
 ENDCLASS
@@ -22,10 +24,9 @@ ENDCLASS
 METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName, cAction,;
             cResName ) CLASS TButton
 
-   DEFAULT cPrompt  := If( ! oWnd:isKindOf( "TTOOLBAR" ), "Button", "" )
+   DEFAULT cPrompt  := "Button"
    DEFAULT cVarName := "oBtn" + AllTrim( Str( ::nBtns++ ) )
-   DEFAULT nWidth   := If( ! oWnd:isKindOf( "TTOOLBAR" ), 110, oWnd:nHeight ),;
-           nHeight  := If( ! oWnd:isKindOf( "TTOOLBAR" ), 40, oWnd:nHeight )
+   DEFAULT nWidth   := 110, nHeight :=  40
    
    ::Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
    
@@ -40,6 +41,29 @@ METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName, cAction,;
      "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ; 
      "height: " + AllTrim( Str( ::nHeight ) ) + 'px; " >' + ; 
      ::cPrompt + "</button>"
+
+return Self
+
+//----------------------------------------------------------------------------//
+
+METHOD Define( oWnd, cAction, cResName, cVarName ) CLASS TButton
+
+   DEFAULT cVarName := "oBtn" + AllTrim( Str( ::nBtns++ ) )
+
+   ::Super:New( 1, If( Empty( oWnd:aControls ), 1,;
+                oWnd:nHeight * Len( oWnd:aControls ) ),;
+                oWnd:nHeight, oWnd:nHeight, cVarName, oWnd )
+
+   ::cAction  = cAction 
+   ::cResName = cResName  
+
+   ? '<button id="' + ::cVarName + '" ' + ;
+     'style = "' + "position: absolute; " + ;
+     "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
+     "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ; 
+     "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ; 
+     "height: " + AllTrim( Str( ::nHeight ) ) + 'px; " >' + ; 
+     "</button>"
 
 return Self
 

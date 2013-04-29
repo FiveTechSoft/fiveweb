@@ -5,7 +5,7 @@
 
 #include "hbclass.ch"
 
-#define FWCOPYRIGHT  "(c) FiveTech Software, 1993-2012"
+#define FWCOPYRIGHT  "(c) FiveTech Software, 1993-2013"
 
 extern ErrorSys  // FiveWeb error system
 
@@ -44,6 +44,14 @@ extern ErrorSys  // FiveWeb error system
           [<oBtn> :=] TButton():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg>,;
              [<(oBtn)>], <(uAction)>, <(cResName)> )
 
+// To create Toolbars buttons
+#xcommand DEFINE BUTTON [ <oBtn> ] ;
+             [ <bar: OF, BUTTONBAR > <oWnd> ] ;
+             [ <resource: NAME, RESNAME, RESOURCE> <cResName> ] ;
+             [ ACTION <uAction> ] ;
+       => ;
+          [<oBtn> :=] TButton():Define( <oWnd>, <(uAction)>, <(cResName)>, [<(oBtn)>] )
+             
 #xcommand @ <nRow>, <nCol> PROGRESS [ <oPrg> VAR ] <nValue> ;
              [ SIZE <nWidth>, <nHeight> ] ;
              [ OF <oDlg> ] ;
