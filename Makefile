@@ -1,10 +1,11 @@
 # FiveWeb makefile
 
-all : ./lib/fiveweb.lib
+all : ./lib/fiveweb.a
 
 PRG_OBJS = obj/fiveweb.obj \
 	obj/browse.obj \
 	obj/button.obj \
+	obj/combobox.obj \
 	obj/control.obj \
 	obj/datepick.obj \
 	obj/dialog.obj \

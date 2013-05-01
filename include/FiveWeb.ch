@@ -101,6 +101,14 @@ extern ErrorSys  // FiveWeb error system
           [ <oRadMenu> := ] TRadMenu():New( <nRow>, <nCol>, {<cItems>},;
              <nWidth>, <nHeight>, <oWnd> , [<(oRadMenu)>] )
 
+#xcommand @ <nRow>, <nCol> COMBOBOX [ <oCbx> ] ;
+             [ <prm: PROMPT, ITEMS> <cItems,...> ] ;
+             [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
+             [ SIZE <nWidth>, <nHeight> ] ;
+       => ;
+          [ <oCbx> := ] TComboBox():New( <nRow>, <nCol>,;
+             <nWidth>, <nHeight>, <oWnd>, {<cItems>}, [<(oCbx)>] )
+
 #command @ <nRow>, <nCol> DTPICKER [ <oDpick> ]  ;
             [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
             [ SIZE <nWidth>, <nHeight> ] ;
