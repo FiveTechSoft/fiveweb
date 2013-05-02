@@ -35,7 +35,7 @@ extern ErrorSys  // FiveWeb error system
        => ;
           <oDlg>:Activate( ! <.modal.> )               
 
-#xcommand @ <nRow>, <nCol> BUTTON [ <oBtn> PROMPT <cPrompt> ] ;
+#xcommand @ <nRow>, <nCol> BUTTON [ <oBtn> PROMPT ] <cPrompt> ;
              [ SIZE <nWidth>, <nHeight> ] ;
              [ OF <oDlg> ] ;
              [ ACTION <uAction> ] ;
