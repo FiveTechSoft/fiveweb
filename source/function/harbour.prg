@@ -1,3 +1,4 @@
+#include "FiveWeb.ch"
 #include "error.ch"
 #include "fwerror.ch"
 
@@ -202,6 +203,41 @@ static function DoBreak( oError )
 return nil
  
 //----------------------------------------------------------------//
+
+function ArrTranspose( aArray, lSquare )
+
+   local nRows, nCols, nRow, nCol, nWidth
+   local aNew
+
+   DEFAULT lSquare := .f.
+
+   nRows          := Len( aArray )
+   if lSquare
+      nCols       := Len( aArray[ 1 ] )
+   else
+      nCols       := 1
+      for nRow := 1 to nRows
+         if ValType( aArray[ nRow ] ) == 'A'
+            nCols    := Max( nCols, Len( aArray[ nRow ] ) )
+         endif
+      next
+   endif
+
+   aNew           := Array( nCols, nRows )
+   for nRow := 1 to nRows
+      if ValType( aArray[ nRow ] ) == 'A'
+         nWidth  := Len( aArray[ nRow ] )
+         for nCol := 1 to nWidth
+            aNew[ nCol, nRow ]   := aArray[ nRow, nCol ]
+         next
+      else
+         aNew[ 1, nRow ]      := aArray[ nRow ]
+      endif
+   next
+
+return aNew
+
+//----------------------------------------------------------------------------//
 
 function ASend( aObjects, cMsg, ... )
 
