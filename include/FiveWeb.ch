@@ -32,8 +32,9 @@ extern ErrorSys  // FiveWeb error system
           
 #xcommand ACTIVATE DIALOG <oDlg> ;
              [ <modal: NOWAIT, NOMODAL> ] ;
+             [ <center: CENTER, CENTERED>	] ; 			 
        => ;
-          <oDlg>:Activate( ! <.modal.> )               
+          <oDlg>:Activate( ! <.modal.>, [<.center.>] )               
 
 #xcommand @ <nRow>, <nCol> BUTTON [ <oBtn> PROMPT ] <cPrompt> ;
              [ SIZE <nWidth>, <nHeight> ] ;
@@ -72,9 +73,10 @@ extern ErrorSys  // FiveWeb error system
              [ OF <oDlg> ] ;
              [ <lHide: HIDE > ] ;
              [ <lPassword: PASSWORD> ] ;
+             [ PICTURE <cPict> ] ;				 
        => ;
           [ <oGet> := ] TGet():New( <nRow>, <nCol>, <uValue>, <nWidth>, <nHeight>, <oDlg>,;
-                                    [<(oGet)>], [<.lHide.>], [<.lPassword.>] )
+                                    [<(oGet)>], [<.lHide.>], [<.lPassword.>], [<cPict>] )
 
 #xcommand @ <nRow>, <nCol> CHECKBOX [ <oCbx> VAR ] <lValue> ;
              [ PROMPT <cPrompt> ] ;

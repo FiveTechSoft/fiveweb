@@ -5,26 +5,30 @@
 CLASS TGet FROM TControl
 
    DATA  uValue 
+   	
+   DATA  cPicture	
 
    CLASSDATA nGets INIT 1
 
    METHOD New( nRow, nCol, uValue, nWidth, nHeight, oWnd, cVarName, lHidden,;
-               lPassword  )
+               lPassword, cPicture )
 
-   METHOD Activate() VIRTUAL
+   METHOD Activate() 
 
 ENDCLASS
 
 //----------------------------------------------------------------------------//
 
 METHOD New( nRow, nCol, uValue, nWidth, nHeight, oWnd, cVarName, lHidden,;
-            lPassword ) CLASS TGet
+            lPassword, cPicture ) CLASS TGet
 
    DEFAULT cVarName := "oGet" + AllTrim( Str( ::nGets++ ) )
    DEFAULT nWidth  := Len( cValToChar( uValue ) ) * 8, nHeight := 40
    DEFAULT lHidden := .F., lPassword := .F. 
       
    ::Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
+
+   ::cPicture = cPicture
 
    if lHidden
       ? '<input type="hidden" id="' + ::cVarName + '" ' + ;
@@ -41,5 +45,17 @@ METHOD New( nRow, nCol, uValue, nWidth, nHeight, oWnd, cVarName, lHidden,;
    endif
 
 return Self
+
+//----------------------------------------------------------------------------//
+
+METHOD Activate() CLASS TGet
+
+   if ! Empty( ::cPicture )
+      ? "<script>"
+      ? '$("#' + ::cVarName + '").mask("' + ::cPicture + '");'
+      ? "</script>"		
+   endif   		
+
+return nil
 
 //----------------------------------------------------------------------------//
