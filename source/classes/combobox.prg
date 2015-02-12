@@ -8,7 +8,7 @@ CLASS TComboBox FROM TControl
 
    METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName )
 
-   METHOD Activate()
+   METHOD Activate() VIRTUAL
 
 ENDCLASS
 
@@ -23,13 +23,13 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName ) CLASS TComboBo
 
    ::Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
       
-   ? '<div id="div"'+::cVarName + " " + ;
-     'class="ui.widget "' + ;
+   ? '<div id="combobox" ' + ;
+     'class="ui.widget" ' + ;
      'style="' + "position: absolute; " + ;
      "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
      "left: " + AllTrim( Str( ::nLeft ) ) + 'px;" >' 
         
-   ? '<select id="combobox">'     
+   ? '<select id="' + ::cVarName + '">'     
 
    for each cItem in aItems
       ? '<option value="' + cItem + '">' + cItem + "</option>"
@@ -40,15 +40,5 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName ) CLASS TComboBo
    ? "</div>"
 
 return Self
-
-//----------------------------------------------------------------------------//
-
-METHOD Activate() CLASS TComboBox
-
-   ? "<script>"
-   ? '$( "#' + ::cVarName + '" ).combobox();'    
-   ? "</script>"
-   
-return nil   
 
 //----------------------------------------------------------------------------//
