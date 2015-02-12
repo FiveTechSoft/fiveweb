@@ -25,7 +25,7 @@ PRG_OBJS = obj/fiveweb.obj \
 	obj/valblank.obj \
 	obj/window.obj
 
-./lib/fiveweb.lib : $(PRG_OBJS)
+./lib/fiveweb.a : $(PRG_OBJS)
 
 obj/%.obj : obj/%.c
 	gcc -c -I./../harbour/include -o$@ $<
