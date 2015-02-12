@@ -4,6 +4,8 @@
 
 CLASS TComboBox FROM TControl
 
+   DATA aItems
+
    CLASSDATA nCtrls INIT 1
 
    METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName )
@@ -23,6 +25,8 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName ) CLASS TComboBo
 
    ::Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
       
+   ::aItems = aItems   
+      		
    ? '<div id="combobox" ' + ;
      'class="ui.widget" ' + ;
      'style="' + "position: absolute; " + ;
@@ -32,7 +36,11 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName ) CLASS TComboBo
    ? '<select id="' + ::cVarName + '">'     
 
    for each cItem in aItems
-      ? '<option value="' + cItem + '">' + cItem + "</option>"
+      if ValType( cItem ) == "A"	
+         ? '<option value="' + cItem[ 1 ] + '">' + cItem[ 1 ] + "</option>"
+      else   			
+         ? '<option value="' + cItem + '">' + cItem + "</option>"
+      endif
    next   
 
    ? '</select>'     
