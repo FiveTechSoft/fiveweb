@@ -2,7 +2,7 @@
 CLS
 ECHO ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
 ECHO ³ FiveWeb builder                                 Harbour development power  ³Ü
-ECHO ³ (c) FiveTech, 1993-2012   for Microsoft Windows 9X/NT/200X/ME/XP/Vista/7/8 ³Û
+ECHO ³ (c) FiveTech, 1993-2015   for Microsoft Windows 9X/NT/200X/ME/XP/Vista/7/8 ³Û
 ECHO ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙÛ
 ECHO ÿ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 
@@ -16,7 +16,7 @@ ECHO Compiling...
 
 set hdir=%HBDIR%
 set hdirl=%hdir%\lib
-set bcdir=c:\bcc582
+set bcdir=c:\bcc7
 
 %hdir%\bin\harbour %1 /n /i..\include;%hdir%\include /w /p %2 %3 > comp.log
 IF ERRORLEVEL 1 GOTO COMPILEERRORS
