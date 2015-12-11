@@ -29,8 +29,8 @@ PRG_OBJS = ./obj/fiveweb.obj \
 .\lib\fiveweb.lib : $(PRG_OBJS)
 
 ./obj/%.obj : ./obj/%.c
-	c:\bcc582\bin\bcc32 -c -I./../harbour/include -o$@ $<
-	c:\bcc582\bin\tlib lib\fiveweb -+ obj\$*.obj
+	c:\bcc7\bin\bcc32 -c -I./../harbour/include -o$@ $<
+	c:\bcc7\bin\tlib lib\fiveweb -+ obj\$*.obj
 
 ./obj/%.c : ./source/function/%.prg
 	.\..\harbour\bin\harbour $< -o.\$@ -n -I.\..\harbour\include -I.\include
