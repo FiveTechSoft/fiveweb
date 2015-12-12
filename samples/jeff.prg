@@ -1,6 +1,19 @@
 #include "FiveWeb.ch"
 
-function Main()
+function Main( cParams )
+
+   if pcount() > 0
+      Process( cParams )
+      return nil
+   endif
+
+   ShowDialog()
+
+return nil
+
+//----------------------------------------------------------------------------//
+
+function ShowDialog()
 
    local oDlg
    local oGetFirst, cFirst := Space( 30 )
@@ -28,10 +41,14 @@ function Main()
    @ 235, 162 GET oGetFourth VAR cFourth SIZE 300, 40 OF oDlg
 
    @ 372, 73 BUTTON "Save" SIZE 110, 40 OF oDlg ;
-      ACTION MsgInfo( "Save" )
+      ACTION ( 'document.location = "' + '?save:" + ' + ;
+               'document.getElementById( "oGetFirst" ).value.trim() + ":" + '+ ;
+               'document.getElementById( "oGetSecond" ).value.trim() + ":" + '+ ;
+               'document.getElementById( "oGetThird" ).value.trim() + ":" + '+ ;
+               'document.getElementById( "oGetFourth" ).value.trim() ' ) // processed in the browser
 
    @ 372, 209 BUTTON "Review" SIZE 110, 40 OF oDlg ;
-      ACTION MsgInfo( "Review" )
+      ACTION 'document.location = "' + '?review:data.txt"'
 
    @ 372, 341 BUTTON "Exit" SIZE 110, 40 OF oDlg ;
       ACTION ( oDlg:End() )  // ( ... ) means processed in advance in the server
@@ -39,3 +56,38 @@ function Main()
    ACTIVATE DIALOG oDlg
 
 return nil
+
+//----------------------------------------------------------------------------//
+
+function Process( cParams )
+
+   local aParams := hb_aTokens( cParams, ":" )
+  
+   do case
+      case aParams[ 1 ] == "save"
+           Save( aParams ) 
+           ShowDialog()
+           
+      case aParams[ 1 ] == "review"
+           ? MemoRead( "data.txt" )
+  end case
+
+return nil           
+
+//----------------------------------------------------------------------------//
+
+function Save( aParams )
+
+   local cData := "", n
+   
+   for n = 2 to Len( aParams )
+      cData += aParams[ n ] + CRLF
+   next   
+
+   if ! Empty( aParams )
+      MemoWrit( "data.txt", cData )
+   endif
+   
+return nil   
+
+//----------------------------------------------------------------------------//
