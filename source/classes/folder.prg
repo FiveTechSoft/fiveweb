@@ -4,7 +4,7 @@
 
 CLASS TFolder
 
-   DATA  aPrompts
+   DATA  aPrompts, aDialogs
    DATA  nTop, nLeft
    DATA  nWidth, nHeight
    DATA  oWnd
@@ -32,6 +32,7 @@ METHOD New( nRow, nCol, aPrompts, nWidth, nHeight, oWnd, cVarName ) CLASS TFolde
    ::nWidth   = nWidth
    ::nHeight  = nHeight
    ::aPrompts = aPrompts
+   ::aDialogs = Array( Len( aPrompts ) )
 
    ? '<div id="'+ ::cVarName + '" ' + ;
      'style="'  + ;
@@ -47,9 +48,10 @@ METHOD New( nRow, nCol, aPrompts, nWidth, nHeight, oWnd, cVarName ) CLASS TFolde
    ? "</ul>"
          
    for n = 1 to Len( aPrompts )
-      ? '<div id="tab' + AllTrim( Str( n ) ) + '">Contents of ' + AllTrim( Str( n ) ) + "</div>"
+      ? '<div id="tab' + AllTrim( Str( n ) ) + '"></div>'
+      ::aDialogs[ n ] = TDialog()
    next         
-     
+
    oWnd:AddControl( Self )
 
 return Self
@@ -58,7 +60,16 @@ return Self
 
 METHOD Activate() CLASS TFolder
 
+    local n, m 
+
     ? "<script>"
+
+    for n = 1 to Len( ::aDialogs )
+       for m = 1 to Len( ::aDialogs[ n ]:aControls )
+          ? '$("#' + ::aDialogs[ n ]:aControls[ m ]:cVarName + '"' + ").detach().appendTo(" + '"#tab' + AllTrim( Str( n ) ) + '");'
+       next
+    next   
+
     ? '$( "#' + ::cVarName + '" ).tabs();'
     ? "</script>"
    
