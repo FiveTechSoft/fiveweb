@@ -11,7 +11,7 @@ function Main()
 
    @ 100, 30 SAY "Tab 1" OF oFld:aDialogs[ 1 ]
 
-   @ 150, 50 GET cVar1 OF oFld:aDialogs[ 1 ]
+   @ 150, 50 GET cVar1 OF oFld:aDialogs[ 1 ] PICTURE "999,999"
 
    @ 100, 30 SAY "Tab 2" OF oFld:aDialogs[ 2 ]
 
