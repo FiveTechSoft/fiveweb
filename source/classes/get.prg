@@ -7,11 +7,13 @@ CLASS TGet FROM TControl
    DATA  uValue 
    	
    DATA  cPicture	
+   
+   DATA  lMultiline
 
    CLASSDATA nGets INIT 1
 
    METHOD New( nRow, nCol, uValue, nWidth, nHeight, oWnd, cVarName, lHidden,;
-               lPassword, cPicture )
+               lPassword, cPicture, lMultiline )
 
    METHOD Activate() 
 
@@ -20,28 +22,45 @@ ENDCLASS
 //----------------------------------------------------------------------------//
 
 METHOD New( nRow, nCol, uValue, nWidth, nHeight, oWnd, cVarName, lHidden,;
-            lPassword, cPicture ) CLASS TGet
+            lPassword, cPicture, lMultiline ) CLASS TGet
 
    DEFAULT cVarName := "oGet" + AllTrim( Str( ::nGets++ ) )
    DEFAULT nWidth  := Len( cValToChar( uValue ) ) * 8, nHeight := 40
-   DEFAULT lHidden := .F., lPassword := .F. 
+   DEFAULT lHidden := .F., lPassword := .F., lMultiline := .F. 
       
    ::Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
 
-   ::cPicture = cPicture
+   ::cPicture   = cPicture
+   ::lMultiline = lMultiline
 
-   if lHidden
-      ? '<input type="hidden" id="' + ::cVarName + '" ' + ;
-        'value = "' + cValToChar( uValue )+'"' + '>'
+   if ! ::lMultiline
+      if lHidden
+         ? '<input type="hidden" id="' + ::cVarName + '" ' + ;
+           'value = "' + cValToChar( uValue )+'"' + '>'
+      else
+         ? '<input type=' + If( lPassword, "password", "text" ) + ;
+           ' id="' + ::cVarName + '" ' + ;
+           ' style="' + 'position: absolute; ' + ;
+           'top: ' + AllTrim( Str( ::nTop ) ) + 'px; ' + ;
+           'left: ' + AllTrim( Str( ::nLeft ) ) + 'px; ' + ; 
+           'width: ' + AllTrim( Str( ::nWidth ) ) + 'px; '  + ; 
+           'height: ' + AllTrim( Str( ::nHeight ) ) + 'px;" ' + ;
+           'value = "' + cValToChar( uValue )+'"' + '>'
+      endif     
    else
-      ? '<input type=' + If( lPassword, "password", "text" ) + ;
-        ' id="' + ::cVarName + '" ' + ;
-        ' style="' + 'position: absolute; ' + ;
-        'top: ' + AllTrim( Str( ::nTop ) ) + 'px; ' + ;
-        'left: ' + AllTrim( Str( ::nLeft ) ) + 'px; ' + ; 
-        'width: ' + AllTrim( Str( ::nWidth ) ) + 'px; '  + ; 
-        'height: ' + AllTrim( Str( ::nHeight ) ) + 'px;" ' + ;
-        'value = "' + cValToChar( uValue )+'"' + '>'
+      if lHidden
+         ? '<input type="hidden" id="' + ::cVarName + '" ' + ;
+           'value = "' + cValToChar( uValue )+'"' + '>'
+      else
+         ? '<textarea>' + ;
+           ' id="' + ::cVarName + '" ' + ;
+           ' style="' + 'position: absolute; ' + ;
+           'top: ' + AllTrim( Str( ::nTop ) ) + 'px; ' + ;
+           'left: ' + AllTrim( Str( ::nLeft ) ) + 'px; ' + ; 
+           'width: ' + AllTrim( Str( ::nWidth ) ) + 'px; '  + ; 
+           'height: ' + AllTrim( Str( ::nHeight ) ) + 'px;" ' + ;
+           '</textarea>'
+      endif     
    endif
 
 return Self

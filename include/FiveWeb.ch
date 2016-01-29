@@ -73,10 +73,11 @@ extern ErrorSys  // FiveWeb error system
              [ OF <oDlg> ] ;
              [ <lHide: HIDE > ] ;
              [ <lPassword: PASSWORD> ] ;
-             [ PICTURE <cPict> ] ;				 
+             [ PICTURE <cPict> ] ;
+		       [ <lMultiline: MULTILINE> ] ;		 
        => ;
           [ <oGet> := ] TGet():New( <nRow>, <nCol>, <uValue>, <nWidth>, <nHeight>, <oDlg>,;
-                                    [<(oGet)>], [<.lHide.>], [<.lPassword.>], [<cPict>] )
+                                    [<(oGet)>], [<.lHide.>], [<.lPassword.>], [<cPict>], [<.lMultiline.>] )
 
 #xcommand @ <nRow>, <nCol> CHECKBOX [ <oCbx> VAR ] <lValue> ;
              [ PROMPT <cPrompt> ] ;
