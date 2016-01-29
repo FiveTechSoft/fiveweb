@@ -74,7 +74,7 @@ extern ErrorSys  // FiveWeb error system
              [ <lHide: HIDE > ] ;
              [ <lPassword: PASSWORD> ] ;
              [ PICTURE <cPict> ] ;
-		       [ <lMultiline: MULTILINE> ] ;		 
+		       [ <lMultiline: MEMO, TEXT, MULTILINE> ] ;		 
        => ;
           [ <oGet> := ] TGet():New( <nRow>, <nCol>, <uValue>, <nWidth>, <nHeight>, <oDlg>,;
                                     [<(oGet)>], [<.lHide.>], [<.lPassword.>], [<cPict>], [<.lMultiline.>] )

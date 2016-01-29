@@ -52,13 +52,14 @@ METHOD New( nRow, nCol, uValue, nWidth, nHeight, oWnd, cVarName, lHidden,;
          ? '<input type="hidden" id="' + ::cVarName + '" ' + ;
            'value = "' + cValToChar( uValue )+'"' + '>'
       else
-         ? '<textarea>' + ;
+         ? '<textarea' + ;
            ' id="' + ::cVarName + '" ' + ;
            ' style="' + 'position: absolute; ' + ;
            'top: ' + AllTrim( Str( ::nTop ) ) + 'px; ' + ;
            'left: ' + AllTrim( Str( ::nLeft ) ) + 'px; ' + ; 
            'width: ' + AllTrim( Str( ::nWidth ) ) + 'px; '  + ; 
-           'height: ' + AllTrim( Str( ::nHeight ) ) + 'px;" ' + ;
+           'height: ' + AllTrim( Str( ::nHeight ) ) + 'px;">' + ;
+           If( ! Empty( uValue ), cValToChar( uValue ), "" ) + ; 
            '</textarea>'
       endif     
    endif
