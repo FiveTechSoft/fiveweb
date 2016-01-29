@@ -67,6 +67,10 @@ METHOD Activate() CLASS TFolder
     for n = 1 to Len( ::aDialogs )
        for m = 1 to Len( ::aDialogs[ n ]:aControls )
           ? '$("#' + ::aDialogs[ n ]:aControls[ m ]:cVarName + '"' + ").detach().appendTo(" + '"#tab' + AllTrim( Str( n ) ) + '");'
+          
+          if ::aDialogs[ n ]:aControls[ m ]:ClassName() == "TGet"
+             ? '$("#' + ::aDialogs[ n ]:aControls[ m ]:cVarName + '").mask("' + ::aDialogs[ n ]:aControls[ m ]:cPicture + '");'
+          endif   
        next
     next   
 
