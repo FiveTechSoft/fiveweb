@@ -8,7 +8,7 @@ CLASS TComboBox FROM TControl
 
    CLASSDATA nCtrls INIT 1
 
-   METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName )
+   METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName, uVar )
 
    METHOD Activate() VIRTUAL
 
@@ -16,9 +16,9 @@ ENDCLASS
 
 //----------------------------------------------------------------------------//
 
-METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName ) CLASS TComboBox
+METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName, uVar ) CLASS TComboBox
 
-   local cItem
+   local n
 
    DEFAULT nWidth := 300, nHeight := 300, aItems := {} 
    DEFAULT cVarName := "oBtn" + AllTrim( Str( ::nCtrls++ ) )
@@ -35,11 +35,12 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName ) CLASS TComboBo
         
    ? '<select id="' + ::cVarName + '">'     
 
-   for each cItem in aItems
-      if ValType( cItem ) == "A"	
-         ? '<option value="' + cItem[ 1 ] + '">' + cItem[ 1 ] + "</option>"
+   for n = 1 to Len( aItems )
+      if ValType( aItems[ n ] ) == "A"	
+         ? '<option value="' + aItems[ n ][ 1 ] + '">' + aItems[ n ][ 1 ] + "</option>"
       else   			
-         ? '<option value="' + cItem + '">' + cItem + "</option>"
+         ? '<option value="' + aItems[ n ] + '"' + ;
+         If( AScan( aItems, uVar ) == n, " selected ", "" ) + '>' + aItems[ n ] + "</option>"
       endif
    next   
 
