@@ -8,6 +8,7 @@ CLASS TControl FROM TWindow
    DATA nWidth, nHeight  // size
    DATA oWnd             // container
    DATA cVarName         // variable name
+   DATA bWhen            // WHEN expression as codeblock
 
    METHOD New( nTop, nLeft, nWidth, nHeight, cVarName, oWnd )
 

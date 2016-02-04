@@ -41,9 +41,10 @@ extern ErrorSys  // FiveWeb error system
              [ OF <oDlg> ] ;
              [ ACTION <uAction> ] ;
              [ <resname: RESOURCE, NAME, RESNAME> <cResName> ] ;
+             [ WHEN <uWhen> ] ;
        => ;
           [<oBtn> :=] TButton():New( <nRow>, <nCol>, <cPrompt>, <nWidth>, <nHeight>, <oDlg>,;
-             [<(oBtn)>], <(uAction)>, <(cResName)> )
+             [<(oBtn)>], <(uAction)>, <(cResName)>, [<{uWhen}>] )
 
 // To create Toolbars buttons
 #xcommand DEFINE BUTTON [ <oBtn> ] ;

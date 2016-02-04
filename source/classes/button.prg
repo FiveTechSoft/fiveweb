@@ -11,7 +11,7 @@ CLASS TButton FROM TControl
    CLASSDATA nBtns INIT 1
 
    METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName, cAction,;
-               cResName )
+               cResName, bWhen )
 
    METHOD Define( oWnd, cAction, cResName, cVarName )
 
@@ -22,7 +22,9 @@ ENDCLASS
 //----------------------------------------------------------------------------//
 
 METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName, cAction,;
-            cResName ) CLASS TButton
+            cResName, bWhen ) CLASS TButton
+
+   local lWhen := .T.
 
    DEFAULT cPrompt  := "Button"
    DEFAULT cVarName := "oBtn" + AllTrim( Str( ::nBtns++ ) )
@@ -34,7 +36,12 @@ METHOD New( nRow, nCol, cPrompt, nWidth, nHeight, oWnd, cVarName, cAction,;
    ::cAction  = cAction 
    ::cResName = cResName  
 
-   ? '<button id="' + ::cVarName + '" ' + ;
+   if bWhen != nil
+      ::bWhen = bWhen
+      lWhen = Eval( bWhen )
+   endif   
+
+   ? '<button id="' + ::cVarName + '" ' + If( ! lWhen, " disabled ", "" ) + ;
      'style = "' + "position: absolute; " + ;
      "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
      "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ; 

@@ -27,13 +27,13 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName, uVar ) CLASS TC
       
    ::aItems = aItems   
       		
-   ? '<div id="combobox" ' + ;
+   ? '<div id="' + ::cVarName + '" ' + ;
      'class="ui.widget" ' + ;
      'style="' + "position: absolute; " + ;
      "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
      "left: " + AllTrim( Str( ::nLeft ) ) + 'px;" >' 
         
-   ? '<select id="' + ::cVarName + '">'     
+   ? '<select id="combobox">'     
 
    for n = 1 to Len( aItems )
       if ValType( aItems[ n ] ) == "A"	
