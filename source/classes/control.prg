@@ -12,7 +12,7 @@ CLASS TControl FROM TWindow
 
    METHOD New( nTop, nLeft, nWidth, nHeight, cVarName, oWnd )
 
-   METHOD Activate() VIRTUAL
+   METHOD Activate( lScript ) VIRTUAL
 
 ENDCLASS
 

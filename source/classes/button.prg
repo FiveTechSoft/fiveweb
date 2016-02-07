@@ -15,7 +15,7 @@ CLASS TButton FROM TControl
 
    METHOD Define( oWnd, cAction, cResName, cVarName )
 
-   METHOD Activate()
+   METHOD Activate( lScript )
 
 ENDCLASS
 
@@ -76,7 +76,9 @@ return Self
 
 //----------------------------------------------------------------------------//
 
-METHOD Activate() CLASS TButton
+METHOD Activate( lScript ) CLASS TButton
+
+   DEFAULT lScript := .T.
 
    if ::oWnd:IsKindOf( "TTOOLBAR" )
       ? "<script>"
@@ -88,7 +90,9 @@ METHOD Activate() CLASS TButton
            ' icons: { primary: "ui-icon-seek-start" } } );'
       endif
    else
-      ? "<script>"
+      if lScript
+         ? "<script>"
+      endif
       ? '$( "#' + ::cVarName + '" ).button();'
    endif
 
@@ -96,7 +100,9 @@ METHOD Activate() CLASS TButton
       ? '$( "#' + ::cVarName + '" ).click( function( event ){ ' + ::cAction + " } );"
    endif      
 
-   ? "</script>"
+   if lScript
+      ? "</script>"
+   endif   
    
 return nil
 

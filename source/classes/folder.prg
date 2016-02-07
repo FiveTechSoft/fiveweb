@@ -14,7 +14,7 @@ CLASS TFolder
 
    METHOD New( nRow, nCol, aPrompts, nWidth, nHeight, oWnd, cVarName )                       
 
-   METHOD Activate()
+   METHOD Activate( lScript )
 
 ENDCLASS
 
@@ -58,24 +58,33 @@ return Self
 
 //----------------------------------------------------------------------------//
 
-METHOD Activate() CLASS TFolder
+METHOD Activate( lScript ) CLASS TFolder
 
     local n, m 
 
-    ? "<script>"
+    DEFAULT lScript := .T.
+    
+    if lScript
+       ? "<script>"
+    endif
 
     for n = 1 to Len( ::aDialogs )
        for m = 1 to Len( ::aDialogs[ n ]:aControls )
           ? '$( "#' + ::aDialogs[ n ]:aControls[ m ]:cVarName + '"' + " ).detach().appendTo( " + '"#tab' + AllTrim( Str( n ) ) + '" );'
           
-          if ::aDialogs[ n ]:aControls[ m ]:ClassName() == "TGET" .and. ! Empty( ::aDialogs[ n ]:aControls[ m ]:cPicture )
-             ? '$( "#' + ::aDialogs[ n ]:aControls[ m ]:cVarName + '").mask( "' + ::aDialogs[ n ]:aControls[ m ]:cPicture + '" );'
-          endif   
+          ::aDialogs[ n ]:aControls[ m ]:Activate( .F. ) // don't write <script>
+          
+          // if ::aDialogs[ n ]:aControls[ m ]:ClassName() == "TGET" .and. ! Empty( ::aDialogs[ n ]:aControls[ m ]:cPicture )
+          //    ? '$( "#' + ::aDialogs[ n ]:aControls[ m ]:cVarName + '").mask( "' + ::aDialogs[ n ]:aControls[ m ]:cPicture + '" );'
+          // endif   
        next
     next   
 
     ? '$( "#' + ::cVarName + '" ).tabs();'
-    ? "</script>"
+    
+    if lScript
+       ? "</script>"
+    endif
    
 return nil   
 

@@ -10,7 +10,7 @@ CLASS TProgress FROM TControl
 
    METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, nValue )
    
-   METHOD Activate()
+   METHOD Activate( lScript )
    
   METHOD SetStep( nStepInc ) 
  
@@ -40,22 +40,34 @@ return Self
 
 //----------------------------------------------------------------------------//
 
-METHOD Activate() CLASS TProgress
+METHOD Activate( lScript ) CLASS TProgress
 
-   ? "<script>"
+   DEFAULT lScript := .T.
+
+   if lScript
+      ? "<script>"
+   endif
+   
    ? '$( "#' + ::cVarName + '" ).progressbar();'
    ? '$( "#' + ::cVarName + '" ).progressbar( "value", ' + Alltrim( Str( ::nValue ) ) + ");"
-   ? "</script>"
+   
+   if lScript
+      ? "</script>"
+   endif
    
 return nil   
 
 //----------------------------------------------------------------------------//
 
 METHOD SetStep( nStepInc ) CLASS TProgress
-local cItem
-if nStepInc > 0
-   cItem:= 'ProgressInc("'+ ::cVarName+'",'+alltrim(str(nStepInc))+' )'
-elseif nStepInc < 0
-   cItem:= 'ProgressDec("'+ ::cVarName+'",'+alltrim(str(-nStepInc))+' )'
-endif 
-Return cItem
+
+   local cItem
+
+   if nStepInc > 0
+      cItem = 'ProgressInc( "'+ ::cVarName+'",' + AllTrim( str( nStepInc ) ) + ' )'
+   elseif nStepInc < 0
+      cItem = 'ProgressDec( "'+ ::cVarName+'",' + AllTrim( str( -nStepInc ) ) + ' )'
+   endif 
+return cItem
+
+//----------------------------------------------------------------------------//

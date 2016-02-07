@@ -21,7 +21,7 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName, uVar ) CLASS TC
    local n
 
    DEFAULT nWidth := 300, nHeight := 300, aItems := {} 
-   DEFAULT cVarName := "oBtn" + AllTrim( Str( ::nCtrls++ ) )
+   DEFAULT cVarName := "oCbx" + AllTrim( Str( ::nCtrls ) )
 
    ::Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
       
@@ -33,7 +33,7 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName, uVar ) CLASS TC
      "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
      "left: " + AllTrim( Str( ::nLeft ) ) + 'px;" >' 
         
-   ? '<select id="combobox">'     
+   ? '<select id="' + ::cVarName + '.at" >'     
 
    for n = 1 to Len( aItems )
       if ValType( aItems[ n ] ) == "A"	

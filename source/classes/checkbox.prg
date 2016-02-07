@@ -14,9 +14,11 @@ CLASS TCheckBox
 
    METHOD New( nRow, nCol, lChecked, cPrompt, nWidth, nHeight, oWnd , lButtonStyle )
 
-   METHOD Activate()
+   METHOD Activate( lScript )
 
 ENDCLASS
+
+//----------------------------------------------------------------------------//
 
 METHOD New( nRow, nCol, lChecked, cPrompt, nWidth, nHeight, oWnd ,lButtonStyle ) CLASS TCheckBox
 
@@ -51,13 +53,25 @@ METHOD New( nRow, nCol, lChecked, cPrompt, nWidth, nHeight, oWnd ,lButtonStyle )
 
 return Self
 
-METHOD Activate() CLASS TCheckBox
+//----------------------------------------------------------------------------//
 
- if ::lButtonStyle
+METHOD Activate( lScript ) CLASS TCheckBox
+
+   DEFAULT lScript := .T.
+
+   if ::lButtonStyle
  
-    ? "<script>"
-       ? '$( "#' + ::cVarName + '" ).button();'    
-    ? "</script>"
-endif
+      if lScript
+         ? "<script>"
+      endif
+    
+      ? '$( "#' + ::cVarName + '" ).button();'    
+    
+      if lScript
+         ? "</script>"
+      endif
+   endif
    
 return nil   
+
+//----------------------------------------------------------------------------//

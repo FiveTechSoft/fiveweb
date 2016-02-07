@@ -1,5 +1,7 @@
 #include "FiveWeb.ch"
 
+//----------------------------------------------------------------------------//
+
 CLASS TDatepicker
 
    DATA  nTop, nLeft
@@ -11,10 +13,11 @@ CLASS TDatepicker
 
    METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, lInline )
 
-   METHOD Activate()
+   METHOD Activate( lScript )
 
 ENDCLASS
 
+//----------------------------------------------------------------------------//
 
 METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName,lInline ) CLASS TDatepicker
 
@@ -52,11 +55,22 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName,lInline ) CLASS TDatepic
 
 return Self
 
+//----------------------------------------------------------------------------//
 
-METHOD Activate() CLASS TDatepicker
+METHOD Activate( lScript ) CLASS TDatepicker
 
-  ? "<script>"
-  ? '$( "#' + ::cVarName + '" ).datepicker();'
-  ? "</script>"
+   DEFAULT lScript := .T.
+
+   if lScript
+      ? "<script>"
+   endif
+   
+   ? '$( "#' + ::cVarName + '" ).datepicker();'
+  
+   if lScript
+      ? "</script>"
+   endif
    
 return nil   
+
+//----------------------------------------------------------------------------//

@@ -1,5 +1,7 @@
 #include "FiveWeb.ch"
 
+//----------------------------------------------------------------------------//
+
 CLASS TRadMenu
 
    DATA  cPrompt
@@ -13,9 +15,11 @@ CLASS TRadMenu
 
    METHOD New( nRow, nCol, acItems, nWidth, nHeight, oWnd, cVarName )
 
-   METHOD Activate()
+   METHOD Activate( lScript )
 
 ENDCLASS
+
+//----------------------------------------------------------------------------//
 
 METHOD New( nRow, nCol, acItems, nWidth, nHeight, oWnd, cVarName ) CLASS TRadMenu
 
@@ -52,10 +56,22 @@ METHOD New( nRow, nCol, acItems, nWidth, nHeight, oWnd, cVarName ) CLASS TRadMen
 
 return Self
 
-METHOD Activate() CLASS TRadMenu
+//----------------------------------------------------------------------------//
 
-    ? "<script>"
-     ? '$( "#' + ::cVarName + '" ).buttonset();'
-    ? "</script>"
+METHOD Activate( lScript ) CLASS TRadMenu
+
+    DEFAULT lScript := .T.
+
+    if lScript
+       ? "<script>"
+    endif
+    
+    ? '$( "#' + ::cVarName + '" ).buttonset();'
+    
+    if lScript
+       ? "</script>"
+    endif
    
 return nil   
+
+//----------------------------------------------------------------------------//

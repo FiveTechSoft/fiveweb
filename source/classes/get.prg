@@ -15,7 +15,7 @@ CLASS TGet FROM TControl
    METHOD New( nRow, nCol, uValue, nWidth, nHeight, oWnd, cVarName, lHidden,;
                lPassword, cPicture, lMultiline )
 
-   METHOD Activate() 
+   METHOD Activate( lScript ) 
 
 ENDCLASS
 
@@ -68,12 +68,20 @@ return Self
 
 //----------------------------------------------------------------------------//
 
-METHOD Activate() CLASS TGet
+METHOD Activate( lScript ) CLASS TGet
+
+   DEFAULT lScript := .T.
 
    if ! Empty( ::cPicture )
-      ? "<script>"
+      if lScript
+         ? "<script>"
+      endif
+   
       ? '$("#' + ::cVarName + '").mask("' + ::cPicture + '");'
-      ? "</script>"		
+      
+      if lScript
+         ? "</script>"		
+      endif
    endif   		
 
 return nil

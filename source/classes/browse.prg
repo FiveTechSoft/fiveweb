@@ -23,7 +23,7 @@ CLASS TBrowse FROM TControl
 
    METHOD DefineZebra()
    
-   METHOD Activate()
+   METHOD Activate( lScript )
 
 ENDCLASS
 
@@ -215,12 +215,20 @@ return nil
 
 //----------------------------------------------------------------------------//
 
-METHOD Activate() CLASS TBrowse
+METHOD Activate( lScript ) CLASS TBrowse
+
+   DEFAULT lScript := .T.
 
    if Empty( ::cAlias ) 
-      ? "<script>"
+      if lScript
+         ? "<script>"
+      endif
+      
       ? '$( "#' + ::cVarName + '" ).load( "' + ::cUrl + '" );'
-      ? "</script>"
+      
+      if lScript
+         ? "</script>"
+      endif   
    endif   
    
 return nil
