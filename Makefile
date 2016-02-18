@@ -28,6 +28,7 @@ PRG_OBJS = obj/fiveweb.obj \
 ./lib/fiveweb.a : $(PRG_OBJS)
 
 obj/%.obj : obj/%.c
+        mkdir -p objc
 	gcc -c -I./../harbour/include -o$@ $<
 	ar rc ./lib/libfiveweb.a $@
 
