@@ -8,7 +8,7 @@ CLASS TComboBox FROM TControl
 
    CLASSDATA nCtrls INIT 1
 
-   METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName, uVar )
+   METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName, uVar, bWhen )
 
    METHOD Activate() VIRTUAL
 
@@ -16,24 +16,29 @@ ENDCLASS
 
 //----------------------------------------------------------------------------//
 
-METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName, uVar ) CLASS TComboBox
+METHOD New( nRow, nCol, nWidth, nHeight, oWnd, aItems, cVarName, uVar, bWhen ) CLASS TComboBox
 
-   local n
-
+   local n, lWhen := .T.
+   
    DEFAULT nWidth := 300, nHeight := 300, aItems := {} 
    DEFAULT cVarName := "oCbx" + AllTrim( Str( ::nCtrls ) )
 
    ::Super:New( nRow, nCol, nWidth, nHeight, cVarName, oWnd )
       
    ::aItems = aItems   
-      		
+   
+   if bWhen != nil
+      ::bWhen = bWhen
+      lWhen = Eval( bWhen )
+   endif
+   
    ? '<div id="' + ::cVarName + '" ' + ;
      'class="ui.widget" ' + ;
      'style="' + "position: absolute; " + ;
      "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
      "left: " + AllTrim( Str( ::nLeft ) ) + 'px;" >' 
         
-   ? '<select id="' + ::cVarName + '.at" >'     
+   ? '<select id="' + ::cVarName + '.at" '+ If( ! lWhen, "disabled", "" ) + '>'
 
    for n = 1 to Len( aItems )
       if ValType( aItems[ n ] ) == "A"	

@@ -5,7 +5,7 @@
 
 #include "hbclass.ch"
 
-#define FWCOPYRIGHT  "(c) FiveTech Software, 1993-2013"
+#define FWCOPYRIGHT  "(c) FiveTech Software, 1993-2016"
 
 extern ErrorSys  // FiveWeb error system
 
@@ -110,9 +110,10 @@ extern ErrorSys  // FiveWeb error system
              [ <prm: PROMPT, ITEMS> <cItems,...> ] ;
              [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
              [ SIZE <nWidth>, <nHeight> ] ;
+             [ WHEN <uWhen> ] ;
        => ;
           [ <oCbx> := ] TComboBox():New( <nRow>, <nCol>,;
-             <nWidth>, <nHeight>, <oWnd>, {<cItems>}, [<(oCbx)>], [<uVar>] )
+             <nWidth>, <nHeight>, <oWnd>, {<cItems>}, [<(oCbx)>], [<uVar>], [<{uWhen}>] )
 
 #command @ <nRow>, <nCol> DTPICKER [ <oDpick> ]  ;
             [ <of: OF, WINDOW, DIALOG> <oWnd> ] ;
