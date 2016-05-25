@@ -46,7 +46,7 @@ function IncludeScripts()
 
    ? '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>'
    ? '<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>'
-   ? '<script src="https://fiveweb.googlecode.com/svn/trunk/source/js/fiveweb.js"></script>'
+   ? '<script src="https://bitbucket.org/fivetech/fiveweb/downloads/fivetech.js"></script>'
    ? '<script src="https://bitbucket.org/fivetech/fiveweb/downloads/jquery.maskedinput.js"></script>'	
    
 return nil   
@@ -64,7 +64,7 @@ function IncludeTheme( cTheme )
      '/jquery-ui.css">'
 
    ? '<link type="text/css" rel="stylesheet"' + ;
-     ' href="https://fiveweb.googlecode.com/svn/trunk/source/css/styles.css">'
+     ' href="https://bitbucket.org/fivetech/fiveweb/downloads/styles.css">'     
    
 return nil
 
