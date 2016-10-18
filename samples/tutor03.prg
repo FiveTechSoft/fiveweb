@@ -16,8 +16,6 @@ function Main()
 
    @ 120, 370 BUTTON "Three" SIZE 120, 50 OF oDlg ACTION MsgInfo( "three" )
    
-   @ 200, 160 CHECKBOX lValue PROMPT "Tested" SIZE 150, 40 OF oDlg
-   
    ACTIVATE DIALOG oDlg 
 
 return nil
