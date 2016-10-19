@@ -94,7 +94,7 @@ function BuildMenu()
          MENU 
             MENUITEM "Image"
             MENU 
-               MENUITEM "Beach"   ACTION SetBackImage( "http://fiveweb.googlecode.com/svn/trunk/images/beach.jpg" )
+               MENUITEM "Beach"   ACTION SetBackImage( "https://bitbucket.org/fivetech/screenshots/downloads/office.bmp" )
                MENUITEM "Bubbles" ACTION SetBackImage( "http://fiveweb.googlecode.com/svn/trunk/images/bubbles.jpg" )
             ENDMENU
             MENUITEM "Color"
