@@ -21,8 +21,6 @@ CLASS TBrowse FROM TControl
 
    METHOD CreateFromCode()
 
-   METHOD DefineZebra()
-   
    METHOD Activate( lScript )
 
 ENDCLASS
@@ -42,61 +40,11 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aValues ) CLASS T
    ::lZebra := .T.
   
    ::cClassTable= "browse"
- //  ::cClassLine = "linea" 
- //  ::cClassHead ="boxtitulo"
    ::aArrayData = aValues
 
    ::CreateFromCode()
 
 return Self
-
-//----------------------------------------------------------------------------//
-
-METHOD DefineZebra() CLASS TBrowse
-
-   ? '<style type="text/css">'
-   ? '<!-- '
-
-   ? ' .zebra1 { '
-   ? '	background-position: 4px;'
-   ? '	border-bottom-color: #333333;'
-   ? '	border-bottom-style: solid;'
-   ? '	border-bottom-width: 1px;'
-   ? '	border-left-color: #333333;'
-   ? '	border-left-style: solid;'
-   ? '  border-left-width: 1px;'
-   ? '	border-right-color: #000000;'
-   ? '	border-right-style: solid;'
-   ? '	border-right-width: 1px;'
-   ? '	border-top-color: #333333;'
-   ? '	border-top-style: solid;'
-   ? '	border-top-width: 1px;'
-   ? '	color: #333333;'
-   ? '	background-color:#fff;'
-   ? '}'
-
-   ? ' .zebra2 { '
-   ? '	background-position: 4px;'
-   ? '	border-bottom-color: #333333;'
-   ? '	border-bottom-style: solid;'
-   ? '	border-bottom-width: 1px;'
-   ? '	border-left-color: #333333;'
-   ? '	border-left-style: solid;'
-   ? '	border-left-width: 1px;'
-   ? '	border-right-color: #000000;'
-   ? '	border-right-style: solid;'
-   ? '	border-right-width: 1px;'
-   ? '	border-top-color: #333333;'
-   ? '	border-top-style: solid;'
-   ? '	border-top-width: 1px;'
-   ? '	color: #333333;'
-   ? '	background-color:#ecf6fc ;'
-   ? '}'
-
-   ? '-->'
-   ? '</style>'
-
-return nil
 
 //----------------------------------------------------------------------------//
 
@@ -145,11 +93,10 @@ METHOD CreateFromCode() CLASS TBrowse
      
       for x = 1 to Len( ::aArrayData )
          if ::lZebra
-            ::DefineZebra()
             ? '<tr '+;
               ' height="'+alltrim(str(::nRowHeight))+'" '+;
               if( x % 2 ==0, ' class="odd" ', ' class="even" ' ) + ;
-              'onMouseOver="this.className=' + "'over'" + ;
+              'onMouseOver="this.className=' + "'over' " + ;
               'onMouseOut="setRowColor( this, ' + "'odd'" + ' )" >'
          else
             ? '<tr '+ ;
@@ -157,7 +104,7 @@ METHOD CreateFromCode() CLASS TBrowse
               ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" >'
          endif
 
-           ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( x ) ) + "' onclick=" + '"' + "toggleRowSelected( this )" + '"' + "</td>"                
+           ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( x ) ) + "' onclick=" + '"' + "toggleRowSelected( this )" + '" >' + "</td>"                
 
            for n = 1 to nFields
            //  ?  '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;" >'+ ;
