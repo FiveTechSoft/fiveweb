@@ -8,7 +8,10 @@ function Main()
 
    local oDlg
 
-   local oServer := TDolphinSrv():New( "127.0.0.1", "fivetech_fivegen", "fivetech_fivegen" )
+   // local oServer := TDolphinSrv():New( "127.0.0.1", "fivetech_fivegen", "fivetech_fivegen" )
+   local oServer := TDolphinSrv():New( "mysql.fivetechsoft.net", "fiveweb", "fiveweb" )
+
+   BuildDataBases()
 
    BuildMenu()
 
@@ -55,3 +58,8 @@ function BuildMenu()
 return oMenu
 
 //----------------------------------------------------------------------------//
+
+function BuildDataBases()
+
+   if ! File( "menu.dbf" )
+      DbCreate( "menu.dbf"
