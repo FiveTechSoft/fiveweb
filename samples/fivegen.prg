@@ -8,7 +8,7 @@ function Main()
 
    local oDlg
 
-   local oServer := TDolphinSrv():New( "localhost", "fivetech_fivegen", "fivetech_fivegen" )
+   local oServer := TDolphinSrv():New( "127.0.0.1", "fivetech_fivegen", "fivetech_fivegen" )
 
    BuildMenu()
 
