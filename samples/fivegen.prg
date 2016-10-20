@@ -53,3 +53,18 @@ function BuildMenu()
 return oMenu
 
 //----------------------------------------------------------------------------//
+
+function Connect( cHost, cUser, cPassword )
+
+   local lResult := .F.
+   
+   TRY
+      oServer = TDolphinSrv():New( cHost, cUser, cPassword )
+      lResult = oServer:hMySQL != nil
+   CATCH
+      MsgAlert( "Can't connect to MySQL" )
+   END
+   
+return lResult
+
+//----------------------------------------------------------------------------//
