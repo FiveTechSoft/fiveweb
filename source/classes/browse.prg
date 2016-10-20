@@ -96,7 +96,7 @@ METHOD CreateFromCode() CLASS TBrowse
             ? '<tr '+;
               ' height="'+alltrim(str(::nRowHeight))+'" '+;
               if( x % 2 ==0, ' class="odd" ', ' class="even" ' ) + ;
-              'onMouseOver="this.className=' + "'over' " + ;
+              'onMouseOver="this.className=' + "'over' " + '" ' + ;
               'onMouseOut="setRowColor( this, ' + "'odd'" + ' )" >'
          else
             ? '<tr '+ ;
