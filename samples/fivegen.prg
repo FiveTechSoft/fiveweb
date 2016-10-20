@@ -8,6 +8,8 @@ function Main()
 
    local oDlg
 
+   local oServer := TDolphinSrv():New( cHost, cUser, cPassword )
+
    BuildMenu()
 
    DEFINE DIALOG oDlg SIZE 600, 400
@@ -51,20 +53,5 @@ function BuildMenu()
    ENDMENU
 
 return oMenu
-
-//----------------------------------------------------------------------------//
-
-function Connect( cHost, cUser, cPassword )
-
-   local lResult := .F.
-   
-   TRY
-      oServer = TDolphinSrv():New( cHost, cUser, cPassword )
-      lResult = oServer:hMySQL != nil
-   CATCH
-      MsgAlert( "Can't connect to MySQL" )
-   END
-   
-return lResult
 
 //----------------------------------------------------------------------------//
