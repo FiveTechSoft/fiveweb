@@ -96,7 +96,7 @@ METHOD CreateFromCode() CLASS TBrowse
             if x % 2 == 0
                ? "<tr class='odd' " + ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" ' + ;
                  " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
-                 " onMouseOut=" + '"' + "setRowColor( this, 'odd' )" + '"' + '>' 
+                 " onMouseOut=" + '"' + "this.className='odd'" + '"' + '>' 
             else
                ? "<tr class='even' " + ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" ' + ;
                  " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
@@ -105,7 +105,8 @@ METHOD CreateFromCode() CLASS TBrowse
          else
          endif
 
-           ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( x ) ) + "' onclick=" + '"' + "toggleRowSelected( this )" + '" >' + "</td>"                
+           ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( x ) ) + ;
+             "' onclick=" + '"' + "toggleRowSelected( this )" + '" >' + "</td>"                
 
            for n = 1 to nFields
 
