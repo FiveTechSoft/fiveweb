@@ -96,11 +96,11 @@ METHOD CreateFromCode() CLASS TBrowse
             if x % 2 == 0
                ? "<tr class='odd' " + ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" ' + ;
                  " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
-                 " onMouseOut=" + '"' + "setRowColor( this, 'odd' )" + '"' + '>' 
+                 " onMouseOut=" + '"' + "this.className='odd'" + '"' + '>' 
             else
                ? "<tr class='even' " + ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" ' + ;
                  " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
-                 " onMouseOut=" + '"' + "setRowColor( this, 'even' )" + '"' + '>'
+                 " onMouseOut=" + '"' + "this.className='even'" + '"' + '>'
             endif 
          else
          endif
