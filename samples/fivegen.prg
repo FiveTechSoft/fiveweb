@@ -16,10 +16,18 @@ function Main()
 
    BuildMenu()
 
-   DEFINE DIALOG oDlg SIZE 600, 400
+   Browse( "menu" )
+
+return nil
+
+//----------------------------------------------------------------------------//
+
+function Browse( cTableName )
+
+   DEFINE DIALOG oDlg SIZE 1200, 600 TITLE "Browse: " + cTableName
    
-   @ 10, 10 BROWSE oBrw SIZE 900, 100 OF oDlg ;
-      ARRAY oServer:Query( "SELECT * FROM menu" )
+   @ 10, 10 BROWSE oBrw SIZE 1190, 500 OF oDlg ;
+      ARRAY oServer:Query( "SELECT * FROM " + cTableName )
 
    ACTIVATE DIALOG oDlg NOWAIT  
 
@@ -40,7 +48,7 @@ function BuildMenu()
       
       MENUITEM "Interface"
       MENU 
-         MENUITEM "Menu"
+         MENUITEM "Menu" ACTION ( 'document.location = "' + appname() + '?browse_menu"' )
          MENUITEM "Forms"
          MENUITEM "Browses"
       ENDMENU
