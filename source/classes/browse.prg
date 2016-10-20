@@ -57,7 +57,7 @@ METHOD CreateFromCode() CLASS TBrowse
                                     "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ;
                                     "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
                                     'overflow: auto;" '
-   local oQuery, cClass                                 
+   local oQuery
 
    if ! Empty( ::aArrayData )
    
@@ -93,25 +93,26 @@ METHOD CreateFromCode() CLASS TBrowse
      
       for x = 1 to Len( ::aArrayData )
          if ::lZebra
-            ? '<tr '+;
-              ' height="'+alltrim(str(::nRowHeight))+'" '+;
-              if( x % 2 ==0, ' cClass="odd" ', ' cClass="even" ' ) + ;
-              'onMouseOver="this.className=' + "'over' " + '" ' + ;
-              'onMouseOut="this.className=' + "'" + cClass + "'" + '" >'
+            if x % 2 == 0
+               ? "<tr class='odd' " + ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" ' + ;
+                 " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
+                 " onMouseOut=" + '"' + "setRowColor( this, 'odd' )" + '"' + '>' 
+            else
+               ? "<tr class='even' " + ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" ' + ;
+                 " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
+                 " onMouseOut=" + '"' + "setRowColor( this, 'even' )" + '"' + '>'
+            endif 
          else
-            ? '<tr '+ ;
-              if( Empty( ::cClassLine ),'', ' class="' + ::cClassLine + '"' ) + ;
-              ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" >'
          endif
 
            ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( x ) ) + "' onclick=" + '"' + "toggleRowSelected( this )" + '" >' + "</td>"                
 
            for n = 1 to nFields
-           //  ?  '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;" >'+ ;
-           //     ::aArrayData[x,n] + "</td>"
 
-               ? '<td style="border-bottom: 1px solid #95bce2; padding: 6px 11px;"'+;
-                 if(Empty(::cAction),'', ' onDblClick="'+"document.location = '"+(appname())+"?"+::cAction+":"+alltrim(str(x))+":"+alltrim(str(n )) +"'" +'"' )+;
+               ? '<td ' + ;
+                 if( Empty( ::cAction ), '', ' onDblClick="' + "document.location = '" + ;
+                 ( appname() ) + "?" + ::cAction + ":" + AllTrim( Str( x ) ) + ":" + ;
+                 AllTrim( Str( n ) ) + "'" + '"' ) + ;
                  ' >' + cValToChar( ::aArrayData[ x, n ] ) + "</td>"
            
            next
