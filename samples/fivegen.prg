@@ -24,10 +24,25 @@ return nil
 
 function Browse( cTableName )
 
-   DEFINE DIALOG oDlg SIZE 1200, 600 TITLE "Browse: " + cTableName
+   DEFINE DIALOG oDlg SIZE 980, 690 TITLE "Browse: " + cTableName
    
-   @ 10, 10 BROWSE oBrw SIZE 1190, 500 OF oDlg ;
+   @ 10, 10 BROWSE oBrw SIZE 965, 500 OF oDlg ;
       ARRAY oServer:Query( "SELECT * FROM " + cTableName )
+
+   @ 570, 10 BUTTON "Add" OF oDlg SIZE 110, 40 ACTION MsgInfo( "Add" )
+
+   @ 570, 150 BUTTON "Edit" OF oDlg SIZE 110, 40 ACTION MsgInfo( "Edit" )
+
+   @ 570, 290 BUTTON "Del" OF oDlg SIZE 110, 40 ACTION MsgInfo( "Delete" )
+
+   @ 570, 430 BUTTON "Search" OF oDlg SIZE 110, 40 ACTION MsgInfo( "Search" )
+ 
+   @ 570, 570 BUTTON "Query" OF oDlg SIZE 110, 40 ACTION MsgInfo( "Query" )
+
+   @ 570, 710 BUTTON "Print" OF oDlg SIZE 110, 40 ACTION MsgInfo( "Print" )
+
+   @ 570, 850 BUTTON "Close" OF oDlg SIZE 110, 40 ACTION MsgInfo( "Close" )
+
 
    ACTIVATE DIALOG oDlg NOWAIT  
 
