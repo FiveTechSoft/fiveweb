@@ -8,7 +8,7 @@ function Main()
 
    local oDlg
 
-   local oServer := TDolphinSrv():New( cHost, cUser, cPassword )
+   local oServer := TDolphinSrv():New( "localhost", "fivetech_fivegen", "fivetech_fivegen" )
 
    BuildMenu()
 
