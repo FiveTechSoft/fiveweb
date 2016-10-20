@@ -148,9 +148,9 @@ METHOD CreateFromCode() CLASS TBrowse
             ::DefineZebra()
             ? '<tr '+;
               ' height="'+alltrim(str(::nRowHeight))+'" '+;
-              if( x % 2 ==0, ' class="zebra1" ', ' class="zebra2" ' ) + ;
-              'onMouseOver="this.className=' + '"over" ' + ;
-              'onMouseOut="setRowColor( this, ' + '"odd" ' + '")" >'
+              if( x % 2 ==0, ' class="odd" ', ' class="even" ' ) + ;
+              'onMouseOver="this.className=' + "'over'" + ;
+              'onMouseOut="setRowColor( this, ' + "'odd'" + ' )" >'
          else
             ? '<tr '+ ;
               if( Empty( ::cClassLine ),'', ' class="' + ::cClassLine + '"' ) + ;
