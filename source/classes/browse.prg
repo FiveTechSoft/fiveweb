@@ -39,7 +39,7 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aValues ) CLASS T
    ::cAlias = Alias()   
    ::nRowHeight = 25
    ::nHeadHeight = 60
-   ::lZebra := .F.
+   ::lZebra := .T.
   
    ::cClassTable= "browse"
  //  ::cClassLine = "linea" 
@@ -148,7 +148,9 @@ METHOD CreateFromCode() CLASS TBrowse
             ::DefineZebra()
             ? '<tr '+;
               ' height="'+alltrim(str(::nRowHeight))+'" '+;
-              if( x % 2 ==0, ' class="zebra1" ', ' class="zebra2" ' ) + ' >'
+              if( x % 2 ==0, ' class="zebra1" ', ' class="zebra2" ' ) + ;
+              'onMouseOver="this.className=' + '"over" ' + ;
+              'onMouseOut="setRowColor( this, ' + '"odd" ' + '")" >'
          else
             ? '<tr '+ ;
               if( Empty( ::cClassLine ),'', ' class="' + ::cClassLine + '"' ) + ;
