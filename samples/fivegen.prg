@@ -8,13 +8,18 @@ static oServer
 
 function Main()
 
-   local oDlg
+   local oDlg, oBrw
                                              // username         // password
    oServer = TDolphinSrv():New( "127.0.0.1", "fivetech_fivegen", "fivetech_fivegen" )
+
+   oServer:SelectDB( "fivetech_fivegen" ) 
 
    BuildMenu()
 
    DEFINE DIALOG oDlg SIZE 600, 400
+   
+   @ 10, 10 BROWSE oBrw SIZE 900, 100 OF oDlg ;
+      ARRAY oServer:Query( "SELECT * FROM menu" )
 
    ACTIVATE DIALOG oDlg NOWAIT  
 
