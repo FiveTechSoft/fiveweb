@@ -12,8 +12,6 @@ function Main()
                                              // username         // password
    oServer = TDolphinSrv():New( "127.0.0.1", "fivetech_fivegen", "fivetech_fivegen" )
 
-   BuildDataBases()
-
    BuildMenu()
 
    DEFINE DIALOG oDlg SIZE 600, 400
