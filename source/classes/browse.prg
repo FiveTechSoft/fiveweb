@@ -100,7 +100,7 @@ METHOD CreateFromCode() CLASS TBrowse
             else
                ? "<tr class='even' " + ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" ' + ;
                  " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
-                 " onMouseOut=" + '"' + "setRowColor( this, 'even' )" + '"' + '>'
+                 " onMouseOut=" + '"' + "this.className='even'" + '"' + '>'
             endif 
          else
          endif
