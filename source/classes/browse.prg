@@ -57,7 +57,7 @@ METHOD CreateFromCode() CLASS TBrowse
                                     "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ;
                                     "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
                                     'overflow: auto;" '
-   local oQuery                                 
+   local oQuery, cClass                                 
 
    if ! Empty( ::aArrayData )
    
@@ -95,9 +95,9 @@ METHOD CreateFromCode() CLASS TBrowse
          if ::lZebra
             ? '<tr '+;
               ' height="'+alltrim(str(::nRowHeight))+'" '+;
-              if( x % 2 ==0, ' class="odd" ', ' class="even" ' ) + ;
+              if( x % 2 ==0, ' cClass="odd" ', ' cClass="even" ' ) + ;
               'onMouseOver="this.className=' + "'over' " + '" ' + ;
-              'onMouseOut="setRowColor( this, ' + "'odd'" + ' )" >'
+              'onMouseOut="this.className=' + "'" + cClass + "'" + '" >'
          else
             ? '<tr '+ ;
               if( Empty( ::cClassLine ),'', ' class="' + ::cClassLine + '"' ) + ;
