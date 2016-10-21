@@ -70,6 +70,8 @@ METHOD CreateFromCode() CLASS TBrowse
       ::cAlias = "ARRAY"
       nFields = Len( ::aArrayData[ 1 ] )
 
+      ? '<div class="scroll">'
+
       ? '<table id="'+ ::cVarName + '" ' + ;
         if( Empty( ::cClassTable ), '', 'class="' + ::cClassTable + '"' ) + ;
         cTableStyle + ' >'
@@ -123,6 +125,7 @@ METHOD CreateFromCode() CLASS TBrowse
         next
         ? '</tbody>'
         ? '</table>'
+        ? '</div>'
     else
 
       if Empty( ::cAlias )
