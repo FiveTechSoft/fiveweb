@@ -202,7 +202,7 @@ body
 
 .browse
 {
-   position: absolute;
+   position: relative;
    font-family: Segoe UI, Verdana; 
    font-size: 12pt;   
    background-color: #d5d5d5;
