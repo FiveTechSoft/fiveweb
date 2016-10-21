@@ -261,16 +261,12 @@ body
    left: 0;
 }
 
-.div.scroll {
-    overflow: scroll;
-}
-
-.div.noscroll {
-    overflow: hidden;
-}
-
 .scroll {
     overflow: scroll;
     height: 500px;
 }
 
+.noscroll {
+    overflow: hidden;
+    height: 500px;
+}
