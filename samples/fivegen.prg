@@ -24,7 +24,7 @@ return nil
 
 function Browse( cTableName )
 
-   DEFINE DIALOG oDlg SIZE 980, 660 TITLE "Browse: " + cTableName
+   DEFINE DIALOG oDlg SIZE 980, 665 TITLE "Browse: " + cTableName
    
    @ 0, 0 BROWSE oBrw SIZE 965, 570 OF oDlg ;
       ARRAY oServer:Query( "SELECT * FROM " + cTableName )
