@@ -268,3 +268,8 @@ body
 .div.noscroll {
     overflow: hidden;
 }
+
+.scroll {
+    overflow: scroll;
+}
+
