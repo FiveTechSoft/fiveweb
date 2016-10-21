@@ -26,7 +26,7 @@ function Browse( cTableName )
 
    DEFINE DIALOG oDlg SIZE 980, 690 TITLE "Browse: " + cTableName
    
-   @ 10, 10 BROWSE oBrw SIZE 965, 500 OF oDlg ;
+   @ 0, 0 BROWSE oBrw SIZE 965, 500 OF oDlg ;
       ARRAY oServer:Query( "SELECT * FROM " + cTableName )
 
    @ 570, 10 BUTTON "Add" OF oDlg SIZE 110, 40 ACTION MsgInfo( "Add" )
