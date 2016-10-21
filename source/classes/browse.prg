@@ -51,7 +51,7 @@ return Self
 METHOD CreateFromCode() CLASS TBrowse
 
    local x, n
-   local cTablestyle := 'style="' + "position: absolute; " + ;
+   local cTablestyle := 'style="' + "position: relative; " + ;
                                     "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
                                     "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ;
                                     "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ;
