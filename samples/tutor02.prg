@@ -4,7 +4,7 @@ function Main()
 
    local oDlg
    
-   SET BACKIMAGE TO "http://fiveweb.googlecode.com/svn/trunk/images/beach.jpg"
+   SET BACKIMAGE TO "https://bitbucket.org/fivetech/screenshots/downloads/office.bmp"
    
    SetTheme( "cupertino" )
    
