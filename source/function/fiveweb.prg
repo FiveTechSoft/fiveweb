@@ -1,5 +1,5 @@
 // FiveWeb system functions
-// (c) FiveTech Software 2012
+// (c) FiveTech Software 2012-2016
 
 #include "FiveWeb.ch"
 
@@ -16,7 +16,7 @@ init procedure WriteHeader()
       QOut()
       QOut( "http://server_address/cgi-bin/" + SubStr( hb_ArgV( 0 ), RAt( "\", hb_ArgV( 0 ) ) + 1 ) )
       QOut()
-      QOut( "FiveWeb (c) FiveTech Software 2015" )
+      QOut( "FiveWeb (c) FiveTech Software 2012-2016" )
       QOut( "www.fivetechsoft.com" )
       QOut()
       QUIT
