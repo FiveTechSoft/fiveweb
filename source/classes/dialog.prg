@@ -47,7 +47,6 @@ METHOD Activate( lModal ) CLASS TDialog
 
    ? "</div>" 
    ? "<script>"
-   ? '$( "#oDlg" ).End = function() { $( "#oDlg" ).dialog( "close" ).remove(); };'
    ? '$( "#oDlg" ).dialog( { width: ' + AllTrim( Str( ::nWidth ) ) + ;
      ", height: " + AllTrim( Str( ::nHeight ) ) + ;
      ", modal:" + If( ::lModal ,"true" , "false"  ) + " } );"
