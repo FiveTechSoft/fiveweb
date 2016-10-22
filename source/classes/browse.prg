@@ -72,8 +72,6 @@ METHOD CreateFromCode() CLASS TBrowse
         if( Empty( ::cClassTable ), '', 'class="' + ::cClassTable + '"' ) + ;
         cTableStyle + '>'
 
-      ? '<thead>'
-      
       ? '<tr>'
 
       if ! Empty( oQuery ) 
@@ -84,7 +82,7 @@ METHOD CreateFromCode() CLASS TBrowse
       endif   
         
       ? '</tr>'
-      ? '</thead>'
+
       ? '<tbody>'
      
       for x = 1 to Len( ::aArrayData )
