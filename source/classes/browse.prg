@@ -39,17 +39,18 @@ return Self
 
 METHOD CreateFromCode() CLASS TBrowse
 
-   local n, m
+   local oQuery, n, m
 
    ? '<div class="scroll">'
    ? '<table id="' + ::cVarName + '">'
    ? '<tr>'
 
    if ValType( ::aValues ) == "O"  // Dolphin query
-      ::aValues = ::aValues:FillArray()
+      oQuery = ::aValues
+      ::aValues = oQuery:FillArray()
       ? "<th> </th>" // left checkbox header
       for n = 1 to Len( ::aValues[ 1 ] )
-         ? '<th>'+ ::aValues:FieldName( n ) + "</th>"
+         ? '<th>'+ oQuery:FieldName( n ) + "</th>"
       next
    endif   
         
