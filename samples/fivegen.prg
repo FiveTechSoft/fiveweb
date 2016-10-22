@@ -6,23 +6,36 @@ static oServer
 
 //----------------------------------------------------------------------------//
 
-function Main()
+function Main( cParams )
 
-   local oDlg, oBrw
-                                             // username         // password
-   oServer = TDolphinSrv():New( "127.0.0.1", "fivetech_fivegen", "fivetech_fivegen" )
+   local aParams := If( cParams != nil, hb_aTokens( cParams, ":" ), nil )
+   local cParam := If( aParams != nil, aParams[ 1 ], "" )
 
-   oServer:SelectDB( "fivetech_fivegen" ) 
+   SET BACKIMAGE TO "https://bitbucket.org/fivetech/screenshots/downloads/office.bmp"
+   
+   do case
+      case cParam == "menu"
+           Browse( "menu" )
+
+      case cParam == "forms"
+           Browse( "forms" )
+
+      case cParam == "browses"
+           Browse( "browses" )
+   endcase
 
    BuildMenu()
-
-   Browse( "menu" )
 
 return nil
 
 //----------------------------------------------------------------------------//
 
 function Browse( cTableName )
+
+                                             // username         // password
+   oServer = TDolphinSrv():New( "127.0.0.1", "fivetech_fivegen", "fivetech_fivegen" )
+
+   oServer:SelectDB( "fivetech_fivegen" ) 
 
    DEFINE DIALOG oDlg SIZE 980, 665 TITLE "Browse: " + cTableName
    
@@ -42,7 +55,6 @@ function Browse( cTableName )
    @ 555, 710 BUTTON "Print" OF oDlg SIZE 110, 40 ACTION MsgInfo( "Print" )
 
    @ 555, 850 BUTTON "Close" OF oDlg SIZE 110, 40 ACTION MsgInfo( "Close" )
-
 
    ACTIVATE DIALOG oDlg NOWAIT  
 
