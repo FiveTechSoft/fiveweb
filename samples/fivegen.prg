@@ -42,6 +42,7 @@ return nil
 
 function Browse( cTableName )
 
+   local oDlg
                                              // username         // password
    oServer = TDolphinSrv():New( "127.0.0.1", "fivetech_fivegen", "fivetech_fivegen" )
 
@@ -64,7 +65,7 @@ function Browse( cTableName )
 
    @ 555, 710 BUTTON "Print" OF oDlg SIZE 110, 40 ACTION MsgInfo( "Print" )
 
-   @ 555, 850 BUTTON "Close" OF oDlg SIZE 110, 40 ACTION ( oDlg:End() )
+   @ 555, 850 BUTTON "Close" OF oDlg SIZE 110, 40 ACTION oDlg.End()
 
    ACTIVATE DIALOG oDlg NOWAIT  
 
