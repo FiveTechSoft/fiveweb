@@ -70,11 +70,11 @@ METHOD CreateFromCode() CLASS TBrowse
 
       ? '<table id="'+ ::cVarName + '" ' + ;
         if( Empty( ::cClassTable ), '', 'class="' + ::cClassTable + '"' ) + ;
-        cTableStyle + ' >'
+        cTableStyle + '>'
 
       ? '<thead>'
       
-      ? '<tr style=height:50px;>'
+      ? '<tr>'
 
       if ! Empty( oQuery ) 
          ? "<th> </th>" // left checkbox header

@@ -212,11 +212,16 @@ body
    width: 100%;
 }
 
+.browse tr
+{
+   height: 50px;
+}
+
 .browse th
 {
    background-color: #4646d5;
    color: white;
-   height: 20px;
+   height: 50px;
 }
 
 .browse tr.odd
