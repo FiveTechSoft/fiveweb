@@ -74,8 +74,7 @@ METHOD CreateFromCode() CLASS TBrowse
 
       ? '<thead>'
       
-      ? '<tr'+;
-        If( Empty( ::cClassHead ),'', ' class="' + ::cClassHead + '"' )
+      ? '<tr>'
 
       if ! Empty( oQuery ) 
          ? "<th> </th>" // left checkbox header
