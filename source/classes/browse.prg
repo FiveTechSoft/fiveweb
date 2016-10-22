@@ -47,8 +47,8 @@ METHOD CreateFromCode() CLASS TBrowse
 
    if ValType( ::aValues ) == "O"  // Dolphin query
       ? "<th> </th>" // left checkbox header
-      for n = 1 to nFields
-         ? '<th>'+ oQuery:FieldName( n ) + "</th>"
+      for n = 1 to Len( ::aValues:FieldCount() )
+         ? '<th>'+ ::aValues:FieldName( n ) + "</th>"
       next
    endif   
         
