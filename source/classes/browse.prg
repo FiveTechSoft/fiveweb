@@ -60,13 +60,13 @@ METHOD CreateFromCode() CLASS TBrowse
    if ! Empty( ::aValues )
       for n = 1 to Len( ::aValues )
          if n % 2 == 0
-            ? "<tr class='odd' >" // + ;
-              // " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
-              // " onMouseOut=" + '"' + "this.className='odd'" + '"' + '>' 
+            ? "<tr class='odd' " + ;
+              " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
+              " onMouseOut=" + '"' + "this.className='odd'" + '"' + '>' 
          else
-            ? "<tr class='even' >" // + ; 
-              // " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
-              // " onMouseOut=" + '"' + "this.className='even'" + '"' + '>'
+            ? "<tr class='even' " + ; 
+              " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
+              " onMouseOut=" + '"' + "this.className='even'" + '"' + '>'
          endif 
 
          ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( n ) ) + ;
