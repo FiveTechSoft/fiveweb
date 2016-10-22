@@ -6,8 +6,6 @@ CLASS TBrowse FROM TControl
 
    DATA cUrl
    DATA cAlias
-   DATA nRowHeight
-   DATA nHeadHeight
    DATA cClassTable
    DATA cClassHead
    DATA cClassLine
@@ -35,8 +33,6 @@ METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aValues ) CLASS T
 
    ::cUrl   = cUrl
    ::cAlias = Alias()   
-   ::nRowHeight = 25
-   ::nHeadHeight = 60
    ::lZebra := .T.
   
    ::cClassTable= "browse"
@@ -79,8 +75,7 @@ METHOD CreateFromCode() CLASS TBrowse
       ? '<thead>'
       
       ? '<tr'+;
-        If( Empty( ::cClassHead ),'', ' class="' + ::cClassHead + '"' ) + ;
-        ' height="' + AllTrim( Str( ::nHeadHeight ) ) + '" >'
+        If( Empty( ::cClassHead ),'', ' class="' + ::cClassHead + '"' )
 
       if ! Empty( oQuery ) 
          ? "<th> </th>" // left checkbox header
@@ -96,11 +91,11 @@ METHOD CreateFromCode() CLASS TBrowse
       for x = 1 to Len( ::aArrayData )
          if ::lZebra
             if x % 2 == 0
-               ? "<tr class='odd' " + ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" ' + ;
+               ? "<tr class='odd' " + ;
                  " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
                  " onMouseOut=" + '"' + "this.className='odd'" + '"' + '>' 
             else
-               ? "<tr class='even' " + ' height="' + AllTrim( Str( ::nRowHeight ) ) + '" ' + ;
+               ? "<tr class='even' " + ; 
                  " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
                  " onMouseOut=" + '"' + "this.className='even'" + '"' + '>'
             endif 
@@ -111,10 +106,9 @@ METHOD CreateFromCode() CLASS TBrowse
              "' onclick=" + '"' + "toggleRowSelected( this )" + '" >' + "</td>"                
 
            for n = 1 to nFields
-
                ? '<td ' + ;
                  if( Empty( ::cAction ), '', ' onDblClick="' + "document.location = '" + ;
-                 ( appname() ) + "?" + ::cAction + ":" + AllTrim( Str( x ) ) + ":" + ;
+                 ( AppName() ) + "?" + ::cAction + ":" + AllTrim( Str( x ) ) + ":" + ;
                  AllTrim( Str( n ) ) + "'" + '"' ) + ;
                  ' >' + cValToChar( ::aArrayData[ x, n ] ) + "</td>"
            
