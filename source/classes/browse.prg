@@ -55,8 +55,8 @@ METHOD CreateFromCode() CLASS TBrowse
                                     "top: " + AllTrim( Str( ::nTop ) ) + "px; " + ;
                                     "left: " + AllTrim( Str( ::nLeft ) ) + "px; " + ;
                                     "width: " + AllTrim( Str( ::nWidth ) ) + "px; " + ;
-                                    "height: " + AllTrim( Str( ::nHeight ) ) + "px; " + ;
-                                    'overflow: auto;" '
+                                    "height: " + AllTrim( Str( ::nHeight ) ) + "px; "
+                                    
    local oQuery
 
    if ! Empty( ::aArrayData )
