@@ -69,7 +69,7 @@ METHOD CreateFromCode() CLASS TBrowse
               " onMouseOut=" + '"' + "this.className='even'" + '"' + '>'
          endif 
 
-         ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( x ) ) + ;
+         ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( n ) ) + ;
            "' onclick=" + '"' + "toggleRowSelected( this )" + '" >' + "</td>"                
 
          for m = 1 to Len( ::Values[ 1 ] )
