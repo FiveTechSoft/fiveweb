@@ -13,6 +13,8 @@ CLASS TBrowse FROM TControl
 
    METHOD New( nRow, nCol, nWidth, nHeight, oWnd, cVarName, cUrl, aValues )
 
+   METHOD CreateFromCode()
+
    METHOD Activate( lScript )
 
 ENDCLASS
