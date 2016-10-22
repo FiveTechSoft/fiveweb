@@ -42,7 +42,7 @@ METHOD CreateFromCode() CLASS TBrowse
    local oQuery, n, m
 
    ? '<div class="scroll">'
-   ? '<table id="' + ::cVarName + '">'
+   ? '<table class="browse" id="' + ::cVarName + '">'
    ? '<tr>'
 
    if ValType( ::aValues ) == "O"  // Dolphin query
