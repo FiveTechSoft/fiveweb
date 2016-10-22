@@ -22,6 +22,16 @@ function Main( cParams )
 
       case cParam == "browses"
            Browse( "browses" )
+
+      case cParam == "browses"
+           Browse( "browses" )
+
+      case cParam == "vars"
+           Browse( "vars" )
+
+      case cParam == "scripts"
+           Browse( "scripts" )
+
    endcase
 
    BuildMenu()
@@ -54,7 +64,7 @@ function Browse( cTableName )
 
    @ 555, 710 BUTTON "Print" OF oDlg SIZE 110, 40 ACTION MsgInfo( "Print" )
 
-   @ 555, 850 BUTTON "Close" OF oDlg SIZE 110, 40 ACTION MsgInfo( "Close" )
+   @ 555, 850 BUTTON "Close" OF oDlg SIZE 110, 40 ACTION oDlg:End()
 
    ACTIVATE DIALOG oDlg NOWAIT  
 
@@ -75,15 +85,15 @@ function BuildMenu()
       
       MENUITEM "Interface"
       MENU 
-         MENUITEM "Menu" ACTION ( 'document.location = "' + appname() + '?browse_menu"' )
-         MENUITEM "Forms"
-         MENUITEM "Browses"
+         MENUITEM "Menu"    ACTION ( 'document.location = "' + appname() + '?menu"' )
+         MENUITEM "Forms"   ACTION ( 'document.location = "' + appname() + '?forms"' )
+         MENUITEM "Browses" ACTION ( 'document.location = "' + appname() + '?browses"' )
       ENDMENU
 
       MENUITEM "Rules"
       MENU 
-         MENUITEM "Variables"
-         MENUITEM "Scripts"  
+         MENUITEM "Variables" ACTION ( 'document.location = "' + appname() + '?vars"' )
+         MENUITEM "Scripts"   ACTION ( 'document.location = "' + appname() + '?scripts"' )
       ENDMENU
          
       MENUITEM "Help"
