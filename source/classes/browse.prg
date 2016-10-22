@@ -74,7 +74,7 @@ METHOD CreateFromCode() CLASS TBrowse
 
       ? '<thead>'
       
-      ? '<tr>'
+      ? '<tr style=height:50px;>'
 
       if ! Empty( oQuery ) 
          ? "<th> </th>" // left checkbox header
