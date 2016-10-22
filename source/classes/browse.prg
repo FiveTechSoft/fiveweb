@@ -72,7 +72,7 @@ METHOD CreateFromCode() CLASS TBrowse
          ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( n ) ) + ;
            "' onclick=" + '"' + "toggleRowSelected( this )" + '" >' + "</td>"                
 
-         for m = 1 to Len( ::Values[ 1 ] )
+         for m = 1 to Len( ::aValues[ 1 ] )
             ? '<td>' + cValToChar( ::aValues[ n, m ] ) + '</td>'
          next   
 
