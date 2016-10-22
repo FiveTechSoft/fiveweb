@@ -82,21 +82,21 @@ function BuildMenu()
    MENU oMenu
       MENUITEM "FiveGen"
       MENU
-         MENUITEM "Properties"
-         MENUITEM "Go" 
+         MENUITEM "Properties" ACTION MsgInfo( "Properties" )
+         MENUITEM "Go"         ACTION MsgInfo( "Go" ) 
       ENDMENU  
       
       MENUITEM "Interface"
       MENU 
-         MENUITEM "Menu"    ACTION ( 'document.location = "' + appname() + '?menu"' )
-         MENUITEM "Forms"   ACTION ( 'document.location = "' + appname() + '?forms"' )
-         MENUITEM "Browses" ACTION ( 'document.location = "' + appname() + '?browses"' )
+         MENUITEM "Menu"    ACTION Go( "http://www.fivetechsoft.com/cgi-bin/fivegen?menu" )
+         MENUITEM "Forms"   ACTION Go( "http://www.fivetechsoft.com/cgi-bin/fivegen?forms" )
+         MENUITEM "Browses" ACTION Go( "http://www.fivetechsoft.com/cgi-bin/fivegen?browses" )
       ENDMENU
 
       MENUITEM "Rules"
       MENU 
-         MENUITEM "Variables" ACTION ( 'document.location = "' + appname() + '?vars"' )
-         MENUITEM "Scripts"   ACTION ( 'document.location = "' + appname() + '?scripts"' )
+         MENUITEM "Variables" ACTION Go( "http://www.fivetechsoft.com/cgi-bin/fivegen?vars" )
+         MENUITEM "Scripts"   ACTION Go( "http://www.fivetechsoft.com/cgi-bin/fivegen?scripts" )
       ENDMENU
          
       MENUITEM "Help"
