@@ -73,6 +73,7 @@ IF EXIST %1.res echo %1.res >> b32.bc
 %bcdir%\bin\ilink32 -Gn -Tpe -s @b32.bc
 IF ERRORLEVEL 1 GOTO LINKERROR
 ECHO * Application successfully built *
+copy %1.exe c:\software\xampp\cgi-bin\%1.exe
 %1
 GOTO EXIT
 ECHO
