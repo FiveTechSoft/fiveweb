@@ -3,6 +3,7 @@
 all : ./lib/fiveweb.a
 
 PRG_OBJS = obj/fiveweb.obj \
+        obj/bootstra.obj \
 	obj/browse.obj \
 	obj/button.obj \
         obj/checkbox.obj \
