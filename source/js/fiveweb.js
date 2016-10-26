@@ -388,6 +388,9 @@ function BSMsgInfo( cMsg )
    var div2 = document.createElement( "div" );
    var div3 = document.createElement( "div" );
    var div4 = document.createElement( "div" );
+   var div5 = document.createElement( "div" );
+   var div6 = document.createElement( "div" );
+   var cAction;
 
    div1.className = "modal fade";
    div1.id = "msginfo";
@@ -409,10 +412,12 @@ function BSMsgInfo( cMsg )
 
    div6.className = "modal-footer";
    div3.appendChild( div6 );
-   div6.innerHTML = "<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>";
+   cAction = "$('#msginfo').modal('hide');";
+   div6.innerHTML = "<button type='button' class='btn btn-default' data-dismiss='modal' " + 
+                    "onclick=" + cAction + ">Close</button>";
 
    document.body.appendChild( div1 );
-   $( "#msginfo" ).modal('show').remove();
+   $('#msginfo').modal('show');
 }
 
 function MemoEdit( cMsg, cTitle )
