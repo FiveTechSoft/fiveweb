@@ -4,13 +4,9 @@
 
 function Main()
 
-   // ? '<div class="container">'
-
    BSMenu()
 
    ? '<h2>FiveWeb and Bootstrap example</h2>'
-
-   // ? '</div>'
 
 return nil
 

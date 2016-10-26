@@ -31,12 +31,14 @@ init procedure WriteHeader()
    // IncludeTheme( "trontastic" )
    ? "</head>"
    ? "<body>"
+   UseBootstrap()
 
 return
 
 exit procedure WriteTail()
 
    if ! Empty( GetEnv( "GATEWAY_INTERFACE" ) )
+      ? "</div>"  // Bootstrap
       ? "</body>"
       ? "</html>"
    endif   
@@ -49,8 +51,6 @@ function IncludeScripts()
    ? '<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>'
    ? '<script src="https://bitbucket.org/fivetech/fiveweb/downloads/fiveweb.js"></script>'
    ? '<script src="https://bitbucket.org/fivetech/fiveweb/downloads/jquery.maskedinput.js"></script>'	
-
-   UseBootstrap()
 
 return nil   
 
