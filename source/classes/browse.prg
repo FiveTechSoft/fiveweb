@@ -41,7 +41,7 @@ METHOD CreateFromCode() CLASS TBrowse
 
    local oQuery, n, m
 
-   ? '<div class="scroll">'
+   // ? '<div class="scroll">'
    ? '<table class"table table-hover table-striped" id="' + ::cVarName + '">' // class="browse"
    ? '<tr>'
 
@@ -84,7 +84,7 @@ METHOD CreateFromCode() CLASS TBrowse
    
    ? '</tbody>'
    ? '</table>'
-   ? '</div>'
+   // ? '</div>'
 
 return nil
 
