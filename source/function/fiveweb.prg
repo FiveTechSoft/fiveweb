@@ -10,11 +10,13 @@ static nMsgInfos := 1
 
 init procedure WriteHeader()
 
+   local lWindows := At( "\", hb_ArgV( 0 ) ) != 0
+
    if Empty( GetEnv( "GATEWAY_INTERFACE" ) )
       QOut( "Attention: This is a FiveWeb application that has to be executed" )
       QOut( "from the server as a cgi-bin, i.e.:" )
       QOut()
-      QOut( "http://server_address/cgi-bin/" + SubStr( hb_ArgV( 0 ), RAt( "\", hb_ArgV( 0 ) ) + 1 ) )
+      QOut( "http://server_address/cgi-bin/" + SubStr( hb_ArgV( 0 ), RAt( If( lWindows, "\", "/" ), hb_ArgV( 0 ) ) + 1 ) )
       QOut()
       QOut( "FiveWeb (c) FiveTech Software 2012-2016" )
       QOut( "www.fivetechsoft.com" )
