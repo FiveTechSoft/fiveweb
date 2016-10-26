@@ -42,7 +42,7 @@ METHOD CreateFromCode() CLASS TBrowse
    local oQuery, n, m
 
    ? '<div class="scroll">'
-   ? '<table class="browse" id="' + ::cVarName + '">'
+   ? '<table class"table table-hover table-striped" id="' + ::cVarName + '">' // class="browse"
    ? '<tr>'
 
    if ValType( ::aValues ) == "O"  // Dolphin query
@@ -59,6 +59,7 @@ METHOD CreateFromCode() CLASS TBrowse
 
    if ! Empty( ::aValues )
       for n = 1 to Len( ::aValues )
+         /*  
          if n % 2 == 0
             ? "<tr class='odd' " + ;
               " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
@@ -68,6 +69,7 @@ METHOD CreateFromCode() CLASS TBrowse
               " onMouseOver=" + '"' + "this.className='over'" + '"' + ;
               " onMouseOut=" + '"' + "this.className='even'" + '"' + '>'
          endif 
+         */
 
          ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( n ) ) + ;
            "' onclick=" + '"' + "toggleRowSelected( this )" + '" >' + "</td>"                
