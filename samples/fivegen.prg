@@ -67,7 +67,7 @@ function Browse( cTableName )
 
    @ 555, 850 BUTTON oBtn PROMPT "Close" OF oDlg SIZE 110, 40
 
-   oBtn:cAction = oDlg:End()   
+   // oBtn:cAction = oDlg:End()   
 
    // ACTIVATE DIALOG oDlg NOWAIT  
 
