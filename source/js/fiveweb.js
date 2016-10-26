@@ -382,6 +382,39 @@ function MsgInfo( cMsg, cTitle )
    buttons: { 'Ok': function() { $( "#msginfo" ).dialog( "close" ).remove(); } } } );
 }   
 
+function BSMsgInfo( cMsg )
+{
+   var div1 = document.createElement( "div" );
+   var div2 = document.createElement( "div" );
+   var div3 = document.createElement( "div" );
+   var div4 = document.createElement( "div" );
+
+   div1.className = "modal fade";
+   div1.id = "msginfo";
+
+   div2.className = "modal-dialog";
+   div1.appendChild( div2 );
+
+   div3.className = "modal-content";
+   div2.appendChild( div3 );
+   
+   div4.className = "modal-header";
+   div3.appendChild( div4 );
+   div4.innerHTML = "<button type='button' class='close' data-dismiss='modal'>&times;</button>" +
+                    "<h4 class='modal-title'>Information</h4>";
+
+   div5.className = "modal-body";
+   div3.appendChild( div5 );
+   div5.innerHTML = "<p>" + cMsg + "</p>";
+
+   div6.className = "modal-footer";
+   div3.appendChild( div6 );
+   div6.innerHTML = "<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>";
+
+   document.body.appendChild( div1 );
+   $( "#msginfo" ).modal('show').remove();
+}
+
 function MemoEdit( cMsg, cTitle )
 {
    var div = document.createElement( "div" );
