@@ -48,7 +48,7 @@ function Browse( cTableName )
 
    oServer:SelectDB( "fivetech_fivegen" ) 
 
-   DEFINE DIALOG oDlg SIZE 980, 665 TITLE "Browse: " + cTableName
+   // DEFINE DIALOG oDlg SIZE 980, 665 TITLE "Browse: " + cTableName
    
    @ 0, 0 BROWSE oBrw SIZE 965, 570 OF oDlg ;
       ARRAY oServer:Query( "SELECT * FROM " + cTableName )
@@ -69,7 +69,7 @@ function Browse( cTableName )
 
    oBtn:cAction = oDlg:End()   
 
-   ACTIVATE DIALOG oDlg NOWAIT  
+   // ACTIVATE DIALOG oDlg NOWAIT  
 
 return nil
 
