@@ -4,39 +4,13 @@
 
 function Main()
 
-   UseBootstrap()
-
    // ? '<div class="container">'
 
    BSMenu()
 
    ? '<h2>FiveWeb and Bootstrap example</h2>'
-   ? '<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">BSMsgInfo()</button>'
-
-   BSMsgInfo( "Hello world" )
 
    // ? '</div>'
-
-return nil
-
-function BSMsgInfo( cMsg )
-
-  ? '<div class="modal fade" id="myModal" role="dialog">'
-  ? '   <div class="modal-dialog">'
-  ? '      <div class="modal-content">'
-  ? '         <div class="modal-header">'
-  ? '            <button type="button" class="close" data-dismiss="modal">&times;</button>'
-  ? '            <h4 class="modal-title">Information</h4>'
-  ? '         </div>'
-  ? '         <div class="modal-body">'
-  ? '            <p>' + cMsg + '</p>'
-  ? '         </div>'
-  ? '         <div class="modal-footer">'
-  ? '            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'
-  ? '         </div>'
-  ? '      </div>'
-  ? '   </div>'
-  ? '</div>'
 
 return nil
 
@@ -63,7 +37,7 @@ function BSMenu()
    ?              '      <li><a href="#">Page 1-3</a></li>'
    ?              '   </ul>'
    ?              '</li>'
-   ?              '<li><a href="#">Page 2</a></li>'
+   ?              '<li><a href="#" onclick="BSMsgInfo(' + "'ok'" + ')">Page 2</a></li>'
    ?              '<li><a href="#">Page 3</a></li>'
    ?           '</ul>'
    ?           '<ul class="nav navbar-nav navbar-right">'
