@@ -30,7 +30,6 @@ init procedure WriteHeader()
    IncludeScripts()
    ? "</head>"
    ? "<body>"
-   ? '<div class="container">'
    
 return
 
