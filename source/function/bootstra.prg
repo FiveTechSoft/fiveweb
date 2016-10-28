@@ -10,3 +10,18 @@ function UseBootstrap()
    ? '<div class="container">'
 
 return nil
+
+function Footer()
+
+   ? '<div id="footer">'
+   ?   '<div class="col-xs-12 navbar-inverse navbar-fixed-bottom">'
+   ?      '<div class="row" id="bottomNav">'
+   ?         '<div class="col-xs-3 text-center"><a href="#"><i class="glyphicon glyphicon-plus"></i><br>Add</a></div>'
+   ?         '<div class="col-xs-3 text-center"><a href="#"><i class="glyphicon glyphicon-pencil"></i><br>Edit</a></div>'
+   ?         '<div class="col-xs-3 text-center"><a href="#"><i class="glyphicon glyphicon-minus"></i><br>Delete</a></div>'
+   ?         '<div class="col-xs-3 text-center"><a href="#"><i class="glyphicon glyphicon-remove"></i><br>Close</a></div>'
+   ?      '</div>'
+   ?    '</div>'
+   ? '</div>'
+
+return nil
