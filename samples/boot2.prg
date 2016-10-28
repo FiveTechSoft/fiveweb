@@ -2,6 +2,8 @@
 
 function Main()
 
+   MainMenu()
+
    Browse( { { "First", "Last" },;
              { "Homer", "Simpson" },;
              { "Bart", "Simpson" },;
