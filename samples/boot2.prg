@@ -10,5 +10,7 @@ function Main()
              { "Captain", "America" },;
              { "Sin", "Shan" },;
              { "Iron", "Man" } } )
+             
+   Footer()          
 
 return
