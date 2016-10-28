@@ -111,3 +111,36 @@ METHOD Activate( lScript ) CLASS TBrowse
 return nil
 
 //----------------------------------------------------------------------------//    
+
+function Browse( aValues )
+
+   local n, m
+
+   ? '<table class="table table-hover table-striped">'
+   ? '<thead>'
+   
+   ? '<tr>'
+   ? '<th></th>'
+   for n = 1 to Len( aValues[ 1 ] )
+      ? '<th>' + aValues[ 1 ][ n ] + '</th>'
+   next   
+   ? '</tr>'
+   
+   ? '<tbody>'
+   
+   for n = 2 to Len( aValues )
+      ? '<tr>'
+      ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( n ) ) + ;
+        "' onclick=" + '"' + "toggleRowSelected( this )" + '" >' + "</td>"
+      for m = 1 to Len( aValues[ n ] )
+         ? '<td>' + aValues[ n, m ] + '</td>'
+      next   
+      ? '</tr>'
+   next
+
+   ? '</tbody>'
+   ? '</thead>'
+   
+return nil
+
+//----------------------------------------------------------------------------//    

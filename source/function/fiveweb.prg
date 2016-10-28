@@ -28,17 +28,16 @@ init procedure WriteHeader()
    ? "<html>"
    ? "<head>"
    IncludeScripts()
-   // IncludeTheme( "trontastic" )
    ? "</head>"
    ? "<body>"
-   UseBootstrap()
-
+   ? '<div class="container">'
+   
 return
 
 exit procedure WriteTail()
 
    if ! Empty( GetEnv( "GATEWAY_INTERFACE" ) )
-      ? "</div>"  // Bootstrap
+      ? "</div>"  
       ? "</body>"
       ? "</html>"
    endif   
@@ -47,10 +46,11 @@ return
 
 function IncludeScripts()
 
-   ? '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>'
-   ? '<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>'
-   ? '<script src="https://bitbucket.org/fivetech/fiveweb/downloads/fiveweb.js"></script>'
-   ? '<script src="https://bitbucket.org/fivetech/fiveweb/downloads/jquery.maskedinput.js"></script>'	
+  ? '<meta charset="utf-8">'
+  ? '<meta name="viewport" content="width=device-width, initial-scale=1">'
+  ? '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">'
+  ? '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>'
+  ? '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>'
 
 return nil   
 
