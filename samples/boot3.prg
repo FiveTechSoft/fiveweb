@@ -10,4 +10,4 @@ function Main()
 
    Footer()          
 
-return
+return nil
