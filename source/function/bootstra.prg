@@ -11,6 +11,63 @@ function UseBootstrap()
 
 return nil
 
+function Edit( cTitle, aLabels, aValues )
+
+   local n, m
+
+   ? '<div class="modal fade" id="oDlg" role="dialog">'
+   ? '<div class="modal-dialog">'
+   ? '<div class="modal-content">'
+   
+   ? '<div class="modal-header">'
+   ? '<button type="button" class="close" data-dismiss="modal">&times;</button>'
+   ? '<h4 class="modal-title">' + cTitle + '</h4>'
+   ? '</div>'
+   
+   ? '<div class="modal-body">'
+   ? '<form class="form-horizontal">'
+   
+   for n = 1 to Len( aLabels )
+      ? '<div class="form-group">'
+      ? '<label class="col-sm-2 control-label">' + aLabels[ n ] + '</label>'
+      ? '<div class="col-sm-10">'
+      
+      do case
+         case ValType( aValues[ n ] ) == "A"
+            ? '<select id="' + aLabels[ n ] + '" class="form-control">'
+            for m = 1 to Len( aValues[ n ] ) 
+               ? '<option>' + aValues[ n ][ m ] + '</option>'
+            next   
+            ? '</select>'
+         
+         case ValType( aValues[ n ] ) == "L"
+            ? '<select id="' + aLabels[ n ] + '" class="form-control">'
+            ? '<option' + If( aValues[ n ], " selected", "" ) + '>Yes</option>'
+            ? '<option' + If( aValues[ n ], " selected", "" ) + '>No</option>'
+            ? '</select>'
+         otherwise
+            ? '<input class="form-control" id="' + aLabels[ n ] + '" type="text" value="' + cValToChar( aValues[ n ] ) + '">'
+      endcase
+      
+      ? '</div>'
+      ? '</div>'
+   next
+   
+   ? '</form>'
+   ? '</div>'
+
+   ? '<div class="modal-footer">'
+   ? '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'
+   ? '</div>'
+
+   ? '</div>'
+   ? '</div>'
+   ? '</div>'
+
+   ? "<script>$('#oDlg').modal('show');</script>"
+
+return nil
+
 function Footer()
 
    ? '<div id="footer">'
