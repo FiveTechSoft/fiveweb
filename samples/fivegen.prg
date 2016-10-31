@@ -11,7 +11,7 @@ function Main( cParams )
    local aParams := If( cParams != nil, hb_aTokens( cParams, ":" ), nil )
    local cParam := If( aParams != nil, aParams[ 1 ], "" )
 
-   SET BACKIMAGE TO "https://bitbucket.org/fivetech/screenshots/downloads/office.bmp"
+   // SET BACKIMAGE TO "https://bitbucket.org/fivetech/screenshots/downloads/office.bmp"
 
    MainMenu()
 
