@@ -366,7 +366,7 @@ function MsgFind()
    Button( 140, 270, "Cancel", oDlg, 100, 40, "oDlg.End()" );  
 }   
    
-function MsgInfo( cMsg, cTitle )
+function _MsgInfo( cMsg, cTitle )
 {
    var div = document.createElement( "div" );
    
@@ -382,7 +382,7 @@ function MsgInfo( cMsg, cTitle )
    buttons: { 'Ok': function() { $( "#msginfo" ).dialog( "close" ).remove(); } } } );
 }   
 
-function BSMsgInfo( cMsg )
+function MsgInfo( cMsg )
 {
    var div1 = document.createElement( "div" );
    var div2 = document.createElement( "div" );
