@@ -112,7 +112,22 @@ return nil
 
 //----------------------------------------------------------------------------//    
 
-function Browse( aValues )
+function BrowseQuery( oQuery )
+
+   local aValues := oQuery:FillArray() 
+   local aHeaders := {}
+   
+   for n = 1 to Len( aValues[ 1 ] )
+      AAdd( aHeaders, oQuery:FieldName( n ) )
+   next   
+
+   Browse( aHeaders, aValues )
+   
+return nil   
+
+//----------------------------------------------------------------------------//    
+
+function Browse( aHeaders, aValues )
 
    local n, m
 
@@ -121,18 +136,18 @@ function Browse( aValues )
    
    ? '<tr>'
    ? '<th></th>'
-   for n = 1 to Len( aValues[ 1 ] )
-      ? '<th>' + aValues[ 1 ][ n ] + '</th>'
+   for n = 1 to Len( aHeaders )
+      ? '<th>' + aHeaders[ n ] + '</th>'
    next   
    ? '</tr>'
    
    ? '<tbody>'
    
-   for n = 2 to Len( aValues )
+   for n = 1 to Len( aValues )
       ? '<tr>'
       ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( n ) ) + ;
         "' onclick=" + '"' + "toggleRowSelected( this )" + '" >' + "</td>"
-      for m = 1 to Len( aValues[ n ] )
+      for m = 1 to Len( aHeaders )
          ? '<td>' + aValues[ n, m ] + '</td>'
       next   
       ? '</tr>'
