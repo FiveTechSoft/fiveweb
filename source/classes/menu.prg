@@ -86,7 +86,7 @@ function MainMenu()
    ?              '<li class="dropdown">'
    ?              '   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Help<span class="caret"></span></a>'
    ?              '   <ul class="dropdown-menu">'
-   ?              '      <li><a href="#" onclick="Go( ' + "'http://www.fivetechsoft.com/cgi-bin/fivegen?vars'" + ' );"' + '>Wiki</a></li>'
+   ?              '      <li><a href="#" onclick="Go( ' + "'https://bitbucket.org/fivetech/fiveweb/wiki/Home'" + ' );"' + '>Wiki</a></li>'
    ?              '      <li><a href="#" onclick="MsgInfo(' + "'FiveWeb');" + '">About</a></li>'
    ?              '   </ul>'
    ?              '</li>'
