@@ -148,7 +148,7 @@ function Browse( aHeaders, aValues )
       ? "<td width=30px;><input type='checkbox' name='" + AllTrim( Str( n ) ) + ;
         "' onclick=" + '"' + "toggleRowSelected( this )" + '" >' + "</td>"
       for m = 1 to Len( aHeaders )
-         ? '<td>' + aValues[ n, m ] + '</td>'
+         ? '<td>' + cValToChar( aValues[ n, m ] ) + '</td>'
       next   
       ? '</tr>'
    next
