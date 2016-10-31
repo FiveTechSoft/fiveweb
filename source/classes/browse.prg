@@ -131,7 +131,7 @@ function Browse( aHeaders, aValues )
 
    local n, m
 
-   ? '<table class="table table-hover table-striped">'
+   ? '<table class="table table-hover table-striped table-responsive">'
    ? '<thead>'
    
    ? '<tr>'
