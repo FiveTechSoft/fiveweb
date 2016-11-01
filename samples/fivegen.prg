@@ -18,7 +18,9 @@ function Main( cParams )
    if cAction == "edit"
       QuickEdit( cTableName, cId )
    else
-      QuickBrowse( cTableName )
+      if ! Empty( cTableName ) 
+         QuickBrowse( cTableName )
+      endif   
    endif   
 
    Footer()
