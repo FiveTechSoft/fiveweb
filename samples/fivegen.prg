@@ -8,30 +8,18 @@ static oServer
 
 function Main( cParams )
 
-   local aParams := If( cParams != nil, hb_aTokens( cParams, ":" ), nil )
-   local cParam := If( aParams != nil, aParams[ 1 ], "" )
-
-   // SET BACKIMAGE TO "https://bitbucket.org/fivetech/screenshots/downloads/office.bmp"
+   local aParams    := If( cParams != nil, hb_aTokens( cParams, ":" ), nil )
+   local cTableName := If( aParams != nil, aParams[ 1 ], "" )
+   local cAction    := If( aParams != nil, aParams[ 2 ], "" )
+   local cId        := If( aParams != nil, aParams[ 3 ], "" )
 
    MainMenu()
 
-   do case
-      case cParam == "menu"
-           QuickBrowse( "menu" )
-
-      case cParam == "forms"
-           QuickBrowse( "forms" )
-
-      case cParam == "browses"
-           QuickBrowse( "browses" )
-
-      case cParam == "vars"
-           QuickBrowse( "vars" )
-
-      case cParam == "scripts"
-           QuickBrowse( "scripts" )
-
-   endcase
+   if cAction == "edit"
+      QuickEdit( cTableName, cId )
+   else
+      QuickBrowse( cTableName )
+   endif   
 
    Footer()
 
@@ -39,8 +27,20 @@ return nil
 
 //----------------------------------------------------------------------------//
 
+function QuickEdit( cTableName, cId )
+
+   oServer = TDolphinSrv():New( "127.0.0.1", "fivetech_fivegen", "fivetech_fivegen" )
+
+   oServer:SelectDB( "fivetech_fivegen" ) 
+
+   BrowseQuery( oServer:Query( "SELECT * FROM " + cTableName + " WHERE 'id' == '" + cId + '"' ) )
+
+return nil
+
+//----------------------------------------------------------------------------//
+
 function QuickBrowse( cTableName )
-                                             // username         // password
+
    oServer = TDolphinSrv():New( "127.0.0.1", "fivetech_fivegen", "fivetech_fivegen" )
 
    oServer:SelectDB( "fivetech_fivegen" ) 
