@@ -10,8 +10,8 @@ function Main( cParams )
 
    local aParams    := If( cParams != nil, hb_aTokens( cParams, ":" ), nil )
    local cTableName := If( aParams != nil, aParams[ 1 ], "" )
-   local cAction    := If( aParams != nil, aParams[ 2 ], "" )
-   local cId        := If( aParams != nil, aParams[ 3 ], "" )
+   local cAction    := If( aParams != nil .and. Len( aParams ) > 1, aParams[ 2 ], "" )
+   local cId        := If( aParams != nil .and. Len( aParams ) > 2, aParams[ 3 ], "" )
 
    MainMenu()
 
