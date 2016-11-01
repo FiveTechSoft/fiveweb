@@ -33,7 +33,7 @@ function QuickEdit( cTableName, cId )
 
    oServer:SelectDB( "fivetech_fivegen" ) 
 
-   BrowseQuery( oServer:Query( "SELECT * FROM " + cTableName + " WHERE 'id' == " + cId ) )
+   BrowseQuery( oServer:Query( "SELECT * FROM " + cTableName + " WHERE 'id' = " + cId ) )
 
 return nil
 
