@@ -45,10 +45,10 @@ function cValToChar( uVal )
            return "{|| ... }"
 
       case cType == "A"
-           return "{ ... }"
+           return "{ ... } Length: " + Str( Len( uVal ) )
 
       case cType == "O"
-           return "Object"
+           return "Object ClassName: " + uVal:ClassName()
 
       otherwise
            return ""
