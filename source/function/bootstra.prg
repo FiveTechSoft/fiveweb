@@ -47,20 +47,20 @@ function Edit( cTitle, aLabels, aValues )
       ? '<div class="col-sm-10">'
       
       do case
-         case ValType( aValues[ n ] ) == "A"
+         case ValType( aValues[ Min( n, Len( aValues ) ) ] ) == "A"
             ? '<select id="' + aLabels[ n ] + '" class="form-control">'
             for m = 1 to Len( aValues[ n ] ) 
                ? '<option>' + cValToChar( aValues[ n ][ m ] ) + '</option>'
             next   
             ? '</select>'
          
-         case ValType( aValues[ n ] ) == "L"
+         case ValType( aValues[ Min( n, Len( aValues ) ) ] ) == "L"
             ? '<select id="' + aLabels[ n ] + '" class="form-control">'
             ? '<option' + If( aValues[ n ], " selected", "" ) + '>Yes</option>'
             ? '<option' + If( aValues[ n ], " selected", "" ) + '>No</option>'
             ? '</select>'
          otherwise
-            ? '<input class="form-control" id="' + aLabels[ n ] + '" type="text" value="' + cValToChar( aValues[ n ] ) + '">'
+            ? '<input class="form-control" id="' + aLabels[ n ] + '" type="text" value="' + cValToChar( aValues[ Min( n, Len( aValues ) ) ] ) + '">'
       endcase
       
       ? '</div>'
