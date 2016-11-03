@@ -19,7 +19,7 @@ function EditQuery( oQuery, cTableName )
    
    for n = 1 to Len( aValues[ 1 ] )
       AAdd( aHeaders, oQuery:FieldName( n ) )
-      AAdd( aRow, aValues[ n ] )
+      AAdd( aRow, aValues[ 1, n ] )
    next   
 
    Edit( "Edit " + cTableName, aHeaders, aRow )
