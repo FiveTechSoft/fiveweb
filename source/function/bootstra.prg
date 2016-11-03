@@ -12,6 +12,19 @@ function UseBootstrap()
 
 return nil
 
+function EditQuery( oQuery, cTableName )
+
+   local aValues := oQuery:FillArray() 
+   local aHeaders := {}
+   
+   for n = 1 to Len( aValues[ 1 ] )
+      AAdd( aHeaders, oQuery:FieldName( n ) )
+   next   
+
+   Edit( "Edit " + cTableName, aHeaders, aValues )
+   
+return nil
+
 function Edit( cTitle, aLabels, aValues )
 
    local n, m

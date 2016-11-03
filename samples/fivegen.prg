@@ -31,11 +31,15 @@ return nil
 
 function QuickEdit( cTableName, cId )
 
+   local oQry
+
    oServer = TDolphinSrv():New( "127.0.0.1", "fivetech_fivegen", "fivetech_fivegen" )
 
    oServer:SelectDB( "fivetech_fivegen" ) 
 
-   BrowseQuery( oServer:Query( "SELECT * FROM " + cTableName + " WHERE `id` = " + cId ) )
+   oQry = oServer:Query( "SELECT * FROM " + cTableName + " WHERE `id` = " + cId )
+   
+   EditQuery( oQry, cTableName )
    
 return nil
 
