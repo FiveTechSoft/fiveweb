@@ -15,13 +15,14 @@ return nil
 function EditQuery( oQuery, cTableName )
 
    local aValues := oQuery:FillArray() 
-   local aHeaders := {}
+   local aHeaders := {}, aRow := {}
    
    for n = 1 to Len( aValues[ 1 ] )
       AAdd( aHeaders, oQuery:FieldName( n ) )
+      AAdd( aRow, aValues[ n ] )
    next   
 
-   Edit( "Edit " + cTableName, aHeaders, aValues )
+   Edit( "Edit " + cTableName, aHeaders, aRow )
    
 return nil
 
