@@ -8,6 +8,8 @@ REQUEST HB_GT_STD
 
 static nMsgInfos := 1
 
+//----------------------------------------------------------------------------//
+
 init procedure WriteHeader()
 
    local lWindows := At( "\", hb_ArgV( 0 ) ) != 0
@@ -33,6 +35,8 @@ init procedure WriteHeader()
    
 return
 
+//----------------------------------------------------------------------------//
+
 exit procedure WriteTail()
 
    if ! Empty( GetEnv( "GATEWAY_INTERFACE" ) )
@@ -42,6 +46,8 @@ exit procedure WriteTail()
    endif   
 
 return     
+
+//----------------------------------------------------------------------------//
 
 function IncludeScripts()
 
@@ -56,6 +62,8 @@ function IncludeScripts()
    ? '<script src="https://bitbucket.org/fivetech/fiveweb/downloads/fiveweb.js"></script>'
 
 return nil   
+
+//----------------------------------------------------------------------------//
 
 function IncludeTheme( cTheme )
 
@@ -74,6 +82,8 @@ function IncludeTheme( cTheme )
    
 return nil
 
+//----------------------------------------------------------------------------//
+
 function WinRun()
 
    ? "<script>"
@@ -83,6 +93,8 @@ function WinRun()
    ? "</script>"
    
 return nil   
+
+//----------------------------------------------------------------------------//
 
 function MsgInfo( cMsg, cTitle )
 
@@ -100,6 +112,8 @@ function MsgInfo( cMsg, cTitle )
    
 return nil  
 
+//----------------------------------------------------------------------------//
+
 function SetBackColor( cColor )
 
    ? "<script>"
@@ -107,6 +121,8 @@ function SetBackColor( cColor )
    ? "</script>"
    
 return nil   
+
+//----------------------------------------------------------------------------//
 
 function SetBackImage( cImage )
 
@@ -117,6 +133,8 @@ function SetBackImage( cImage )
    
 return nil   
 
+//----------------------------------------------------------------------------//
+
 function SetTheme( cTheme )
 
    ? "<script>"
@@ -125,8 +143,12 @@ function SetTheme( cTheme )
 
 return nil
 
+//----------------------------------------------------------------------------//
+
 procedure HB_GTSYS
 return
+
+//----------------------------------------------------------------------------//
 
 #pragma BEGINDUMP
 
@@ -143,3 +165,5 @@ HB_FUNC( CONOUT )
 }   
 
 #pragma ENDDUMP
+
+//----------------------------------------------------------------------------//

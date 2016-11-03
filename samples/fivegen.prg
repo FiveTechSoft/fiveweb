@@ -39,7 +39,7 @@ function QuickEdit( cTableName, cId )
 
    oQry = oServer:Query( "SELECT * FROM " + cTableName + " WHERE `id` = " + cId )
    
-   EditQuery( oQry, cTableName )
+   EditQueryRow( oQry, cTableName )
    
 return nil
 

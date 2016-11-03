@@ -1,18 +1,8 @@
 #include "FiveWeb.ch"
 
-function UseBootstrap()
+//----------------------------------------------------------------------------//
 
-   ? '<meta charset="utf-8">'
-   ? '<meta name="viewport" content="width=device-width, initial-scale=1">'
-   ? '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">'
-   ? '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>'
-   ? '<script src="https://bitbucket.org/fivetech/fiveweb/downloads/fiveweb.js"></script>'
-
-   ? '<div class="container">'
-
-return nil
-
-function EditQuery( oQuery, cTableName )
+function EditQueryRow( oQuery, cTableName )
 
    local aValues := oQuery:FillArray() 
    local aHeaders := {}, aRow := {}
@@ -25,6 +15,8 @@ function EditQuery( oQuery, cTableName )
    Edit( "Edit " + cTableName, aHeaders, aRow )
    
 return nil
+
+//----------------------------------------------------------------------------//
 
 function Edit( cTitle, aLabels, aValues )
 
@@ -48,20 +40,21 @@ function Edit( cTitle, aLabels, aValues )
       ? '<div class="col-sm-10">'
       
       do case
-         case ValType( aValues[ Min( n, Len( aValues ) ) ] ) == "A"
+         case ValType( aValues[ n ] ) == "A"
             ? '<select id="' + aLabels[ n ] + '" class="form-control">'
-            for m = 1 to Len( aValues[ Min( n, Len( aValues ) ) ] ) 
-               ? '<option>' + cValToChar( aValues[ Min( n, Len( aValues ) ) ][ m ] ) + '</option>'
+            for m = 1 to Len( aValues[ n ] ) 
+               ? '<option>' + cValToChar( aValues[ n, m ] ) + '</option>'
             next   
             ? '</select>'
          
-         case ValType( aValues[ Min( n, Len( aValues ) ) ] ) == "L"
+         case ValType( aValues[ n ] ) == "L"
             ? '<select id="' + aLabels[ n ] + '" class="form-control">'
             ? '<option' + If( aValues[ n ], " selected", "" ) + '>Yes</option>'
             ? '<option' + If( aValues[ n ], " selected", "" ) + '>No</option>'
             ? '</select>'
          otherwise
-            ? '<input class="form-control" id="' + aLabels[ n ] + '" type="text" value="' + cValToChar( aValues[ Min( n, Len( aValues ) ) ] ) + '">'
+            ? '<input class="form-control" id="' + aLabels[ n ] + '" type="text" value="' + ;
+              cValToChar( aValues[ n ] ) + '">'
       endcase
       
       ? '</div>'
@@ -84,6 +77,8 @@ function Edit( cTitle, aLabels, aValues )
 
 return nil
 
+//----------------------------------------------------------------------------//
+
 function Footer()
 
    ? '<div id="footer">'
@@ -98,3 +93,5 @@ function Footer()
    ? '</div>'
 
 return nil
+
+//----------------------------------------------------------------------------//
