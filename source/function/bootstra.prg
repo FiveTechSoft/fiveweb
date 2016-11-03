@@ -86,7 +86,7 @@ function Footer( cTableName )
    ?      '<div class="row" id="bottomNav">'
    ?         '<div class="col-xs-4 text-center" style=width:25%;><a href="#"><br><i class="glyphicon glyphicon-plus"></i><br><br>Add</a></div>'
    ?         '<div class="col-xs-4 text-center" style=width:25%;>' + ;
-                '<a href="#" onclick="Go( ' + "'www.fivetechsoft.com/cgi-bin/fivegen?" + cTableName + ':edit:1' + "' );" + ;
+                '<a href="#" onclick="Go( ' + "'fivegen?" + cTableName + ':edit:1' + "' );" + ;
                 '"><br><i class="glyphicon glyphicon-pencil"></i><br><br>Edit</a></div>'
    ?         '<div class="col-xs-4 text-center" style=width:25%;><a href="#"><br><i class="glyphicon glyphicon-minus"></i><br><br>Delete</a></div>'
    ?         '<div class="col-xs-4 text-center" style=width:25%;><a href="#"><br><i class="glyphicon glyphicon-remove"></i><br><br>Close</a></div>'
