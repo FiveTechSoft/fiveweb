@@ -50,7 +50,7 @@ function Edit( cTitle, aLabels, aValues )
          case ValType( aValues[ n ] ) == "A"
             ? '<select id="' + aLabels[ n ] + '" class="form-control">'
             for m = 1 to Len( aValues[ n ] ) 
-               ? '<option>' + aValues[ n ][ m ] + '</option>'
+               ? '<option>' + cValToChar( aValues[ n ][ m ] ) + '</option>'
             next   
             ? '</select>'
          
