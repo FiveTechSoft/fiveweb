@@ -16,6 +16,7 @@ function Main( cParams )
    MainMenu()
 
    if cAction == "edit"
+      QuickBrowse( cTableName )
       QuickEdit( cTableName, cId )
    else
       if ! Empty( cTableName ) 
