@@ -23,7 +23,7 @@ function Main( cParams )
       endif   
    endif   
 
-   Footer()
+   Footer( cTableName )
 
 return nil
 
