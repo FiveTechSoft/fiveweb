@@ -18,6 +18,7 @@ function Main( cParams )
    if cAction == "edit"
       // QuickBrowse( cTableName )
       QuickEdit( cTableName, cId )
+      QuickBrowse( cTableName )
    else
       if ! Empty( cTableName ) 
          QuickBrowse( cTableName )
