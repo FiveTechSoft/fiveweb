@@ -46,7 +46,7 @@ function AddRecord( cTableName )
 
    oQry = oServer:Query( "SELECT * FROM " + cTableName )
 
-   oQry:GetBlankRow( .f. ) // default .t.
+   oQry:GetBlankRow() // default .t.
    oQry:Save()
    oQry:End()
    oQry = nil
