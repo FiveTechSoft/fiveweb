@@ -44,7 +44,7 @@ function AddRecord( cTableName )
 
    oServer:SelectDB( "fivetech_fivegen" ) 
 
-   oQry = oServer:Query( "SELECT * FROM " + cTableName + " WHERE `id` = " + cId )
+   oQry = oServer:Query( "SELECT * FROM " + cTableName )
 
    oQry:GetBlankRow( .f. ) // default .t.
    oQry:Save()
