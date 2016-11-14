@@ -15,20 +15,44 @@ function Main( cParams )
 
    MainMenu()
 
-   if cAction == "edit"
-      // QuickBrowse( cTableName )
-      QuickEdit( cTableName, cId )
-      QuickBrowse( cTableName )
-   else
-      if ! Empty( cTableName ) 
+   do case
+      case cAction == "add"
+           AddRecord( cTableName )
+           QuickBrowse( cTableName ) 
+
+      case cAction == "edit"
+         QuickEdit( cTableName, cId )
          QuickBrowse( cTableName )
-      endif   
-   endif   
+         
+      otherwise   
+         if ! Empty( cTableName ) 
+            QuickBrowse( cTableName )
+         endif   
+   endcase   
 
    Footer( cTableName )
 
 return nil
 
+//----------------------------------------------------------------------------//
+
+function AddRecord( cTableName )
+
+   local oQry
+
+   oServer = TDolphinSrv():New( "127.0.0.1", "fivetech_fivegen", "fivetech_fivegen" )
+
+   oServer:SelectDB( "fivetech_fivegen" ) 
+
+   oQry = oServer:Query( "SELECT * FROM " + cTableName + " WHERE `id` = " + cId )
+
+   oQry:GetBlankRow( .f. ) // default .t.
+   oQry:Save()
+   oQry:End()
+   oQry = nil
+
+return nil
+          
 //----------------------------------------------------------------------------//
 
 function QuickEdit( cTableName, cId )
